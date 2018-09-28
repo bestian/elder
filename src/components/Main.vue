@@ -50,15 +50,10 @@ export default {
     reset: function () {
       this.b = Math.floor(Math.random() * this.img_list.length)
       this.w = 0
-      this.getLocal()
     },
     win: function () {
       this.w++
       setTimeout(this.reset, 3000)
-    },
-    getLocal: function () {
-      console.log(this.$localStorage.get('img_list'))
-      this.img_list = this.$localStorage.get('img_list').split(',')
     }
   },
   mounted () {

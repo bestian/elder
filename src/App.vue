@@ -4,14 +4,14 @@
       <router-link class = 'item' to='/' exact=''>
         <i class="home icon" />
       </router-link>
-      <a class="right item" href="https://github.com/bestian/elder/">
+      <a class="right item" href="https://github.com/bestian/elder/" title="View it on Github">
         <i class="github icon" />
       </a>
-      <router-link class = 'item' to='/edit' exact=''>
+      <router-link class = 'item' to='/edit' exact='' title="Setting">
         <i class="cogs icon" />
       </router-link>
     </div>
-    <router-view :img_list = "img_list"/>
+    <router-view @add="add" @remove = "remove" :img_list = "img_list"/>
   </div>
 </template>
 
@@ -20,15 +20,31 @@ export default {
   name: 'App',
   data () {
     return {
-      img_list: ['https://i.imgur.com/Qu17dtt.jpg', 'https://i.imgur.com/9xZlAUR.jpg', 'https://i.imgur.com/JImLiGK.jpg', 'https://i.imgur.com/8fd6l63.jpg', 'https://i.imgur.com/keiYrVl.jpg']
+      img_list: ['https://i.imgur.com/rPCYQls.png', 'https://i.imgur.com/SuLzJZ3.png']
     }
   },
   methods: {
     add: function (url) {
       this.img_list.push(url)
+      this.setLocal()
     },
     remove: function (index) {
       this.img_list.splice(index, 1)
+      this.setLocal()
+    },
+    getLocal: function () {
+      console.log(this.$localStorage.get('img_list'))
+      this.img_list = this.$localStorage.get('img_list').split(',')
+    },
+    setLocal: function () {
+      this.$localStorage.set('img_list', this.img_list)
+      console.log(this.$localStorage.get('img_list'))
+    }
+  },
+  mounted () {
+    console.log(this.$localStorage.get('img_list'))
+    if (this.$localStorage.get('img_list')) {
+      this.getLocal()
     }
   }
 }
