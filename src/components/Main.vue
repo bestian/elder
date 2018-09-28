@@ -1,20 +1,25 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+  <div class="hello" @keyup = "check()">
+    <h1>
+      <span v-show="!w">{{msg0}}</span>
+      <img v-for="k in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" src = "../assets/rainbow.jpg" v-show = "w"/> 
+    </h1>
     <div>
-      <div id = "left">
-        <ul v-for="i in img_list" :key = "i">
-          <li>
-            {{i}}
+      <div id = "left" @click="check()">
+        <ul v-for="(i, index) in img_list" :key="index">
+          <li v-show = "a % img_list.length == index">
             <img :src="i">
           </li>
         </ul>
       </div>
-      <div id = "right">
-        <img :src="img_r">
+      <div id = "right" @click="win()">
+        <img :src="img_list[b]">
       </div>
     </div>
+    <h1>
+      <span v-show="!w">{{msg}}</span>
+      <img v-for="k in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" src = "../assets/rainbow.jpg" v-show = "w"/> 
+    </h1>
   </div>
 </template>
 
@@ -23,11 +28,38 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: '請按空白鍵',
-      img_l: 'static/img/be001.5de86c5.jpg',
-      img_r: 'static/img/water001.00969a7.jpg',
-      img_list: ['static/img/water001.00969a7.jpg', 'static/img/water002.cf560ba.jpg', 'static/img/be001.5de86c5.jpg', 'static/img/au001.5c5fd00.jpg']
+      a: 0,
+      b: 0,
+      w: 0,
+      msg0: '歡迎！',
+      msg: '看到相同的照片時，請按空白鍵',
+      img_list: ['https://i.imgur.com/Qu17dtt.jpg', 'https://i.imgur.com/9xZlAUR.jpg', 'https://i.imgur.com/JImLiGK.jpg', 'https://i.imgur.com/8fd6l63.jpg', 'https://i.imgur.com/keiYrVl.jpg']
     }
+  },
+  methods: {
+    go: function () {
+      if (!this.w) {
+        this.a++
+      } 
+    },
+    check: function () {
+      if (this.a % this.img_list.length === this.b) {
+        this.win();
+      }
+    },
+    reset: function () {
+      this.b = Math.floor(Math.random()*this.img_list.length);
+      this.w = 0;
+    },
+    win: function () {
+      this.w++;
+      setTimeout(this.reset, 3000)
+    }
+  },
+  mounted () {
+    setInterval(this.go, 2000);
+    this.reset();
+    window.addEventListener('keyup', this.check)
   }
 }
 </script>
@@ -55,4 +87,16 @@ a {
   display: inline-block;
   width: 40%;
 }
+
+img {
+  max-width: 100%;
+  height: 50vmin;
+}
+
+
+#rainbow {
+  width: 5%;
+  height: auto;
+}
+
 </style>
