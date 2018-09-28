@@ -2,7 +2,7 @@
   <div class="hello" @keyup = "check()">
     <h1>
       <span v-show="!w">{{msg0}}</span>
-      <img v-for="k in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" src = "../assets/rainbow.jpg" v-show = "w"/> 
+      <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
     <div>
       <div id = "left" @click="check()">
@@ -18,7 +18,7 @@
     </div>
     <h1>
       <span v-show="!w">{{msg}}</span>
-      <img v-for="k in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" src = "../assets/rainbow.jpg" v-show = "w"/> 
+      <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
   </div>
 </template>
@@ -40,25 +40,30 @@ export default {
     go: function () {
       if (!this.w) {
         this.a++
-      } 
+      }
     },
     check: function () {
       if (this.a % this.img_list.length === this.b) {
-        this.win();
+        this.win()
       }
     },
     reset: function () {
-      this.b = Math.floor(Math.random()*this.img_list.length);
-      this.w = 0;
+      this.b = Math.floor(Math.random() * this.img_list.length)
+      this.w = 0
+      this.getLocal()
     },
     win: function () {
-      this.w++;
+      this.w++
       setTimeout(this.reset, 3000)
+    },
+    getLocal: function () {
+      console.log(this.$localStorage.get('img_list'))
+      this.img_list = this.$localStorage.get('img_list').split(',')
     }
   },
   mounted () {
-    setInterval(this.go, 2000);
-    this.reset();
+    setInterval(this.go, 2000)
+    this.reset()
     window.addEventListener('keyup', this.check)
   }
 }
@@ -92,7 +97,6 @@ img {
   max-width: 100%;
   height: 50vmin;
 }
-
 
 #rainbow {
   width: 5%;
