@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" @keyup = "check()">
+  <div class="hello" @keyup.native = "check()">
     <h1>
       <span v-show="!w">{{msg0}}</span>
       <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
