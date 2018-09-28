@@ -12,7 +12,7 @@
           </li>
         </ul>
       </div>
-      <div id = "right" @click="win()">
+      <div id = "right" @click="check()">
         <img :src="img_list[b]">
       </div>
     </div>
