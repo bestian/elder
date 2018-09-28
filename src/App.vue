@@ -51,6 +51,9 @@ export default {
 </script>
 
 <style>
+body, html {
+  height: auto;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

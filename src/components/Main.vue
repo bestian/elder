@@ -1,13 +1,17 @@
 <template>
   <div class="hello" @keyup.native = "check()">
     <h1>
-      <span v-show="!w">{{msg0}}</span>
+      <span v-show="!w">
+        <router-link class = 'item' to='/edit' exact='' title="Setting">
+          <i class="cogs icon" />編輯照片
+        </router-link>
+      </span>
       <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
     <div>
       <div id = "left" @click="check()">
         <ul v-for="(i, index) in img_list" :key="index">
-          <li v-show = "a % img_list.length == index">
+          <li v-show = "Math.floor(a) % img_list.length == index">
             <img :src="i">
           </li>
         </ul>
@@ -18,6 +22,8 @@
     </div>
     <h1>
       <span v-show="!w">{{msg}}</span>
+        <a class="item" @click="speed-=0.25" v-show="speed>0.25">(慢些！)</a>
+        <a class="item" @click="speed+=0.25" v-show="speed<1">(快些！)</a>
       <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
   </div>
@@ -32,14 +38,14 @@ export default {
       a: 0,
       b: 0,
       w: 0,
-      msg0: '歡迎！',
+      speed: 0.25,
       msg: '看到相同的照片時，請按空白鍵'
     }
   },
   methods: {
     go: function () {
       if (!this.w) {
-        this.a++
+        this.a += this.speed
       }
     },
     check: function () {
@@ -57,7 +63,7 @@ export default {
     }
   },
   mounted () {
-    setInterval(this.go, 2000)
+    setInterval(this.go, 500)
     this.reset()
     window.addEventListener('keyup', this.check)
   }
@@ -79,6 +85,7 @@ li {
 }
 a {
   color: #42b983;
+  cursor: pointer;
 }
 #left, #right {
   margin: 0;
@@ -90,7 +97,7 @@ a {
 
 img {
   max-width: 100%;
-  height: 50vmin;
+  height: 40vmin;
 }
 
 #rainbow {

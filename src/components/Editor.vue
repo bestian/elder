@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>編輯照片</h1>
+    <h1>
+      <router-link class = 'item' to='/' exact=''>
+        <i class="home icon" />玩照片
+      </router-link>
+    </h1>
     <ul>
       <li>
         <input v-model="url" placeholder="新增圖片網址">
@@ -48,6 +52,6 @@ export default {
   }
   a {
     cursor: pointer;
-    font-size: 3em;
+    font-size: 2em;
   }
 </style>
