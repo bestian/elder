@@ -26,14 +26,14 @@
 <script>
 export default {
   name: 'HelloWorld',
+  props: ['img_list'],
   data () {
     return {
       a: 0,
       b: 0,
       w: 0,
       msg0: '歡迎！',
-      msg: '看到相同的照片時，請按空白鍵',
-      img_list: ['https://i.imgur.com/Qu17dtt.jpg', 'https://i.imgur.com/9xZlAUR.jpg', 'https://i.imgur.com/JImLiGK.jpg', 'https://i.imgur.com/8fd6l63.jpg', 'https://i.imgur.com/keiYrVl.jpg']
+      msg: '看到相同的照片時，請按空白鍵'
     }
   },
   methods: {

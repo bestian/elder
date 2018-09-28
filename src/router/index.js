@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
+import Editor from '@/components/Editor'
 
 Vue.use(Router)
 
@@ -10,6 +11,11 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/edit',
+      name: 'Editor',
+      component: Editor
     }
   ]
 })
