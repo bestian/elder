@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" @keyup.native = "check()">
+  <div class="hello">
     <h1>
       <span v-show="!w">
         <router-link class = 'item' to='/edit' exact='' title="Setting">
@@ -21,9 +21,10 @@
       </div>
     </div>
     <h1>
-      <span v-show="!w">{{msg}}</span>
+      <span v-show="!w">{{msg}}
         <a class="item" @click="speed-=0.25" v-show="speed>0.25">(慢些！)</a>
         <a class="item" @click="speed+=0.25" v-show="speed<1">(快些！)</a>
+      </span>
       <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
   </div>
@@ -49,7 +50,7 @@ export default {
       }
     },
     check: function () {
-      if (this.a % this.img_list.length === this.b) {
+      if (Math.floor(this.a) % this.img_list.length === this.b) {
         this.win()
       }
     },
