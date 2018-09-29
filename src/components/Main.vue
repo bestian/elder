@@ -28,8 +28,8 @@
         </div>
       </span>
     </h1>
-    <img id = "win1" v-show="w" src = "../assets/animated-congratulation-image-0040.gif"/>
-    <img id = "win2" v-show="w" src = "../assets/animated-congratulation-image-0040.gif"/>
+    <img id = "win1" v-show="w" src = "../assets/animated-congratulation-image-0058.gif"/>
+    <img id = "win2" v-show="w" src = "../assets/animated-congratulation-image-0058.gif"/>
   </div>
 </template>
 
@@ -125,7 +125,7 @@ img.a {
   z-index: 99999;
   position: fixed;
   width: 300px;
-  top: 0;
+  bottom: 0;
   right: 0;
 }
 
