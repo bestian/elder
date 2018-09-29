@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" @keyup.native = "check()">
     <h1>
       <span v-show="!w">
         <router-link class = 'item' to='/edit' exact='' title="Setting">
