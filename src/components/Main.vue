@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>
       <span v-show="!w">
-        <router-link class = 'item' to='/edit' exact='' title="Setting">
+        <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
           <i class="cogs icon" />編輯照片
         </router-link>
       </span>
@@ -22,8 +22,11 @@
     </div>
     <h1>
       <span v-show="!w">{{msg}}
-        <a class="item" @click="speed-=0.25" v-show="speed>0.25">(慢些！)</a>
-        <a class="item" @click="speed+=0.25" v-show="speed<1">(快些！)</a>
+        <br/>
+        <div class="ui buttons">
+          <a class="ui huge blue button" @click="speed-=0.25" v-show="speed>0.25">慢些！</a>
+          <a class="ui huge green button" @click="speed+=0.25" v-show="speed<1">快些！</a>
+        </div>
       </span>
       <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
@@ -87,6 +90,9 @@ li {
 a {
   color: #42b983;
   cursor: pointer;
+  padding: 3px;
+  background-color: #ccc;
+  border-radius: 5px;
 }
 #left, #right {
   margin: 0;
@@ -99,6 +105,7 @@ a {
 img {
   max-width: 100%;
   height: 40vmin;
+  border-radius: 30px;
 }
 
 #rainbow {

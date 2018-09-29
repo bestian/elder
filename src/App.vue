@@ -20,7 +20,7 @@ export default {
   name: 'App',
   data () {
     return {
-      img_list: ['https://i.imgur.com/rPCYQls.png', 'https://i.imgur.com/SuLzJZ3.png']
+      img_list: ['https://i.imgur.com/9g8Snz6.jpg', 'https://i.imgur.com/rPCYQls.png', 'https://i.imgur.com/SuLzJZ3.png']
     }
   },
   methods: {

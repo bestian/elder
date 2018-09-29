@@ -1,22 +1,26 @@
 <template>
   <div>
     <h1>
-      <router-link class = 'item' to='/' exact=''>
+      <router-link class = 'ui huge button' to='/' exact=''>
         <i class="home icon" />玩照片
       </router-link>
     </h1>
-    <ul>
-      <li>
-        <input v-model="url" placeholder="新增圖片網址">
-        <a @click="add(url); url = ''">新增</a>
-      </li>
-    </ul>
     <ol>
       <li v-for = "(i, index) in img_list" :key="index">
-        <img :src="i"/>
-        <a @click="remove(index)">x</a>
+        <img :src="i" @click="url = i"/>
+        <a class="ui bottom attached red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />刪除</a>
       </li>
     </ol>
+    <ul>
+      <li>
+        <div class="ui action input">
+          <input type ="text" v-model="url" placeholder="新增圖片網址">
+          <img v-show = "url" :src="url"/>
+          <a v-show = "url" class = "ui green button" @click="add(url); url = ''"><i class="plus icon"/>新增照片</a>
+          <a v-show = "!url" class = "ui blue button" href="https://imgur.com/" target = "_blank" title = "上傳照片"><i class="cloud upload icon"/>上傳照片</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -43,15 +47,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   li {
-    text-align: left;
+    text-align: center;
     display: inline-block;
-    padding: 15px;
+    padding: 0 15px;
   }
   img {
     height: 15vmin;
+    border: 3px gold ridge;
   }
   a {
     cursor: pointer;
     font-size: 2em;
+  }
+  .ui.bottom.attached {
+    top: -5px;
   }
 </style>
