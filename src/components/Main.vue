@@ -6,18 +6,17 @@
           <i class="cogs icon" />編輯照片
         </router-link>
       </span>
-      <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
     <div>
       <div id = "left" @click="check()">
         <ul v-for="(i, index) in img_list" :key="index">
           <li v-show = "Math.floor(a) % img_list.length == index">
-            <img :src="i">
+            <img class="a" :src="i">
           </li>
         </ul>
       </div>
       <div id = "right" @click="check()">
-        <img :src="img_list[b]">
+        <img class="a" :src="img_list[b]">
       </div>
     </div>
     <h1>
@@ -28,8 +27,9 @@
           <a class="ui huge green button" @click="speed+=0.25" v-show="speed<1">快些！</a>
         </div>
       </span>
-      <img v-for="(k,index) in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" id = "rainbow" :key="index" :title="k" src = "../assets/rainbow.jpg" v-show = "w"/>
     </h1>
+    <img id = "win1" v-show="w" src = "../assets/animated-congratulation-image-0040.gif"/>
+    <img id = "win2" v-show="w" src = "../assets/animated-congratulation-image-0040.gif"/>
   </div>
 </template>
 
@@ -102,7 +102,7 @@ a {
   width: 40%;
 }
 
-img {
+img.a {
   max-width: 100%;
   height: 40vmin;
   border-radius: 30px;
@@ -111,6 +111,22 @@ img {
 #rainbow {
   width: 5%;
   height: auto;
+}
+
+#win1 {
+  z-index: 99999;
+  position: fixed;
+  width: 300px;
+  top: 0;
+  left: 0;
+}
+
+#win2 {
+  z-index: 99999;
+  position: fixed;
+  width: 300px;
+  top: 0;
+  right: 0;
 }
 
 </style>
