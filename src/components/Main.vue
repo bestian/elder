@@ -83,15 +83,15 @@ export default {
       }
     },
     check: function () {
-      var ma = Math.floor(this.a) % this.img_list.length;
+      var ma = Math.floor(this.a) % this.img_list.length
       if (!this.hard) {
         if (ma === this.b) {
           this.win()
-        } 
+        }
       } else {
         if (ma === this.b || ma === this.c || this.b === this.c) {
           this.win()
-        } 
+        }
       }
     },
     reset: function () {
@@ -149,7 +149,7 @@ img.a {
   position: fixed;
   width: 300px;
   border-radius: 30px;
-  border: 5px gold ridge; 
+  border: 5px gold ridge;
 }
 
 #win1 {

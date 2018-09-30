@@ -4,6 +4,9 @@
       <router-link class = 'item' to='/' exact=''>
         <i class="home icon" />
       </router-link>
+      <router-link class = 'item' to='/fishing' exact=''>
+        <i class="question circle icon" />
+      </router-link>
       <a class="right item" href="https://github.com/bestian/elder/" title="View it on Github">
         <i class="github icon" />
       </a>
