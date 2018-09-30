@@ -15,13 +15,18 @@
     <h1>
       <span v-show="!w">{{msg}}
         <br/>
+        <br/>
         <div class="ui buttons">
           <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
             <i class="cogs icon" />編輯照片
           </router-link>
-          <a class="ui huge blue button" @click="speed-=0.25" v-show="speed>0.25">慢些！</a>
-          <a class="ui huge green button" @click="speed+=0.25" v-show="speed<1">快些！</a>
         </div>
+        <input type="radio" id="one" value="0.25" v-model="speed">
+        <label for="0.25">慢</label>
+        <input type="radio" id="two" value="0.5" v-model="speed">
+        <label for="0.5">中</label>
+        <input type="radio" id="three" value="1" v-model="speed">
+        <label for="1">快</label>
       </span>
     </h1>
     <img id = "win1" v-show="w" src = "../assets/animated-congratulation-image-0058.gif"/>
@@ -46,7 +51,7 @@ export default {
   methods: {
     go: function () {
       if (!this.w) {
-        this.a += this.speed
+        this.a += Number(this.speed)
       }
     },
     check: function () {
