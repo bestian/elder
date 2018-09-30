@@ -39,6 +39,7 @@ export default {
       b: 0,
       w: 0,
       speed: 0.25,
+      hard: false,
       msg: '看到相同的照片時，請按空白鍵'
     }
   },
