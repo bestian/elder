@@ -1,12 +1,5 @@
 <template>
   <div class="hello">
-    <h1>
-      <span v-show="!w">
-        <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
-          <i class="cogs icon" />編輯照片
-        </router-link>
-      </span>
-    </h1>
     <div>
       <div id = "left" @click="check()">
         <ul v-for="(i, index) in img_list" :key="index">
@@ -23,6 +16,9 @@
       <span v-show="!w">{{msg}}
         <br/>
         <div class="ui buttons">
+          <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
+            <i class="cogs icon" />編輯照片
+          </router-link>
           <a class="ui huge blue button" @click="speed-=0.25" v-show="speed>0.25">慢些！</a>
           <a class="ui huge green button" @click="speed+=0.25" v-show="speed<1">快些！</a>
         </div>
@@ -106,6 +102,7 @@ img.a {
   max-width: 100%;
   height: 40vmin;
   border-radius: 30px;
+  border: 5px gold ridge;
 }
 
 #rainbow {
@@ -113,18 +110,20 @@ img.a {
   height: auto;
 }
 
-#win1 {
+#win1, #win2 {
   z-index: 99999;
   position: fixed;
   width: 300px;
+  border-radius: 30px;
+  border: 5px gold ridge; 
+}
+
+#win1 {
   top: 0;
   left: 0;
 }
 
 #win2 {
-  z-index: 99999;
-  position: fixed;
-  width: 300px;
   bottom: 0;
   right: 0;
 }
