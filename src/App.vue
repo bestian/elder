@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <div class="ui fixed top menu">
+    <div class="ui fixed top labeled icon menu">
       <router-link class = 'item' to='/' exact=''>
-        <i class="home icon" />
+        <i class="home icon" />配對
       </router-link>
       <router-link class = 'item' to='/fishing' exact=''>
-        <i class="question circle icon" />
+        <i class="question circle icon" />釣魚
       </router-link>
       <a class="right item" href="https://github.com/bestian/elder/" title="View it on Github">
-        <i class="github icon" />
+        <i class="github icon" />專案
       </a>
       <router-link class = 'item' to='/edit' exact='' title="Setting">
-        <i class="cogs icon" />
+        <i class="cogs icon" />編輯照片
       </router-link>
     </div>
     <router-view @add="add" @remove = "remove" :img_list = "img_list"/>

@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <br/>
     <div class="ui equal width grid">
       <div class="column" @click="check()">
         <img v-for="(i, index) in img_list" :key="index"  v-show = "Math.floor(a) % img_list.length == index" class="a" :src="i">

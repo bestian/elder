@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="intro">
+      <br/>
+      <h2>點擊卡片，翻出相同的圖即可消去</h2>
+    </div>
     <div class="ui grid">
       <div class="three wide column" v-for = "(f, index) in fishs1" :key="f" v-bind:class="[face0 == index ? 'face' : 'back', f ? 'good' : 'null']" @click = "flip(index,0)">
         <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f"/>
@@ -12,6 +16,8 @@
         <span class="big" v-show="!f">x</span>
       </div>
     </div>
+    <img id = "win1" v-show="winning" src = "../assets/animated-congratulation-image-0058.gif"/>
+    <img id = "win2" v-show="winning" src = "../assets/animated-congratulation-image-0058.gif"/>
   </div>
 </template>
 
@@ -58,7 +64,7 @@ export default {
       this.flipback()
       if (this.isWin()) {
         this.win()
-        this.reset()
+        setTimeout(this.reset, 3000)
       }
     },
     flipback: function () {
@@ -90,6 +96,7 @@ export default {
   }
   img {
     height: 15vmin;
+    max-width: 100%;
   }
   img.gold {
     border: 5px gold ridge;
@@ -124,5 +131,23 @@ export default {
   }
   .big {
     font-size: 5em;
+  }
+
+  #win1, #win2 {
+    z-index: 99999;
+    position: fixed;
+    width: 300px;
+    border-radius: 30px;
+    border: 5px gold ridge;
+  }
+
+  #win1 {
+    top: 0;
+    left: 0;
+  }
+
+  #win2 {
+    bottom: 0;
+    right: 0;
   }
 </style>
