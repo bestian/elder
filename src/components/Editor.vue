@@ -8,20 +8,16 @@
     <ol>
       <li v-for = "(c, index) in card_list" :key="index">
         <img :src="c.img" @click="url = c.img; name = c.name"/>
-        <a class="ui bottom attached red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />刪除{{c.name}}</a>
+        <a class="ui bottom attached red huge basic button" @click="remove(index)" title="刪除"><i class="window close icon" />刪除{{c.name}}</a>
       </li>
     </ol>
-    <ul>
-      <li>
-        <div class="ui action input">
-          <input type ="text" v-model="url" placeholder="新增圖片網址">
-          <input type ="text" v-model="name" placeholder="新增名字">
-          <img v-show = "url" :src="url"/>
-          <a v-show = "url" class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增照片</a>
-          <a v-show = "!url" class = "ui blue button" href="https://imgur.com/" target = "_blank" title = "上傳照片"><i class="cloud upload icon"/>上傳照片</a>
-        </div>
-      </li>
-    </ul>
+    <div class="ui action input">
+      <input type ="text" v-model="url" placeholder="新增圖片網址">
+      <input type ="text" v-model="name" placeholder="新增名字">
+      <img v-show = "url" :src="url"/>
+      <a v-show = "url" class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增照片</a>
+      <a v-show = "!url" class = "ui blue button" href="https://imgur.com/" target = "_blank" title = "上傳照片"><i class="cloud upload icon"/>上傳照片</a>
+    </div>
   </div>
 </template>
 
@@ -54,7 +50,7 @@ export default {
     padding: 0 15px;
   }
   img {
-    height: 15vmin;
+    height: 20vmin;
     border: 3px gold ridge;
   }
   a {
@@ -63,5 +59,8 @@ export default {
   }
   .ui.bottom.attached {
     top: -5px;
+  }
+  input {
+    max-width: 30vw !important;
   }
 </style>

@@ -4,13 +4,13 @@
     <h1 class="lead" v-show="hard">誰不在裡面？</h1>
     <div class="ui centered card" v-show="!hard">
       <div class="content">
-        <span class="header">這是誰啊？</span>
+        <span class="big header">這是誰啊？</span>
       </div>
       <div class="image">
         <img :src="card_list[a].img"/>
       </div>
     </div>
-    <div class="ui four cards" v-show="hard">
+    <div class="ui six cards" v-show="hard">
       <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="a != index ">
         <div class="image">
           <img :src="c.img"/>
@@ -75,5 +75,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.big.header {
+  font-size: 2em !important;
+}
 
 </style>

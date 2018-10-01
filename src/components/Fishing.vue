@@ -2,7 +2,7 @@
   <div>
     <div class="intro">
       <br/>
-      <h2>點擊卡片，翻出相同的圖即可消去</h2>
+      <h2>點擊上下排卡片，找出相同的，對的那組圖會消失，直到清空</h2>
     </div>
     <div class="ui grid">
       <div class="three wide column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,0)">

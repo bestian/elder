@@ -5,7 +5,7 @@
       <div class="column" @click="check()">
         <div class="ui card">
           <div class="content" v-show="!hard">
-            <span class="header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
+            <span class="big header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
           </div>
           <div class="image">
             <img class="a" :src="card_list[Math.floor(a) % card_list.length].img">
@@ -15,20 +15,10 @@
       <div class="column" @click="check()">
         <div class="ui card">
           <div class="content">
-              <span class="header">{{card_list[b].name}}</span>
+              <span class="big header">{{card_list[b].name}}</span>
           </div>
           <div class="image" v-show="!hard">
             <img class="a" :src="card_list[b].img">
-          </div>
-        </div>
-      </div>
-      <div class="column" v-if="hard" @click="check()">
-        <div class="ui card">
-          <div class="content" v-show="!hard">
-            <span class="header">{{card_list[c].name}}</span>
-          </div>
-          <div class="image">
-            <img class="a" :src="card_list[c].img">
           </div>
         </div>
       </div>
@@ -96,29 +86,19 @@ export default {
       w: 0,
       speed: 0.25,
       hard: false,
-      msg: '看到兩者相同時，請按空白鍵或圖'
+      msg: '看到人名的臉出現時，請按空白鍵或圖'
     }
   },
   methods: {
     go: function () {
       if (!this.w) {
-        if (this.hard && Math.floor(this.a) < Math.floor(this.a + Number(this.speed))) {
-          this.b = Math.floor(Math.random() * this.card_list.length)
-          this.c = Math.floor(Math.random() * this.card_list.length)
-        }
         this.a += Number(this.speed)
       }
     },
     check: function () {
       var ma = Math.floor(this.a) % this.card_list.length
-      if (!this.hard) {
-        if (ma === this.b) {
-          this.win()
-        }
-      } else {
-        if (ma === this.b || ma === this.c || this.b === this.c) {
-          this.win()
-        }
+      if (ma === this.b) {
+        this.win()
       }
     },
     reset: function () {
@@ -189,6 +169,10 @@ a {
 
 img.a {
   max-height: 33vh;
+}
+
+.big.header {
+  font-size: 4em !important;
 }
 
 </style>
