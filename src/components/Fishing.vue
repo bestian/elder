@@ -16,15 +16,20 @@
         <span class="big" v-show="!f">x</span>
       </div>
     </div>
-    <img id = "win1" v-show="winning" src = "../assets/animated-congratulation-image-0058.gif"/>
-    <img id = "win2" v-show="winning" src = "../assets/animated-congratulation-image-0058.gif"/>
+    <win v-show="winning"></win>
   </div>
 </template>
 
 <script>
+
+import win from './win' 
+
 export default {
   name: 'Fishing',
   props: ['card_list'],
+  components: { 
+    win
+  },
   data () {
     return {
       w: false,

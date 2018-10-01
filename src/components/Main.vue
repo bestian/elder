@@ -53,15 +53,20 @@
         </div>
       </span>
     </h1>
-    <img id = "win1" v-show="w" src = "../assets/animated-congratulation-image-0058.gif"/>
-    <img id = "win2" v-show="w" src = "../assets/animated-congratulation-image-0058.gif"/>
+    <win v-show="w" ></win>
   </div>
 </template>
 
 <script>
+
+import win from './win' 
+
 export default {
   name: 'HelloWorld',
   props: ['card_list'],
+  components: { 
+    win
+  },
   data () {
     return {
       a: 0,
