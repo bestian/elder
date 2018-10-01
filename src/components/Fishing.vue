@@ -16,7 +16,7 @@
         <span class="big" v-show="!f">x</span>
       </div>
     </div>
-    <win v-show="!winning"></win>
+    <win v-show="winning"></win>
   </div>
 </template>
 
