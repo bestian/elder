@@ -134,7 +134,7 @@ export default {
     overflow: hidden;
   }
   .column.back img {
-    opacity: 0;
+    visibility: hidden;
   }
   .column.back {
     background-color: gray;
