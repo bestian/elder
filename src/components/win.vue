@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class = "page">
-      <img src="../assets/sunflower.jpg" />
+      <div class="ui image card">
+        <img src="../assets/sunflower.jpg" />
+        <h1>讚!</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +26,6 @@ export default {
     z-index: 99999;
     width: 300px;
     border-radius: 30px;
-    border: 5px gold ridge;
   }
 
   .page {
