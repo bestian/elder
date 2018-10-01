@@ -5,7 +5,7 @@
       <h2>點擊卡片，翻出相同的圖即可消去</h2>
     </div>
     <div class="ui grid">
-      <div class="three wide column" v-for = "(f, index) in fishs1" :key="f" v-bind:class="[face0 == index ? 'face' : 'back', f ? 'good' : 'null']" @click = "flip(index,0)">
+      <div class="three wide column" v-for = "(f, index) in fishs1" :key="f+index" v-bind:class="[face0 == index ? 'face' : 'back', f ? 'good' : 'null']" @click = "flip(index,0)">
         <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f"/>
         <span class="big" v-show="!f">x</span>
       </div>
@@ -23,8 +23,8 @@
 
 <script>
 export default {
-  name: 'Editor',
-  props: ['img_list'],
+  name: 'Fishing',
+  props: ['card_list'],
   data () {
     return {
       w: false,
@@ -73,8 +73,8 @@ export default {
       this.w = false
     },
     reset: function () {
-      this.fishs1 = this.img_list.slice().sort(function () { return Math.random() - 0.5 })
-      this.fishs2 = this.img_list.slice().sort(function () { return Math.random() - 0.5 })
+      this.fishs1 = this.card_list.slice().sort(function () { return Math.random() - 0.5 }).map(function (o) { return o.img })
+      this.fishs2 = this.card_list.slice().sort(function () { return Math.random() - 0.5 }).map(function (o) { return o.img })
       this.winning = false
     },
     win: function () {

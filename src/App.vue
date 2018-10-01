@@ -14,7 +14,7 @@
         <i class="cogs icon" />編輯照片
       </router-link>
     </div>
-    <router-view @add="add" @remove = "remove" :img_list = "img_list" :card_list = "card_list"/>
+    <router-view @add="add" @remove = "remove" :card_list = "card_list"/>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
   name: 'App',
   data () {
     return {
-      img_list: ['https://i.imgur.com/9g8Snz6.jpg', 'https://i.imgur.com/rPCYQls.png', 'https://i.imgur.com/SuLzJZ3.png'],
       card_list: [
         {img: 'https://i.imgur.com/9g8Snz6.jpg', name: '天使'},
         {img: 'https://i.imgur.com/rPCYQls.png', name: '圓臉'},
@@ -32,28 +31,25 @@ export default {
     }
   },
   methods: {
-    add: function (url) {
-      this.img_list.push(url)
+    add: function (url, name) {
+      this.card_list.push({img: url, name: name})
       this.setLocal()
     },
     remove: function (index) {
-      this.img_list.splice(index, 1)
+      this.card_list.splice(index, 1)
       this.setLocal()
     },
     getLocal: function () {
-      console.log(this.$localStorage.get('img_list'))
-      this.img_list = this.$localStorage.get('img_list').split(',')
+      this.card_list = JSON.parse(this.$localStorage.get('card_list'))
     },
     setLocal: function () {
-      this.$localStorage.set('img_list', this.img_list)
-      console.log(this.$localStorage.get('img_list'))
-      this.$localStorage.set('card_list', this.card_list)
+      this.$localStorage.set('card_list', JSON.stringify(this.card_list))
       console.log(this.$localStorage.get('card_list'))
     }
   },
   mounted () {
-    console.log(this.$localStorage.get('img_list'))
-    if (this.$localStorage.get('img_list')) {
+    console.log(this.$localStorage.get('card_list'))
+    if (this.$localStorage.get('card_list')) {
       this.getLocal()
     }
   }

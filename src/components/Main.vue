@@ -3,13 +3,13 @@
     <br/>
     <div class="ui equal width grid">
       <div class="column" @click="check()">
-        <img v-for="(i, index) in img_list" :key="index"  v-show = "Math.floor(a) % img_list.length == index" class="a" :src="i">
+        <img v-for="(c, index) in card_list" :key="index"  v-show = "Math.floor(a) % card_list.length == index" class="a" :src="c.img">
       </div>
       <div class="column" @click="check()">
-        <img class="a" :src="img_list[b]">
+        <img class="a" :src="card_list[b].img">
       </div>
       <div class="column" v-show="hard" @click="check()">
-        <img class="a" :src="img_list[c]">
+        <img class="a" :src="card_list[c].img">
       </div>
     </div>
     <h1>
@@ -61,7 +61,7 @@
 <script>
 export default {
   name: 'HelloWorld',
-  props: ['img_list'],
+  props: ['card_list'],
   data () {
     return {
       a: 0,
@@ -77,14 +77,14 @@ export default {
     go: function () {
       if (!this.w) {
         if (this.hard && Math.floor(this.a) < Math.floor(this.a + Number(this.speed))) {
-          this.b = Math.floor(Math.random() * this.img_list.length)
-          this.c = Math.floor(Math.random() * this.img_list.length)
+          this.b = Math.floor(Math.random() * this.card_list.length)
+          this.c = Math.floor(Math.random() * this.card_list.length)
         }
         this.a += Number(this.speed)
       }
     },
     check: function () {
-      var ma = Math.floor(this.a) % this.img_list.length
+      var ma = Math.floor(this.a) % this.card_list.length
       if (!this.hard) {
         if (ma === this.b) {
           this.win()
@@ -96,8 +96,8 @@ export default {
       }
     },
     reset: function () {
-      this.b = Math.floor(Math.random() * this.img_list.length)
-      this.c = Math.floor(Math.random() * this.img_list.length)
+      this.b = Math.floor(Math.random() * this.card_list.length)
+      this.c = Math.floor(Math.random() * this.card_list.length)
       this.w = 0
     },
     win: function () {

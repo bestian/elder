@@ -6,17 +6,18 @@
       </router-link>
     </h1>
     <ol>
-      <li v-for = "(i, index) in img_list" :key="index">
-        <img :src="i" @click="url = i"/>
-        <a class="ui bottom attached red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />刪除</a>
+      <li v-for = "(c, index) in card_list" :key="index">
+        <img :src="c.img" @click="url = c.img; name = c.name"/>
+        <a class="ui bottom attached red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />刪除{{c.name}}</a>
       </li>
     </ol>
     <ul>
       <li>
         <div class="ui action input">
           <input type ="text" v-model="url" placeholder="新增圖片網址">
+          <input type ="text" v-model="name" placeholder="新增名字">
           <img v-show = "url" :src="url"/>
-          <a v-show = "url" class = "ui green button" @click="add(url); url = ''"><i class="plus icon"/>新增照片</a>
+          <a v-show = "url" class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增照片</a>
           <a v-show = "!url" class = "ui blue button" href="https://imgur.com/" target = "_blank" title = "上傳照片"><i class="cloud upload icon"/>上傳照片</a>
         </div>
       </li>
@@ -27,15 +28,16 @@
 <script>
 export default {
   name: 'Editor',
-  props: ['img_list'],
+  props: ['card_list'],
   data () {
     return {
-      url: ''
+      url: '',
+      name: ''
     }
   },
   methods: {
-    add: function (url) {
-      this.$emit('add', url)
+    add: function (url, name) {
+      this.$emit('add', url, name)
     },
     remove: function (index) {
       this.$emit('remove', index)
