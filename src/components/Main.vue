@@ -15,7 +15,7 @@
       <div class="column" @click="check()">
         <div class="ui card">
           <div class="content">
-              <span class="big header">{{card_list[b].name}}</span>
+              <span class="big header" v-bind:class="{ only: hard}">{{card_list[b].name}}</span>
           </div>
           <div class="image" v-show="!hard">
             <img class="a" :src="card_list[b].img">
@@ -27,40 +27,23 @@
       <span v-show="!w">{{msg}}
         <br/>
         <br/>
-        <div class="ui center aligned segment">
-          <div class="ui form">
-            <div class="inline fields">
-              <div class="field">
-                <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
-                  <i class="cogs icon" />編輯照片
-                </router-link>
-              </div>
-              <label>速度：</label>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" id="one" value="0.25" v-model="speed">
-                  <label for="one">慢</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" id="two" value="0.5" v-model="speed">
-                  <label for="two">中</label>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui radio checkbox">
-                  <input type="radio" id="three" value="1" v-model="speed">
-                  <label for="three">快</label>
-                </div>
-              </div>
-              <label>難度：</label>
-              <div class="ui slider checkbox">
-                <input type="checkbox" id="checkbox" v-model="hard">
-                <label for="checkbox">較難</label>
-              </div>
-            </div>
-          </div>
+        <label>速度：</label>
+        <div class="ui radio checkbox">
+          <input type="radio" id="one" value="0.25" v-model="speed">
+          <label for="one">慢</label>
+        </div>
+        <div class="ui radio checkbox">
+          <input type="radio" id="two" value="0.5" v-model="speed">
+          <label for="two">中</label>
+        </div>
+        <div class="ui radio checkbox">
+          <input type="radio" id="three" value="1" v-model="speed">
+          <label for="three">快</label>
+        </div>
+        <label>難度：</label>
+        <div class="ui slider checkbox">
+          <input type="checkbox" id="checkbox" v-model="hard">
+          <label for="checkbox">較難</label>
         </div>
       </span>
     </h1>
@@ -173,6 +156,10 @@ img.a {
 
 .big.header {
   font-size: 4em !important;
+}
+
+.only {
+  margin-top: 20% !important;
 }
 
 img {

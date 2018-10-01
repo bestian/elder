@@ -1,14 +1,18 @@
 <template>
   <div>
     <br />
-    <ol>
-      <li v-for = "(c, index) in card_list" :key="index">
-        <a @click="url = c.img; name = c.name">
-          <img :src="c.img"/>
-        </a>
-        <a class="ui bottom attached red huge basic button" @click="remove(index)" title="刪除"><i class="window close icon" />{{c.name}}</a>
-      </li>
-    </ol>
+    <div class="ui four cards">
+      <div class="ui card" v-for = "(c, index) in card_list" :key="index">
+        <div class="content">
+          <a class = "image" @click="url = c.img; name = c.name">
+            <img :src="c.img"/>
+          </a>
+        </div>
+        <div class="extra content">
+          <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />{{c.name}}</a>
+        </div>
+      </div>
+    </div>
     <div>
       <h1>請將您自選的照片上傳至<a href = "https://www.imgur.com" target="_blank">imgur</a>，取得網址後，再貼上</h1>
     </div>
@@ -46,13 +50,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  li {
-    text-align: center;
-    display: inline-block;
-    padding: 0 15px;
-  }
   img {
-    height: 20vmin;
+    height: 15vmin;
+    max-width: 100%;
     border: 3px gold ridge;
   }
   a {
@@ -60,9 +60,6 @@ export default {
   }
   a:hover {
     text-decoration: underline;
-  }
-  .ui.bottom.attached {
-    top: -5px;
   }
   input {
     max-width: 30vw !important;
