@@ -7,6 +7,9 @@
       <router-link class = 'item' to='/fishing' exact=''>
         <i class="question circle icon" />釣魚遊戲
       </router-link>
+      <router-link class = 'item' to='/name' exact=''>
+        <i class="question icon" />認人遊戲
+      </router-link>
       <router-link class = 'item' to='/edit' exact='' title="Setting">
         <i class="cogs icon" />編輯照片
       </router-link>

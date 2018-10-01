@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import Editor from '@/components/Editor'
 import Fishing from '@/components/Fishing'
+import Name from '@/components/Name'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/fishing',
       name: 'Fishing',
       component: Fishing
+    },
+    {
+      path: '/name',
+      name: 'Name',
+      component: Name
     }
   ]
 })

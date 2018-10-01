@@ -163,14 +163,4 @@ export default {
     border-radius: 30px;
     border: 5px gold ridge;
   }
-
-  #win1 {
-    top: 0;
-    left: 0;
-  }
-
-  #win2 {
-    bottom: 0;
-    right: 0;
-  }
 </style>
