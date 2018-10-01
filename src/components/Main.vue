@@ -59,12 +59,12 @@
 
 <script>
 
-import win from './win' 
+import win from './win'
 
 export default {
   name: 'HelloWorld',
   props: ['card_list'],
-  components: { 
+  components: {
     win
   },
   data () {

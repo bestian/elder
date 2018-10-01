@@ -22,12 +22,12 @@
 
 <script>
 
-import win from './win' 
+import win from './win'
 
 export default {
   name: 'Fishing',
   props: ['card_list'],
-  components: { 
+  components: {
     win
   },
   data () {

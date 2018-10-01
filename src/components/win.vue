@@ -2,7 +2,7 @@
   <div>
     <div class = "page">
       <div class="ui image card">
-        <img src="../assets/sunflower.jpg" />
+        <img src="../assets/th.jpg" />
         <h1>讚!</h1>
       </div>
     </div>
@@ -30,7 +30,7 @@ export default {
 
   .page {
     z-index: 99999;
-    position: fixed;   
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -38,8 +38,18 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    animation-name: example;
+    animation-duration: 3s;
   }
 
   .page img {
   }
+
+  /* The animation code */
+  @keyframes example {
+      0%   {transform: scale(1)}
+      50%  {transform: scale(2)}
+      100% {transform: scale(1)}
+  }
+
 </style>
