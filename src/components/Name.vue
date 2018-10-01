@@ -11,13 +11,13 @@
       </div>
     </div>
     <div class="ui six cards" v-show="hard">
-      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="a != index ">
+      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="card_list[a].name != card_list[index].name ">
         <div class="image">
           <img :src="c.img"/>
         </div>
       </div>
     </div>
-    <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" @click = "b = index; check()">{{ c.name }}
+    <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
     </div>
     <br/><br/>
     <div>
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     isWin: function () {
-      return this.a === this.b
+      return this.card_list[this.a].name === this.card_list[this.b].name
     },
     check: function () {
       if (this.isWin()) {
@@ -65,6 +65,14 @@ export default {
     },
     win: function () {
       this.winning = true
+    },
+    noDup: function (idx) {
+      for (var i = 0; i < idx; i++) {
+        if (this.card_list[i].name === this.card_list[idx].name) {
+          return false
+        }
+      }
+      return true
     }
   },
   mounted () {
@@ -78,6 +86,17 @@ export default {
 
 .big.header {
   font-size: 2em !important;
+}
+
+img {
+    animation: tada 3s infinite;
+}
+
+/* The animation code */
+@keyframes tada {
+    0%   {transform: rotate(0deg)}
+    50%  {transform: rotate(-15deg)}
+    100% {transform: rotate(0deg)}
 }
 
 </style>

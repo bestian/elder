@@ -86,7 +86,7 @@ export default {
       w: 0,
       speed: 0.25,
       hard: false,
-      msg: '看到人名的臉出現時，請按空白鍵或圖'
+      msg: '左右出現同一人時，請按空白鍵或圖'
     }
   },
   methods: {
@@ -97,7 +97,7 @@ export default {
     },
     check: function () {
       var ma = Math.floor(this.a) % this.card_list.length
-      if (ma === this.b) {
+      if (this.card_list[ma].name === this.card_list[this.b].name) {
         this.win()
       }
     },
@@ -173,6 +173,17 @@ img.a {
 
 .big.header {
   font-size: 4em !important;
+}
+
+img {
+    animation: tada 3s infinite;
+}
+
+/* The animation code */
+@keyframes tada {
+    0%   {transform: rotate(0deg)}
+    50%  {transform: rotate(-5deg)}
+    100% {transform: rotate(0deg)}
 }
 
 </style>

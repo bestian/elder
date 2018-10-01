@@ -3,7 +3,7 @@
     <div class = "page">
       <div class="ui image card">
         <img src="../assets/th.jpg" />
-        <h1>讚!</h1>
+        <h1>讚!<i class="thumbs up icon" /></h1>
       </div>
     </div>
   </div>
@@ -38,15 +38,16 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation-name: example;
+    animation-name: bigger;
     animation-duration: 3s;
+    opacity: 0.96;
   }
 
   .page img {
   }
 
   /* The animation code */
-  @keyframes example {
+  @keyframes bigger {
       0%   {transform: scale(1)}
       50%  {transform: scale(2)}
       100% {transform: scale(1)}
