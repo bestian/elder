@@ -1,26 +1,55 @@
 <template>
   <div class="hello">
-    <div>
-      <div id = "left" @click="check()">
-        <ul v-for="(i, index) in img_list" :key="index">
-          <li v-show = "Math.floor(a) % img_list.length == index">
-            <img class="a" :src="i">
-          </li>
-        </ul>
+    <br/>
+    <div class="ui equal width grid">
+      <div class="column" @click="check()">
+        <img v-for="(i, index) in img_list" :key="index"  v-show = "Math.floor(a) % img_list.length == index" class="a" :src="i">
       </div>
-      <div id = "right" @click="check()">
+      <div class="column" @click="check()">
         <img class="a" :src="img_list[b]">
+      </div>
+      <div class="column" v-show="hard" @click="check()">
+        <img class="a" :src="img_list[c]">
       </div>
     </div>
     <h1>
       <span v-show="!w">{{msg}}
         <br/>
-        <div class="ui buttons">
-          <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
-            <i class="cogs icon" />編輯照片
-          </router-link>
-          <a class="ui huge blue button" @click="speed-=0.25" v-show="speed>0.25">慢些！</a>
-          <a class="ui huge green button" @click="speed+=0.25" v-show="speed<1">快些！</a>
+        <br/>
+        <div class="ui center aligned segment">
+          <div class="ui form">
+            <div class="inline fields">
+              <div class="field">
+                <router-link class = 'ui huge button' to='/edit' exact='' title="Setting">
+                  <i class="cogs icon" />編輯照片
+                </router-link>
+              </div>
+              <label>速度：</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" id="one" value="0.25" v-model="speed">
+                  <label for="one">慢</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" id="two" value="0.5" v-model="speed">
+                  <label for="two">中</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" id="three" value="1" v-model="speed">
+                  <label for="three">快</label>
+                </div>
+              </div>
+              <label>難度：</label>
+              <div class="ui slider checkbox">
+                <input type="checkbox" id="checkbox" v-model="hard">
+                <label for="checkbox">較難</label>
+              </div>
+            </div>
+          </div>
         </div>
       </span>
     </h1>
@@ -37,24 +66,38 @@ export default {
     return {
       a: 0,
       b: 0,
+      c: 0,
       w: 0,
       speed: 0.25,
-      msg: '看到相同的照片時，請按空白鍵'
+      hard: false,
+      msg: '看到相同的照片時，請按空白鍵或點擊某張圖'
     }
   },
   methods: {
     go: function () {
       if (!this.w) {
-        this.a += this.speed
+        if (this.hard && Math.floor(this.a) < Math.floor(this.a + Number(this.speed))) {
+          this.b = Math.floor(Math.random() * this.img_list.length)
+          this.c = Math.floor(Math.random() * this.img_list.length)
+        }
+        this.a += Number(this.speed)
       }
     },
     check: function () {
-      if (Math.floor(this.a) % this.img_list.length === this.b) {
-        this.win()
+      var ma = Math.floor(this.a) % this.img_list.length
+      if (!this.hard) {
+        if (ma === this.b) {
+          this.win()
+        }
+      } else {
+        if (ma === this.b || ma === this.c || this.b === this.c) {
+          this.win()
+        }
       }
     },
     reset: function () {
       this.b = Math.floor(Math.random() * this.img_list.length)
+      this.c = Math.floor(Math.random() * this.img_list.length)
       this.w = 0
     },
     win: function () {
@@ -81,7 +124,6 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
 }
 a {
   color: #42b983;
@@ -89,13 +131,6 @@ a {
   padding: 3px;
   background-color: #ccc;
   border-radius: 5px;
-}
-#left, #right {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: inline-block;
-  width: 40%;
 }
 
 img.a {
