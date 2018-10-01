@@ -1,7 +1,8 @@
 <template>
   <div>
     <br/>
-    <div class="ui centered card">
+    <h1 class="lead" v-show="hard">誰不在裡面？</h1>
+    <div class="ui centered card" v-show="!hard">
       <div class="content">
         <span class="header">這是誰啊？</span>
       </div>
@@ -9,7 +10,23 @@
         <img :src="card_list[a].img"/>
       </div>
     </div>
-    <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" @click = "b = index; check()">{{ c.name }}</div>
+    <div class="ui four cards" v-show="hard">
+      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="a != index ">
+        <div class="image">
+          <img :src="c.img"/>
+        </div>
+      </div>
+    </div>
+    <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" @click = "b = index; check()">{{ c.name }}
+    </div>
+    <br/><br/>
+    <div>
+      <label>難度：</label>
+      <div class="ui slider checkbox">
+        <input type="checkbox" id="checkbox" v-model="hard">
+        <label for="checkbox">較難</label>
+      </div>
+    </div>
     <win v-show="winning"></win>
   </div>
 </template>
@@ -28,7 +45,8 @@ export default {
     return {
       winning: false,
       a: -1,
-      b: -1
+      b: -1,
+      hard: false
     }
   },
   methods: {
