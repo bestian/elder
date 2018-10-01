@@ -1,7 +1,8 @@
 <template>
   <div>
-    <img id = "win1" src = "../assets/animated-congratulation-image-0058.gif"/>
-    <img id = "win2" src = "../assets/animated-congratulation-image-0058.gif"/>
+    <div class = "page">
+      <img src="../assets/sunflower.jpg" />
+    </div>
   </div>
 </template>
 
@@ -18,21 +19,25 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  #win1, #win2 {
+  img {
     z-index: 99999;
-    position: fixed;
     width: 300px;
     border-radius: 30px;
     border: 5px gold ridge;
   }
 
-  #win1 {
+  .page {
+    z-index: 99999;
+    position: fixed;   
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  #win2 {
-    bottom: 0;
-    right: 0;
+  .page img {
   }
 </style>

@@ -114,6 +114,7 @@ export default {
     margin: 10px;
     border: 3px black solid;
     border-radius: 15px;
+    cursor: pointer;
   }
   .column.back img {
     opacity: 0;
