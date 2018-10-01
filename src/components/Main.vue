@@ -115,7 +115,7 @@ img.a {
   position: fixed;
   width: 300px;
   border-radius: 30px;
-  border: 5px gold ridge; 
+  border: 5px gold ridge;
 }
 
 #win1 {
