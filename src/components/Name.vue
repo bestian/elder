@@ -44,7 +44,7 @@ export default {
   data () {
     return {
       winning: false,
-      a: -1,
+      a: 0,
       b: -1,
       hard: false
     }

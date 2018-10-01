@@ -12,6 +12,16 @@
           <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />{{c.name}}</a>
         </div>
       </div>
+      <div class="ui card" v-show="url || name">
+        <div class="content">
+          <div class = "image">
+            <img :src="url"/>
+          </div>
+        </div>
+        <div class="extra content">
+          <a class="ui green basic button" @click="add(url, name); url = ''; name = ''" title="新增"><i class="plus square icon" />新增{{name}}</a>
+        </div>
+      </div>
     </div>
     <div>
       <h1>請將您自選的照片上傳至<a href = "https://www.imgur.com" target="_blank">imgur</a>，取得網址後，再貼上</h1>
