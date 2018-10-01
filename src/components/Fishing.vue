@@ -5,15 +5,27 @@
       <h2>點擊卡片，翻出相同的圖即可消去</h2>
     </div>
     <div class="ui grid">
-      <div class="three wide column" v-for = "(f, index) in fishs1" :key="f+index" v-bind:class="[face0 == index ? 'face' : 'back', f ? 'good' : 'null']" @click = "flip(index,0)">
-        <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f"/>
-        <span class="big" v-show="!f">x</span>
+      <div class="three wide column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,0)">
+        <div class="ui centered card">
+          <div class="content" v-show="!hard">
+            <span class="header">{{face0 == index ? f.name : '?'}}</span>
+          </div>
+          <div class="image">
+            <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+          </div>
+        </div>
       </div>
     </div>
     <div class="ui grid">
-      <div class="three wide r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f ? 'good' : 'null']" @click = "flip(index,1)">
-        <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : ''" :src="f"/>
-        <span class="big" v-show="!f">x</span>
+      <div class="three wide r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,1)">
+        <div class="ui centered card">
+          <div class="content" v-show="!hard">
+            <span class="header">{{face1 == index ? f.name : '?'}}</span>
+          </div>
+          <div class="image">
+            <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+          </div>
+        </div>
       </div>
     </div>
     <win v-show="winning"></win>
@@ -44,7 +56,7 @@ export default {
     flip: function (i, n) {
       if (n === 0 && !this.w) { this.face0 = i }
       if (n === 1 && !this.w) { this.face1 = i }
-      if (!this.w && this.fishs1[this.face0] === this.fishs2[this.face1]) {
+      if (!this.w && this.fishs1[this.face0].img === this.fishs2[this.face1].img) {
         this.w = true
         setTimeout(this.remove, 1000)
       } else {
@@ -57,13 +69,13 @@ export default {
     isWin: function () {
       var ww = true
       for (var i = 0; i < this.fishs1.length; i++) {
-        if (this.fishs1[i] !== '') { ww = false }
+        if (this.fishs1[i].img !== '') { ww = false }
       }
       return ww
     },
     remove: function () {
-      this.fishs1[this.face0] = ''
-      this.fishs2[this.face1] = ''
+      this.fishs1[this.face0] = {img: '', name: ''}
+      this.fishs2[this.face1] = {img: '', name: ''}
       // this.fishs1.splice(this.face0, 1)
       // this.fishs2.splice(this.face1, 1)
       this.flipback()
@@ -78,8 +90,8 @@ export default {
       this.w = false
     },
     reset: function () {
-      this.fishs1 = this.card_list.slice().sort(function () { return Math.random() - 0.5 }).map(function (o) { return o.img })
-      this.fishs2 = this.card_list.slice().sort(function () { return Math.random() - 0.5 }).map(function (o) { return o.img })
+      this.fishs1 = this.card_list.slice().sort(function () { return Math.random() - 0.5 })
+      this.fishs2 = this.card_list.slice().sort(function () { return Math.random() - 0.5 })
       this.winning = false
     },
     win: function () {
@@ -109,13 +121,17 @@ export default {
   .grid {
     padding: 15px;
   }
-  .column {
+  .card {
     min-height: 20vh;
     margin: 10px;
     border: 3px black solid;
     border-radius: 15px;
     cursor: pointer;
     box-shadow: black 2px 5px 0;
+  }
+  .image {
+    height: 20vh !important;
+    overflow: hidden;
   }
   .column.back img {
     opacity: 0;

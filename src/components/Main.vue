@@ -3,13 +3,34 @@
     <br/>
     <div class="ui equal width grid">
       <div class="column" @click="check()">
-        <img v-for="(c, index) in card_list" :key="index"  v-show = "Math.floor(a) % card_list.length == index" class="a" :src="c.img">
+        <div class="ui card">
+          <div class="content" v-show="!hard">
+            <span class="header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
+          </div>
+          <div class="image">
+            <img class="a" :src="card_list[Math.floor(a) % card_list.length].img">
+          </div>
+        </div>
       </div>
       <div class="column" @click="check()">
-        <img class="a" :src="card_list[b].img">
+        <div class="ui card">
+          <div class="content">
+              <span class="header">{{card_list[b].name}}</span>
+          </div>
+          <div class="image" v-show="!hard">
+            <img class="a" :src="card_list[b].img">
+          </div>
+        </div>
       </div>
-      <div class="column" v-show="hard" @click="check()">
-        <img class="a" :src="card_list[c].img">
+      <div class="column" v-if="hard" @click="check()">
+        <div class="ui card">
+          <div class="content" v-show="!hard">
+            <span class="header">{{card_list[c].name}}</span>
+          </div>
+          <div class="image">
+            <img class="a" :src="card_list[c].img">
+          </div>
+        </div>
       </div>
     </div>
     <h1>
@@ -75,7 +96,7 @@ export default {
       w: 0,
       speed: 0.25,
       hard: false,
-      msg: '看到相同的照片時，請按空白鍵或點擊某張圖'
+      msg: '看到兩者相同時，請按空白鍵或圖'
     }
   },
   methods: {
@@ -138,13 +159,6 @@ a {
   border-radius: 5px;
 }
 
-img.a {
-  max-width: 100%;
-  height: 40vmin;
-  border-radius: 30px;
-  border: 5px gold ridge;
-}
-
 #rainbow {
   width: 5%;
   height: auto;
@@ -166,6 +180,15 @@ img.a {
 #win2 {
   bottom: 0;
   right: 0;
+}
+
+.column {
+  display: inline-flex !important;
+  justify-content: center;
+}
+
+img.a {
+  max-height: 33vh;
 }
 
 </style>
