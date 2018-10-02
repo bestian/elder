@@ -89,14 +89,16 @@ export default {
 }
 
 img {
-    animation: tada 3s infinite;
+  border-radius: 15px !important;
+  animation: tada 3s infinite;
 }
+
 
 /* The animation code */
 @keyframes tada {
-    0%   {transform: rotate(0deg)}
-    50%  {transform: rotate(-15deg)}
-    100% {transform: rotate(0deg)}
+  0%   {transform: rotate(0deg)}
+  50%  {transform: rotate(-15deg)}
+  100% {transform: rotate(0deg)}
 }
 
 </style>
