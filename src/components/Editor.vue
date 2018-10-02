@@ -32,7 +32,7 @@
       <input type ="text" v-model="url" placeholder="新增圖片網址">
       <input type ="text" v-model="name" placeholder="新增名字">
       <img v-show = "url" :src="url"/>
-      <a v-show = "url && name" class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增照片</a>
+      <a v-show = "url && name" class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a>
     </div>
   </div>
 </template>
