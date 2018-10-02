@@ -1,7 +1,24 @@
 <template>
   <div id="app">
-    <div class="ui fixed top labeled icon menu">
-      <router-link class = 'item' to='/' exact=''>
+    <div class="ui fixed top mini menu thin-only">
+      <router-link class = 'item ' to='/' exact=''>
+        配對
+      </router-link>
+      <router-link class = 'item' to='/fishing' exact=''>
+        釣魚
+      </router-link>
+      <router-link class = 'item' to='/name' exact=''>
+        認人
+      </router-link>
+      <router-link class = 'item' to='/edit' exact=''>
+        編輯
+      </router-link>
+      <a class="right item" href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
+        <i class="github icon" />
+      </a>
+    </div>
+    <div class="ui fixed top labeled icon menu fat-only">
+      <router-link class = 'item ' to='/' exact=''>
         <i class="balance scale icon" />配對遊戲
       </router-link>
       <router-link class = 'item' to='/fishing' exact=''>
@@ -71,4 +88,20 @@ body, html {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+@media screen and (max-width: 600px) {
+  .fat-only {
+    display: none !important;
+  }
+  .button {
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .thin-only {
+    display: none !important;
+  }
+}
+
 </style>

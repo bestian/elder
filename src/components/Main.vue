@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <br/>
+    <br class="fat-only" />
     <div class="ui equal width grid">
       <div class="column" @click="check()">
         <div class="ui card">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <h1>
-      <span v-show="!w">{{msg}}
+      <span v-show="!w">左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
         <br/>
         <br/>
         <label>速度：</label>
@@ -40,6 +40,7 @@
           <input type="radio" id="three" value="1" v-model="speed">
           <label for="three">快</label>
         </div>
+        <br class="thin-only" />
         <label>難度：</label>
         <div class="ui slider checkbox">
           <input type="checkbox" id="checkbox" v-model="hard">
@@ -68,8 +69,7 @@ export default {
       c: 0,
       w: 0,
       speed: 0.25,
-      hard: false,
-      msg: '左右出現同一人時，請按空白鍵或圖'
+      hard: false
     }
   },
   methods: {

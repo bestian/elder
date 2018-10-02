@@ -1,29 +1,33 @@
 <template>
   <div>
     <div class="intro">
-      <br/>
-      <h2>點擊上下排卡片，找出相同的，對的那組圖會消失，直到清空</h2>
+      <br class="fat-only"/>
+      <h2>點擊上下排卡片，<br class="thin-only"/>找出相同的，<br class="thin-only"/>對的那組圖會消失，<br class="thin-only"/>直到清空</h2>
     </div>
     <div class="ui grid">
-      <div class="three wide column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,0)">
-        <div class="ui centered card">
-          <div class="content">
-            <span class="header">{{face0 == index ? f.name : '?'}}</span>
-          </div>
-          <div class="image">
-            <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+      <div class="doubling six column row">
+        <div class="column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,0)">
+          <div class="ui centered card">
+            <div class="content">
+              <span class="header">{{face0 == index ? f.name : '?'}}</span>
+            </div>
+            <div class="image">
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="ui grid">
-      <div class="three wide r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,1)">
-        <div class="ui centered card">
-          <div class="content">
-            <span class="header">{{face1 == index ? f.name : '?'}}</span>
-          </div>
-          <div class="image">
-            <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+      <div class="doubling six column row">
+        <div class="r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']" @click = "flip(index,1)">
+          <div class="ui centered card">
+            <div class="content">
+              <span class="header">{{face1 == index ? f.name : '?'}}</span>
+            </div>
+            <div class="image">
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
+            </div>
           </div>
         </div>
       </div>

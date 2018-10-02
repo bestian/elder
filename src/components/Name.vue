@@ -1,6 +1,6 @@
 <template>
   <div>
-    <br/>
+    <br class="fat-only" />
     <h1 class="lead" v-show="hard">誰不在裡面？</h1>
     <div class="ui centered card" v-show="!hard">
       <div class="content">
@@ -10,7 +10,7 @@
         <img :src="card_list[a].img"/>
       </div>
     </div>
-    <div class="ui six cards" v-show="hard">
+    <div class="ui six doubling cards" v-show="hard">
       <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="card_list[a].name != card_list[index].name ">
         <div class="image">
           <img :src="c.img"/>
