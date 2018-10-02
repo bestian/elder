@@ -3,7 +3,9 @@
     <br class="fat-only">
     <div class="ui segment container">
       <p>
-        <img src = "../assets/aged.jpeg"/>
+        <a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
+          <img src = "../assets/aged.jpeg"/>
+        </a>
         失智症也稱癡呆症，其英文Dementia一字來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
       </p>
       <p class="fat-only">失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
@@ -59,6 +61,11 @@ p {
 p img {
   float: left;
   margin: 1em;
+  transition: all 0.5s ease-in;
+}
+
+p img:hover {
+  opacity: 0.2;
 }
 
 </style>
