@@ -1,54 +1,31 @@
 <template>
   <div class="hello">
-    <br class="fat-only" />
-    <div class="ui equal width grid">
-      <div class="column" @click="check()">
-        <div class="ui card">
-          <div class="content" v-show="!hard">
-            <span class="big header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
-          </div>
-          <div class="image">
-            <img class="a" :src="card_list[Math.floor(a) % card_list.length].img">
-          </div>
-        </div>
-      </div>
-      <div class="column" @click="check()">
-        <div class="ui card">
-          <div class="content">
-              <span class="big header" v-bind:class="{ only: hard}">{{card_list[b].name}}</span>
-          </div>
-          <div class="image" v-show="!hard">
-            <img class="a" :src="card_list[b].img">
-          </div>
-        </div>
+    <br class="fat-only">
+    <div class="ui segment container">
+      <p>
+        <img src = "../assets/aged.jpeg"/>
+        失智症也稱癡呆症，其英文Dementia一字來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
+      </p>
+      <p class="fat-only">失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
+      </p>
+      <p class="fat-only">
+        對於失智症患者與照護者而言，有些方法可以改善他們的生活品質，例如認知行為療法與玩遊戲可能有所助益。
+      </p>
+      <p>
+        本站提供3種認照片遊戲，您可以使用自家的照片，讓長輩來玩。
+      </p>
+      <div class="ui three bottom attached massive buttons">
+          <a class="ui button" href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
+            <i class = "wikipedia w icon"/><br class="thin-only" />認識失智症
+          </a>
+          <router-link class = "ui green button" to='/pair' exact=''>
+            <i class="balance scale icon" /><br class="thin-only" />玩遊戲
+          </router-link>
+          <router-link class = "ui blue button" to='/edit' exact=''>
+            <i class="cogs icon" /><br class="thin-only" />編輯照片
+          </router-link>
       </div>
     </div>
-    <h1>
-      <span v-show="!w">左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
-        <br/>
-        <br/>
-        <label>速度：</label>
-        <div class="ui radio checkbox">
-          <input type="radio" id="one" value="0.25" v-model="speed">
-          <label for="one">慢</label>
-        </div>
-        <div class="ui radio checkbox">
-          <input type="radio" id="two" value="0.5" v-model="speed">
-          <label for="two">中</label>
-        </div>
-        <div class="ui radio checkbox">
-          <input type="radio" id="three" value="1" v-model="speed">
-          <label for="three">快</label>
-        </div>
-        <br class="thin-only" />
-        <label>難度：</label>
-        <div class="ui slider checkbox">
-          <input type="checkbox" id="checkbox" v-model="hard">
-          <label for="checkbox">較難</label>
-        </div>
-      </span>
-    </h1>
-    <win v-show="w" ></win>
   </div>
 </template>
 
@@ -64,113 +41,24 @@ export default {
   },
   data () {
     return {
-      a: 0,
-      b: 0,
-      c: 0,
-      w: 0,
-      speed: 0.25,
-      hard: false
     }
   },
   methods: {
-    go: function () {
-      if (!this.w) {
-        this.a += Number(this.speed)
-      }
-    },
-    check: function () {
-      var ma = Math.floor(this.a) % this.card_list.length
-      if (this.card_list[ma].name === this.card_list[this.b].name) {
-        this.win()
-      }
-    },
-    reset: function () {
-      this.b = Math.floor(Math.random() * this.card_list.length)
-      this.c = Math.floor(Math.random() * this.card_list.length)
-      this.w = 0
-    },
-    win: function () {
-      this.w++
-      setTimeout(this.reset, 3000)
-    }
-  },
-  mounted () {
-    setInterval(this.go, 500)
-    this.reset()
-    window.addEventListener('keyup', this.check)
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-}
-a {
-  color: #42b983;
-  cursor: pointer;
-  padding: 3px;
-  background-color: #ccc;
-  border-radius: 5px;
+
+p {
+  font-size: 1.6em;
+  text-align: left;
 }
 
-#rainbow {
-  width: 5%;
-  height: auto;
-}
-
-#win1, #win2 {
-  z-index: 99999;
-  position: fixed;
-  width: 300px;
-  border-radius: 30px;
-  border: 5px gold ridge;
-}
-
-#win1 {
-  top: 0;
-  left: 0;
-}
-
-#win2 {
-  bottom: 0;
-  right: 0;
-}
-
-.column {
-  display: inline-flex !important;
-  justify-content: center;
-}
-
-img.a {
-  max-height: 33vh;
-}
-
-.big.header {
-  font-size: 4em !important;
-}
-
-.only {
-  margin-top: 20% !important;
-}
-
-img {
-    animation: tada 3s infinite;
-}
-
-/* The animation code */
-@keyframes tada {
-    0%   {transform: rotate(0deg)}
-    50%  {transform: rotate(-5deg)}
-    100% {transform: rotate(0deg)}
+p img {
+  float: left;
+  margin: 1em;
 }
 
 </style>

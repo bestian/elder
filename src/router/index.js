@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/components/Main'
+import Pair from '@/components/Pair'
 import Editor from '@/components/Editor'
 import Fishing from '@/components/Fishing'
 import Name from '@/components/Name'
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/pair',
+      name: 'Pair',
+      component: Pair
     },
     {
       path: '/edit',

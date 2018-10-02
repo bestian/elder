@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="ui fixed top mini menu thin-only">
-      <router-link class = 'item ' to='/' exact=''>
+      <router-link class = 'item ' to='/pair' exact=''>
         配對
       </router-link>
       <router-link class = 'item' to='/fishing' exact=''>
@@ -18,7 +18,7 @@
       </a>
     </div>
     <div class="ui fixed top labeled icon menu fat-only">
-      <router-link class = 'item ' to='/' exact=''>
+      <router-link class = 'item ' to='/pair' exact=''>
         <i class="balance scale icon" />配對遊戲
       </router-link>
       <router-link class = 'item' to='/fishing' exact=''>
