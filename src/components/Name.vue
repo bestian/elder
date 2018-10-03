@@ -5,6 +5,15 @@
     <div class="ui centered card" v-show="!hard">
       <div class="content">
         <span class="big header">這是誰啊？</span>
+          <div class="ui slider checkbox">
+            <input type="checkbox" id="checkbox" v-model="record">
+            <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
+          </div>
+          <div v-show = "record" class="big header">
+            <i class="smile icon"/>:{{good}}
+            <br/>
+            <i class="thumbs down icon"/>:{{bad}}
+          </div>
       </div>
       <div class="image">
         <img :src="card_list[a].img"/>
@@ -72,6 +81,9 @@ export default {
   data () {
     return {
       winning: false,
+      record: false,
+      good: 0,
+      bad: 0,
       a: 0,
       t: 0.25,
       b: -1,
@@ -87,6 +99,8 @@ export default {
       if (this.isWin()) {
         this.win()
         setTimeout(this.reset, 3000)
+      } else {
+        this.bad++
       }
     },
     reset: function () {
@@ -96,10 +110,12 @@ export default {
     win: function () {
       this.winning = true
       this.t = 0.25
+      this.good++
     },
     go: function () {
       if (!this.winning) {
         if (Math.floor(this.t) < Math.floor(this.t + Number(this.speed))) {
+          this.bad++
           this.reset()
         }
         this.t += Number(this.speed)
@@ -126,6 +142,11 @@ export default {
 
 .big.header {
   font-size: 2em !important;
+}
+
+.card {
+  height: 50vh !important;
+  overflow: hidden;
 }
 
 img {
