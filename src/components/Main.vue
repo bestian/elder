@@ -6,15 +6,18 @@
         <a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
           <img src = "../assets/aged1.jpeg"/>
         </a>
-        失智症也稱癡呆症，其英文Dementia一字來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
+        失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
       </p>
       <p class="fat-only">失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
       </p>
       <p class="fat-only">
-        對於失智症患者與照護者而言，有些方法可以改善他們的生活品質，例如認知行為療法與玩遊戲可能有所助益。
+        對於記憶自然退化之長者、失智症患者及其照護者而言，有些方法可以改善生活品質，例如認知行為療法可能有所助益。而玩遊戲則是一種方便法門。
       </p>
       <p>
-        本站提供3種認照片遊戲，您可以使用自家的照片，讓長輩來玩。
+        本站提供3種認照片遊戲，讓您輸入自己家族成員的照片，幫助長輩記得大家。
+      </p>
+      <p>
+        您可以按<router-link to='/edit' exact=''>「編輯照片」</router-link>按鈕，輸入自家照片，取代範例圖片。
       </p>
       <div class="ui three bottom attached massive buttons">
           <a class="ui button" href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
@@ -24,7 +27,7 @@
             <i class="balance scale icon" /><br class="thin-only" />玩遊戲
           </router-link>
           <router-link class = "ui blue button" to='/edit' exact=''>
-            <i class="cogs icon" /><br class="thin-only" />編輯照片
+            <i class="cogs icon" /><br class="thin-only" />輸入照片
           </router-link>
       </div>
     </div>
