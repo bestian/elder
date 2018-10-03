@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="ui fixed top mini menu thin-only">
+    <div class="ui fixed top mini menu thin-only no-print">
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />
       </router-link>
@@ -20,7 +20,7 @@
         <i class="github icon" />
       </a>
     </div>
-    <div class="ui fixed top labeled icon menu fat-only">
+    <div class="ui fixed top labeled icon menu fat-only no-print">
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />回首頁
       </router-link>

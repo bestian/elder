@@ -6,7 +6,7 @@
       <h1 class="ui header">如何新增照片：</h1>
       <div class="ui large ordered divided list">
         <div class="item"><input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*"></div>
-        <div class="item">在「輸入名字」欄位上輸入人名<br/><input type ="text" v-model="name" placeholder="輸入名字"></div>
+        <div class="item"><input type ="text" v-model="name" placeholder="輸入名字"></div>
         <div class="item">再按「新增」即可<a class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
       </div>
       <div class="ui action input fat-only">
@@ -14,7 +14,7 @@
     </div><!-- Segment END -->
     <br/>
     <div class="ui four doubling cards">
-      <div class="ui card" v-show="url || name">
+      <div class="ui card no-print" v-show="url || name">
         <div class="content">
           <div class = "image">
             <img :src="url"/>
@@ -31,8 +31,13 @@
           </a>
         </div>
         <div class="extra content">
-          <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon" />{{c.name}}</a>
+          <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon no-print" />{{c.name}}</a>
         </div>
+      </div>
+    </div>
+    <div class="ui labeled icon menu fat-only no-print">
+      <div class="right item">
+        <a onclick="window.print()"><i class="print icon" />友善列印</a>
       </div>
     </div>
   </div>
@@ -72,9 +77,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   img {
-    height: 15vmin;
+    height: 20vmin;
     max-width: 100%;
     border: 3px gold ridge;
+    border-radius: 15px;
   }
   a {
     cursor: pointer;
