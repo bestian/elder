@@ -70,11 +70,11 @@ export default {
     },
     setLocal: function () {
       this.$localStorage.set('card_list', JSON.stringify(this.card_list))
-      console.log(this.$localStorage.get('card_list'))
+      // console.log(this.$localStorage.get('card_list'))
     }
   },
   mounted () {
-    console.log(this.$localStorage.get('card_list'))
+    // console.log(this.$localStorage.get('card_list'))
     if (this.$localStorage.get('card_list')) {
       this.getLocal()
     }
