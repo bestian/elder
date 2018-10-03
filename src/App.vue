@@ -7,11 +7,11 @@
       <router-link class = 'item ' to='/pair' exact=''>
         配對
       </router-link>
-      <router-link class = 'item' to='/fishing' exact=''>
-        釣魚
-      </router-link>
       <router-link class = 'item' to='/name' exact=''>
         認人
+      </router-link>
+      <router-link class = 'item' to='/fishing' exact=''>
+        釣魚
       </router-link>
       <router-link class = 'item' to='/edit' exact=''>
         編輯
@@ -27,11 +27,11 @@
       <router-link class = 'item ' to='/pair' exact=''>
         <i class="balance scale icon" />配對遊戲
       </router-link>
-      <router-link class = 'item' to='/fishing' exact=''>
-        <i class="clone icon" />釣魚遊戲
-      </router-link>
       <router-link class = 'item' to='/name' exact=''>
         <i class="address book icon" />認人遊戲
+      </router-link>
+      <router-link class = 'item' to='/fishing' exact=''>
+        <i class="clone icon" />釣魚遊戲
       </router-link>
       <router-link class = 'item' to='/edit' exact=''>
         <i class="cogs icon" />編輯照片
@@ -95,8 +95,8 @@ body, html {
   margin-top: 60px;
 }
 
-a, button {
-  cursor: pointer;
+a, button, .clickable {
+  cursor: pointer !important;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,6 +1,16 @@
 <template>
   <div class="hello">
     <br class="fat-only" />
+    <div class="ui slider checkbox">
+      <input type="checkbox" id="checkbox" v-model="record">
+      <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
+      <span v-show = "record">
+        <i class="smile icon"/>:{{good}}
+        <i class="thumbs down icon"/>:{{bad}}
+      </span>
+    </div>
+    <h1>遊戲開始！<br class="thin-only"/>左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
+    </h1>
     <div class="ui equal width grid">
       <div class="column" @click="check()">
         <div class="ui card">
@@ -23,39 +33,38 @@
         </div>
       </div>
     </div>
-    <h1>
-      <span v-show="!w">左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
-        <br/>
-        <div class="ui form">
-          <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="one" value="0.25" v-model="speed">
-                <label><i class = "wheelchair icon" />慢</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="two" value="0.5" v-model="speed">
-                <label><i class = "blind icon" />中</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="three" value="1" v-model="speed">
-                <label><i class = "paper plane icon" />快</label>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui slider checkbox">
-              <input type="checkbox" id="checkbox" v-model="hard">
-              <label for="checkbox"><i class = "eye icon" />較難</label>
-            </div>
+    <br/>
+    <div class="ui form">
+      <div class="grouped fields">
+        <div class="ui header">
+          速度調整
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="one" value="0.25" v-model="speed">
+            <label class = "clickable" @click="speed=0.25"><i class = "wheelchair icon" />慢速</label>
           </div>
         </div>
-      </span>
-    </h1>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="two" value="0.5" v-model="speed">
+            <label class = "clickable" @click="speed=0.5"><i class = "blind icon" />中速</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="three" value="1" v-model="speed">
+            <label class = "clickable" @click="speed=1"><i class = "paper plane icon" />快速</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui slider checkbox">
+          <input type="checkbox" id="checkbox" v-model="hard">
+          <label for="checkbox"><i class = "eye icon" />進階：字配圖</label>
+        </div>
+      </div>
+    </div>
     <win v-show="w" ></win>
   </div>
 </template>
@@ -77,7 +86,10 @@ export default {
       c: 0,
       w: 0,
       speed: 0.25,
-      hard: false
+      hard: false,
+      record: false,
+      good: 0,
+      bad: 0
     }
   },
   methods: {
@@ -87,9 +99,12 @@ export default {
       }
     },
     check: function () {
+      // console.log('a')
       var ma = Math.floor(this.a) % this.card_list.length
       if (this.card_list[ma].name === this.card_list[this.b].name) {
         this.win()
+      } else {
+        this.bad++
       }
     },
     reset: function () {
@@ -99,13 +114,14 @@ export default {
     },
     win: function () {
       this.w++
+      this.good++
       setTimeout(this.reset, 3000)
     }
   },
   mounted () {
     setInterval(this.go, 500)
     this.reset()
-    window.addEventListener('keyup', this.check)
+    window.addEventListener('keydown', this.check)
   }
 }
 </script>

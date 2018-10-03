@@ -2,18 +2,18 @@
   <div>
     <br class="fat-only" />
     <h1 class="lead" v-show="hard">誰不在裡面？</h1>
+    <div class="ui slider checkbox">
+      <input type="checkbox" id="checkbox" v-model="record">
+      <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
+    </div>
+    <div v-show = "record" class="big header">
+      <i class="smile icon"/>:{{good}}
+      <br/>
+      <i class="thumbs down icon"/>:{{bad}}
+    </div>
     <div class="ui centered card" v-show="!hard">
       <div class="content">
         <span class="big header">這是誰啊？</span>
-          <div class="ui slider checkbox">
-            <input type="checkbox" id="checkbox" v-model="record">
-            <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
-          </div>
-          <div v-show = "record" class="big header">
-            <i class="smile icon"/>:{{good}}
-            <br/>
-            <i class="thumbs down icon"/>:{{bad}}
-          </div>
       </div>
       <div class="image">
         <img :src="card_list[a].img"/>
@@ -37,33 +37,36 @@
     </div>
     <br/><br/>
     <div class="ui form">
-          <div class="grouped fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="one" value="0.25" v-model="speed">
-                <label><i class = "wheelchair icon" />慢</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="two" value="0.5" v-model="speed">
-                <label><i class = "blind icon" />中</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" id="three" value="1" v-model="speed">
-                <label><i class = "paper plane icon" />快</label>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <div class="ui slider checkbox">
-              <input type="checkbox" id="checkbox" v-model="hard">
-              <label for="checkbox"><i class = "eye icon" />較難</label>
-            </div>
+      <div class="grouped fields">
+        <div class="ui header">
+          速度調整
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="one" value="0.25" v-model="speed">
+            <label class = "clickable" @click="speed=0.25"><i class = "wheelchair icon" />慢速</label>
           </div>
         </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="two" value="0.5" v-model="speed">
+            <label class = "clickable" @click="speed=0.5"><i class = "blind icon" />中速</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" id="three" value="1" v-model="speed">
+            <label class = "clickable" @click="speed=1"><i class = "paper plane icon" />快速</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui slider checkbox">
+            <input type="checkbox" id="checkbox" v-model="hard">
+            <label for="checkbox"><i class = "eye icon" />進階：找消失的人</label>
+          </div>
+        </div>
+      </div>
+    </div>
     <win v-show="winning"></win>
   </div>
 </template>
