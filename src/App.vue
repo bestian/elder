@@ -89,6 +89,10 @@ body, html {
   margin-top: 60px;
 }
 
+a, button {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .fat-only {
     display: none !important;

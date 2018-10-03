@@ -154,10 +154,6 @@ export default {
   .column.null {
     visibility: hidden !important;
   }
-  a {
-    cursor: pointer;
-    font-size: 2em;
-  }
   .ui.bottom.attached {
     top: -5px;
   }

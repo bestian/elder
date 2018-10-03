@@ -1,5 +1,6 @@
 # elder
 
+> 本站提供3種認照片遊戲，您可以使用自家的照片，讓長輩來玩。
 > A Vue.js project
 
 ## Build Setup

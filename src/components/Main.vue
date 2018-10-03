@@ -4,7 +4,7 @@
     <div class="ui segment container">
       <p>
         <a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
-          <img src = "../assets/aged.jpeg"/>
+          <img src = "../assets/aged1.jpeg"/>
         </a>
         失智症也稱癡呆症，其英文Dementia一字來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
       </p>
@@ -33,14 +33,8 @@
 
 <script>
 
-import win from './win'
-
 export default {
   name: 'HelloWorld',
-  props: ['card_list'],
-  components: {
-    win
-  },
   data () {
     return {
     }
@@ -54,7 +48,7 @@ export default {
 <style scoped>
 
 p {
-  font-size: 1.6em;
+  font-size: 1.4em;
   text-align: left;
 }
 

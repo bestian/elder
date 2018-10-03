@@ -26,25 +26,33 @@
     <h1>
       <span v-show="!w">左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
         <br/>
-        <br/>
-        <label>速度：</label>
-        <div class="ui radio checkbox">
-          <input type="radio" id="one" value="0.25" v-model="speed">
-          <label for="one">慢</label>
-        </div>
-        <div class="ui radio checkbox">
-          <input type="radio" id="two" value="0.5" v-model="speed">
-          <label for="two">中</label>
-        </div>
-        <div class="ui radio checkbox">
-          <input type="radio" id="three" value="1" v-model="speed">
-          <label for="three">快</label>
-        </div>
-        <br class="thin-only" />
-        <label>難度：</label>
-        <div class="ui slider checkbox">
-          <input type="checkbox" id="checkbox" v-model="hard">
-          <label for="checkbox">較難</label>
+        <div class="ui form">
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="one" value="0.25" v-model="speed">
+                <label><i class = "wheelchair icon" />慢</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="two" value="0.5" v-model="speed">
+                <label><i class = "blind icon" />中</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="three" value="1" v-model="speed">
+                <label><i class = "paper plane icon" />快</label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui slider checkbox">
+              <input type="checkbox" id="checkbox" v-model="hard">
+              <label for="checkbox"><i class = "eye icon" />較難</label>
+            </div>
+          </div>
         </div>
       </span>
     </h1>
@@ -150,6 +158,11 @@ a {
   justify-content: center;
 }
 
+.ui.card {
+  height: 50vh;
+  overflow: hidden;
+}
+
 img.a {
   max-height: 33vh;
 }
@@ -164,6 +177,11 @@ img.a {
 
 img {
     animation: tada 3s infinite;
+    border-radius: 15px !important;
+}
+
+.ui.form label {
+  font-size: 2em;
 }
 
 /* The animation code */

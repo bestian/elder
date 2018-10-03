@@ -17,16 +17,44 @@
         </div>
       </div>
     </div>
-    <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
-    </div>
-    <br/><br/>
-    <div>
-      <label>難度：</label>
-      <div class="ui slider checkbox">
-        <input type="checkbox" id="checkbox" v-model="hard">
-        <label for="checkbox">較難</label>
+    <br/>
+    <div class="ui massive buttons fat-only">
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
       </div>
     </div>
+    <div class="ui massive vertical buttons thin-only">
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
+      </div>
+    </div>
+    <br/><br/>
+    <div class="ui form">
+          <div class="grouped fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="one" value="0.25" v-model="speed">
+                <label><i class = "wheelchair icon" />慢</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="two" value="0.5" v-model="speed">
+                <label><i class = "blind icon" />中</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" id="three" value="1" v-model="speed">
+                <label><i class = "paper plane icon" />快</label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui slider checkbox">
+              <input type="checkbox" id="checkbox" v-model="hard">
+              <label for="checkbox"><i class = "eye icon" />較難</label>
+            </div>
+          </div>
+        </div>
     <win v-show="winning"></win>
   </div>
 </template>
@@ -45,8 +73,10 @@ export default {
     return {
       winning: false,
       a: 0,
+      t: 0.25,
       b: -1,
-      hard: false
+      hard: false,
+      speed: 0.25
     }
   },
   methods: {
@@ -65,6 +95,15 @@ export default {
     },
     win: function () {
       this.winning = true
+      this.t = 0.25
+    },
+    go: function () {
+      if (!this.winning) {
+        if (Math.floor(this.t) < Math.floor(this.t + Number(this.speed))) {
+          this.reset()
+        }
+        this.t += Number(this.speed)
+      }
     },
     noDup: function (idx) {
       for (var i = 0; i < idx; i++) {
@@ -77,6 +116,7 @@ export default {
   },
   mounted () {
     this.reset()
+    setInterval(this.go, 1000)
   }
 }
 </script>
@@ -90,9 +130,13 @@ export default {
 
 img {
   border-radius: 15px !important;
+  max-height: 50vh;
   animation: tada 3s infinite;
 }
 
+.ui.form label {
+  font-size: 2em;
+}
 
 /* The animation code */
 @keyframes tada {
