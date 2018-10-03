@@ -95,6 +95,14 @@ body, html {
   margin-top: 60px;
 }
 
+
+@media print {
+  .no-print {
+    visibility: hidden !important;
+    display: none !important;
+  }
+}
+
 a, button, .clickable {
   cursor: pointer !important;
 }

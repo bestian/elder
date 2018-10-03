@@ -2,7 +2,7 @@
   <div>
     <br class="fat-only"/>
 
-    <div class="ui segment container">
+    <div class="ui segment container no-print">
       <h1 class="ui header">如何新增照片：</h1>
       <div class="ui large ordered divided list">
         <div class="item"><input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*"></div>
