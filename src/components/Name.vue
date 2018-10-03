@@ -43,6 +43,12 @@
         </div>
         <div class="field">
           <div class="ui radio checkbox">
+            <input type="radio" id="one" value="0" v-model="speed">
+            <label class = "clickable" @click="speed=0"><i class = "clock icon" />停止</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
             <input type="radio" id="one" value="0.25" v-model="speed">
             <label class = "clickable" @click="speed=0.25"><i class = "wheelchair icon" />慢速</label>
           </div>
@@ -62,7 +68,7 @@
         <div class="field">
           <div class="ui slider checkbox">
             <input type="checkbox" id="checkbox" v-model="hard">
-            <label for="checkbox"><i class = "eye icon" />進階：找消失的人</label>
+            <label for="checkbox" class = "clickable" @click="hard=true"><i class = "eye icon" />進階：找消失的人</label>
           </div>
         </div>
       </div>
@@ -91,7 +97,7 @@ export default {
       t: 0.25,
       b: -1,
       hard: false,
-      speed: 0.25
+      speed: 0
     }
   },
   methods: {

@@ -61,7 +61,7 @@
       <div class="field">
         <div class="ui slider checkbox">
           <input type="checkbox" id="checkbox" v-model="hard">
-          <label for="checkbox"><i class = "eye icon" />進階：字配圖</label>
+          <label class = "clickable" for="checkbox" @click="hard=true"><i class = "eye icon" />進階：字配圖</label>
         </div>
       </div>
     </div>
