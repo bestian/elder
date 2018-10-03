@@ -5,11 +5,7 @@
     <div class="ui segment container">
       <h1 class="ui header">如何新增照片：</h1>
       <div class="ui large ordered divided list">
-        <div class="item">請將您自選的照片上傳至<a href = "https://www.imgur.com" target="_blank">imgur網站</a></div>
-        <div class="item">在<a href = "https://www.imgur.com" target="_blank">imgur網站</a>上取得該圖片網址</div>
-        <div class="item">將該圖片網址貼上「新增圖片網址」欄位<br/>
-        <input type ="text" v-model="url" placeholder="新增圖片網址"></div>
-        <div class="item">您也可以存取電腦中的圖檔<br/><input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*"></div>
+        <div class="item"><input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*"></div>
         <div class="item">在「輸入名字」欄位上輸入人名<br/><input type ="text" v-model="name" placeholder="輸入名字"></div>
         <div class="item">再按「新增」即可<a class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
       </div>
