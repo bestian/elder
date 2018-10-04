@@ -95,7 +95,6 @@ body, html {
   margin-top: 60px;
 }
 
-
 @media print {
   .no-print {
     visibility: hidden !important;
