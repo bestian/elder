@@ -2,24 +2,30 @@
   <div class="hello">
     <br class="fat-only">
     <div class="ui segment container">
-      <p>
-        本站提供3種認照片遊戲，讓您輸入自己家族成員的照片，幫助長輩記得大家。
-      </p>
-      <h1>
-        配對遊戲：反應力
-      </h1>
-      <p>...
-      </p>
-      <h1>
-        認人遊戲：辨識力
-      </h1>
-      <p>...
-      </p>
-      <h1>
-        釣魚遊戲：記憶力
-      </h1>
-      <p>...
-      </p>
+      <router-link class = 'item ' to='/pair' exact=''>
+        <h1>
+          1. 配對遊戲：反應力
+        </h1>
+        <p>
+          <img src="../assets/認照片遊戲01.jpg" />
+        </p>
+      </router-link>
+      <router-link class = 'item ' to='/name' exact=''>
+        <h1>
+          2. 認人遊戲：辨識力
+        </h1>
+        <p>
+            <img src="../assets/認照片遊戲02.jpg" />
+        </p>
+      </router-link>
+      <router-link class = 'item ' to='/fishing' exact=''>
+        <h1>
+          3. 釣魚遊戲：記憶力
+        </h1>
+        <p>
+            <img src="../assets/認照片遊戲03.jpg" />
+        </p>
+      </router-link>
     </div>
   </div>
 </template>
@@ -27,7 +33,7 @@
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'Intro',
   data () {
     return {
     }
@@ -42,17 +48,17 @@ export default {
 
 p {
   font-size: 1.4em;
-  text-align: left;
+  text-align: center;
 }
 
 p img {
-  float: left;
+  max-width: 50vw;
   margin: 1em;
   transition: all 0.5s ease-in;
 }
 
 p img:hover {
-  opacity: 0.2;
+  transform: scale(1.2);
 }
 
 </style>

@@ -23,7 +23,7 @@
           <a class="ui button" href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
             <i class = "wikipedia w icon"/><br class="thin-only" />認識失智症
           </a>
-          <router-link class = "ui green button" to='/pair' exact=''>
+          <router-link class = "ui green button" to='/intro' exact=''>
             <i class="balance scale icon" /><br class="thin-only" />玩遊戲
           </router-link>
           <router-link class = "ui blue button" to='/edit' exact=''>
@@ -37,7 +37,7 @@
 <script>
 
 export default {
-  name: 'HelloWorld',
+  name: 'Main',
   data () {
     return {
     }
