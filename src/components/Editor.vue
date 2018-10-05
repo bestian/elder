@@ -5,9 +5,15 @@
     <div class="ui segment container no-print">
       <h1 class="ui header">如何新增照片：</h1>
       <div class="ui large ordered divided list">
-        <div class="item"><input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*"></div>
+        <div class="item">
+          <div class="upload-btn-wrapper">
+            <button class="btn">選擇檔案</button>
+            <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*">
+            <img v-show="url" :src="url" />
+          </div>
+        </div>
         <div class="item"><input type ="text" v-model="name" placeholder="輸入名字"></div>
-        <div class="item">再按「新增」即可<a class = "ui green button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
+        <div class="item">再按「新增」即可 <a class = "ui green huge button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
       </div>
       <div class="ui action input fat-only">
       </div>
@@ -97,5 +103,29 @@ export default {
   }
   .list .item {
     font-size: 1.6em;
+  }
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
   }
 </style>

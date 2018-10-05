@@ -52,7 +52,7 @@ p {
 }
 
 p img {
-  max-width: 50vw;
+  max-width: 33vmin;
   margin: 1em;
   transition: all 0.5s ease-in;
 }
