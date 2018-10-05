@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Tap from 'vtap'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import Intro from '@/components/Intro'
@@ -8,6 +9,7 @@ import Fishing from '@/components/Fishing'
 import Name from '@/components/Name'
 
 Vue.use(Router)
+Vue.use(Tap)
 
 export default new Router({
   routes: [

@@ -12,7 +12,7 @@
     <h1>遊戲開始！<br class="thin-only"/>左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
     </h1>
     <div class="ui equal width grid">
-      <div class="column" @click="check()">
+      <div class="column" v-tap @click="check()">
         <div class="ui card">
           <div class="content" v-show="!hard">
             <span class="big header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="column" @click="check()">
+      <div class="column" v-tap @click="check()">
         <div class="ui card">
           <div class="content">
               <span class="big header" v-bind:class="{ only: hard}">{{card_list[b].name}}</span>

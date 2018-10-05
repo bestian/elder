@@ -28,11 +28,11 @@
     </div>
     <br/>
     <div class="ui massive buttons fat-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" v-tap @click = "b = index; check()">{{ c.name }}
       </div>
     </div>
     <div class="ui massive vertical buttons thin-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" @click = "b = index; check()">{{ c.name }}
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" v-tap @click = "b = index; check()">{{ c.name }}
       </div>
     </div>
     <br/><br/>
