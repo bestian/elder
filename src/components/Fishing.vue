@@ -145,11 +145,8 @@ export default {
   .column.back img {
     visibility: hidden;
   }
-  .column.back {
-    background-color: gray;
-  }
-  .column.back.r {
-    background-color: #faa;
+  .column.back.r .card {
+    background-color: #fcc;
   }
   .column.null {
     visibility: hidden !important;
