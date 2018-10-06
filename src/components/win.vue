@@ -3,7 +3,7 @@
     <div class = "page">
       <div class="ui image card">
         <img src="../assets/th.jpg" />
-        <h1>讚!<i class="thumbs up icon" /></h1>
+        <h1>讚!</h1>
       </div>
     </div>
   </div>

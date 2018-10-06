@@ -119,6 +119,7 @@ export default {
   img {
     height: 15vmin;
     max-width: 100%;
+    border-radius: 30px !important;
   }
   img.gold {
     border: 5px gold ridge;
@@ -127,16 +128,18 @@ export default {
     padding: 15px;
   }
   .card {
+    background-color: #c9ffc9;
     min-height: 20vh;
     margin: 10px;
-    border: 3px black solid;
+    border: 2px black solid;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: black 2px 5px 0;
+    box-shadow: gray 0px 2px 3px 3px;
     transition: all 0.5s ease;
   }
   .card:hover {
-    border: 3px red solid;
+    background-color: #ffc9c9;
+    border: 2px red solid;
     box-shadow: red 2px 5px 0;
   }
   .image {
@@ -147,7 +150,7 @@ export default {
     visibility: hidden;
   }
   .column.back.r .card {
-    background-color: #fcc;
+    background-color: #c9c9ff;
   }
   .column.null {
     visibility: hidden !important;

@@ -3,11 +3,12 @@
     <br class="fat-only" />
     <div class="ui slider checkbox">
       <input type="checkbox" id="checkbox" v-model="record">
-      <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
-      <span v-show = "record">
-        <i class="smile icon"/>:{{good}}
-        <i class="thumbs down icon"/>:{{bad}}
-      </span>
+      <label for="checkbox"><i class = "eye icon" />顯示紀錄
+        <span v-show = "record">
+          <i class="smile icon"/>:{{good}}
+          <i class="thumbs down icon"/>:{{bad}}
+        </span>
+      </label>
     </div>
     <h1>遊戲開始！<br class="thin-only"/>左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
     </h1>
@@ -183,6 +184,11 @@ a {
   overflow: hidden;
 }
 
+.content {
+  padding: 2em !important;
+  display: inline-table;
+}
+
 img.a {
   max-height: 33vh;
 }
@@ -201,7 +207,7 @@ img {
 }
 
 .ui.form label {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 /* The animation code */

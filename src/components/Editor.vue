@@ -7,7 +7,7 @@
       <div class="ui large ordered divided list">
         <div class="item">
           <div class="upload-btn-wrapper">
-            <button class="btn">選擇檔案</button>
+            <button class="btn"><i class="upload icon"/>選擇檔案</button>
             <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*">
             <img v-show="url" :src="url" />
           </div>
@@ -106,6 +106,7 @@ export default {
   }
   input {
     max-width: 75vw !important;
+    padding-left: 0.6em;
   }
   .fluid {
     width: 100%;
@@ -122,8 +123,8 @@ export default {
   }
 
   .btn {
-    border: 2px solid gray;
-    color: gray;
+    border: 2px solid green;
+    color: green;
     background-color: white;
     padding: 8px 20px;
     border-radius: 8px;

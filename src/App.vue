@@ -19,7 +19,7 @@
       <div class="right item">
         <a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
           <i class="github icon" />
-        </a>        
+        </a>
         <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.elder.game.tw%2F%23%2F&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=63&height=20" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       </div>
 
@@ -117,6 +117,10 @@ a, button, .clickable {
   cursor: pointer !important;
 }
 
+.ui.card {
+  box-shadow: grey 0px 1px 5px 1px;
+}
+
 @media screen and (max-width: 600px) {
   .fat-only {
     display: none !important;
@@ -130,6 +134,10 @@ a, button, .clickable {
   .thin-only {
     display: none !important;
   }
+}
+
+.router-link-active {
+  background-color: #ccf !important;
 }
 
 </style>

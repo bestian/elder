@@ -4,12 +4,12 @@
     <h1 class="lead" v-show="hard">誰不在裡面？</h1>
     <div class="ui slider checkbox">
       <input type="checkbox" id="checkbox" v-model="record">
-      <label for="checkbox"><i class = "eye icon" />顯示紀錄</label>
-    </div>
-    <div v-show = "record" class="big header">
-      <i class="smile icon"/>:{{good}}
-      <br/>
-      <i class="thumbs down icon"/>:{{bad}}
+      <label for="checkbox"><i class = "eye icon" />顯示紀錄
+        <span v-show = "record">
+          <i class="smile icon"/>:{{good}}
+          <i class="thumbs down icon"/>:{{bad}}
+        </span>
+      </label>
     </div>
     <div class="ui centered card" v-show="!hard">
       <div class="content">
@@ -168,7 +168,7 @@ img {
 }
 
 .ui.form label {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 /* The animation code */
