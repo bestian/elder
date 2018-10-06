@@ -104,6 +104,7 @@ export default {
   },
   mounted () {
     this.reset()
+    setTimeout(this.reset, 1000)
   }
 }
 </script>
