@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="ui six doubling cards" v-show="hard">
-      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="card_list[a].name != card_list[index].name ">
+      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="card_list[a].name != card_list[index].name && !c.hide">
         <div class="image">
           <img :src="c.img"/>
         </div>
@@ -28,11 +28,11 @@
     </div>
     <br/>
     <div class="ui massive buttons fat-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" v-tap @click = "b = index; check()">{{ c.name }}
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
       </div>
     </div>
     <div class="ui massive vertical buttons thin-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index)" v-tap @click = "b = index; check()">{{ c.name }}
+      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
       </div>
     </div>
     <br/><br/>
@@ -115,6 +115,9 @@ export default {
     reset: function () {
       this.winning = false
       this.a = Math.floor(Math.random() * this.card_list.length)
+      if (this.card_list[this.a].hide) {
+        this.reset()
+      }
     },
     win: function () {
       this.winning = true

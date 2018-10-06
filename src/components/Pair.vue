@@ -83,7 +83,6 @@ export default {
     return {
       a: 0,
       b: 0,
-      c: 0,
       w: 0,
       speed: 0.25,
       hard: false,
@@ -96,6 +95,9 @@ export default {
     go: function () {
       if (!this.w) {
         this.a += Number(this.speed)
+        if (this.card_list[Math.floor(this.a) % this.card_list.length].hide) {
+          this.go()
+        }
       }
     },
     check: function () {
@@ -109,8 +111,10 @@ export default {
     },
     reset: function () {
       this.b = Math.floor(Math.random() * this.card_list.length)
-      this.c = Math.floor(Math.random() * this.card_list.length)
       this.w = 0
+      if (this.card_list[this.b].hide) {
+        this.reset()
+      }
     },
     win: function () {
       this.w++

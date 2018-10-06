@@ -40,7 +40,7 @@
         <i class="github icon" />專案頁
       </a>
     </div>
-    <router-view @add="add" @remove = "remove" :card_list = "card_list"/>
+    <router-view @add="add" @remove = "remove" @hideShow = "hideShow" :card_list = "card_list"/>
   </div>
 </template>
 
@@ -63,6 +63,10 @@ export default {
     },
     remove: function (index) {
       this.card_list.splice(index, 1)
+      this.setLocal()
+    },
+    hideShow: function (index, bool) {
+      this.card_list[index].hide = bool
       this.setLocal()
     },
     getLocal: function () {

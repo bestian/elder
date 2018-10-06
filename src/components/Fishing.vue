@@ -6,8 +6,8 @@
     </div>
     <div class="ui grid">
       <div class="doubling six column row">
-        <div class="column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']" v-tap @click = "flip(index,0) " @mouseover = "flip(index,0)">
-          <div class="ui centered card">
+        <div class="column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']">
+          <div class="ui centered card" v-tap @click = "flip(index,0) " @mouseover = "flip(index,0)">
             <div class="content">
               <span class="header">{{face0 == index ? f.name : '?'}}</span>
             </div>
@@ -20,8 +20,8 @@
     </div>
     <div class="ui grid">
       <div class="doubling six column row">
-        <div class="r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']" v-tap @click = "flip(index,1)" @mouseover = "flip(index,1)">
-          <div class="ui centered card">
+        <div class="r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']">
+          <div class="ui centered card" v-tap @click = "flip(index,1)" @mouseover = "flip(index,1)">
             <div class="content">
               <span class="header">{{face1 == index ? f.name : '?'}}</span>
             </div>
@@ -94,8 +94,8 @@ export default {
       this.w = false
     },
     reset: function () {
-      this.fishs1 = this.card_list.slice().sort(function () { return Math.random() - 0.5 })
-      this.fishs2 = this.card_list.slice().sort(function () { return Math.random() - 0.5 })
+      this.fishs1 = this.card_list.filter(function (o) { return !o.hide }).slice().sort(function () { return Math.random() - 0.5 })
+      this.fishs2 = this.card_list.filter(function (o) { return !o.hide }).slice().sort(function () { return Math.random() - 0.5 })
       this.winning = false
     },
     win: function () {

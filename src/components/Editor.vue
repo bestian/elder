@@ -33,11 +33,15 @@
       <div class="ui card" v-for = "(c, index) in card_list" :key="index">
         <div class="content">
           <a class = "image" @click="url = c.img; name = c.name">
-            <img :src="c.img"/>
+            <img :src="c.img" v-bind:class="c.hide ? 'hide' : 'show'" />
           </a>
         </div>
         <div class="extra content">
           <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon no-print" />{{c.name}}</a>
+          <div class="ui checkbox">
+            <input type="checkbox" name="example" v-model="c.hide" @change="hideShow(index, c.hide)">
+            <label>隱藏{{c.name}}</label>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +70,9 @@ export default {
     remove: function (index) {
       this.$emit('remove', index)
     },
+    hideShow: function (index, bool) {
+      this.$emit('hideShow', index, bool)
+    },
     previewImage: function (event) {
       var input = event.target
       if (input.files && input.files[0]) {
@@ -87,6 +94,9 @@ export default {
     max-width: 100%;
     border: 3px gold ridge;
     border-radius: 15px;
+  }
+  img.hide {
+    opacity: 0.2;
   }
   a {
     cursor: pointer;
