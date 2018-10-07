@@ -2,12 +2,12 @@
   <div class="hello">
     <br class="fat-only">
     <div class="ui grid">
-      <div class="three wide column">
+      <div class="six wide column">
         <div class="ui divided list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：{{e.title}}</a>
+          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：<br/>{{e.title}}</a>
         </div>
       </div>
-      <div class="thirteen wide column">
+      <div class="ten wide column">
         <div class="ui centered card" v-show = "!myEvent.title && !edit">
           <a class="ui huge green button" @click="myEvent={'year': 1981,'title':'New','detail':'???'}; edit=true; myIndex = event_list.length"><i class="plus square icon" />新增事件</a>
         </div>
