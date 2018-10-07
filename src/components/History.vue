@@ -42,6 +42,9 @@
               <input type="textarea" name="" v-model = "myEvent.detail">
             </div>
           </div>
+          <div class="content" v-show="edit">
+            <a class="ui huge green button" @click="chageEvent(index, myEvent)">儲存</a>
+          </div>
         </div>
       </div>
     </div>
@@ -60,6 +63,10 @@ export default {
     }
   },
   methods: {
+    chageEvent: function (index, obj) {
+      this.$emit('chageEvent', index, obj)
+      this.edit = false
+    },
     previewImage: function (event) {
       var input = event.target
       if (input.files && input.files[0]) {

@@ -99,15 +99,15 @@ export default {
       this.setLocal('card_list')
     },
     getLocal: function (n) {
-      this.card_list = JSON.parse(this.$localStorage.get(n))
+      this[n] = JSON.parse(this.$localStorage.get(n))
     },
     setLocal: function (n) {
-      this.$localStorage.set(n, JSON.stringify(this.card_list))
-      // console.log(this.$localStorage.get('card_list'))
+      this.$localStorage.set(n, JSON.stringify(this[n]))
+      // console.log(this.$localStorage.get(n))
     }
   },
   mounted () {
-    // console.log(this.$localStorage.get('card_list'))
+    // console.log(this.$localStorage.get(n))
     if (this.$localStorage.get('card_list')) {
       this.getLocal('card_list')
     }
