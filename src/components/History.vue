@@ -5,11 +5,12 @@
       <div class="six wide column">
         <div class="ui divided list">
           <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：<br/>{{e.title}}</a>
+          <a class="item" @click="addNew()">新增事件</a>
         </div>
       </div>
       <div class="ten wide column">
         <div class="ui centered card" v-show = "!myEvent.title && !edit">
-          <a class="ui huge green button" @click="myEvent={'year': 1981,'title':'New','detail':'???'}; edit=true; myIndex = event_list.length"><i class="plus square icon" />新增事件</a>
+          <a class="ui huge green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
         </div>
         <div class="ui centered card" v-show = "myEvent.title || edit">
           <div class="content">
@@ -81,6 +82,11 @@ export default {
         }
         reader.readAsDataURL(input.files[0])
       }
+    },
+    addNew: function () {
+      this.myEvent = {year: 1985, title: '未命名', detail: ''}
+      this.edit = true
+      this.myIndex = this.event_list.length
     }
   }
 }
