@@ -4,11 +4,21 @@
     <div class="ui grid">
       <div class="six wide column">
         <div class="ui divided list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：<br/>{{e.title}}</a>
-          <a class="item" @click="addNew()">新增事件</a>
+          <div class="item">
+            大事紀
+          </div>
+          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：<br/>{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/></a>
+          <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
       <div class="ten wide column">
+        <div class="ui centered card" v-show = "!myEvent.title && !edit">
+          <div class="content">
+            <div class="header">
+              生命史是由一系列的事件串連起來的
+            </div>
+          </div>
+        </div>
         <div class="ui centered card" v-show = "!myEvent.title && !edit">
           <a class="ui huge green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
         </div>
@@ -33,7 +43,7 @@
           <div class="image" v-show = "edit">
             <img :src="myEvent.img" v-show="myEvent.img">
             <div class="upload-btn-wrapper">
-              <button class="btn"><i class="upload icon"/>選擇檔案</button>
+              <button class="btn"><i class="upload icon"/>選擇圖檔</button>
               <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*" />
             </div>
           </div>
@@ -42,7 +52,7 @@
               {{myEvent.detail}}
             </div>
             <div class="description" v-show="edit">
-              <input type="textarea" name="" v-model = "myEvent.detail">
+              <textarea  name="detail" v-model = "myEvent.detail" placeholder="請回想一下細節" cols="30" rows="5"></textarea>
             </div>
           </div>
           <div class="content" v-show="edit">
@@ -53,12 +63,12 @@
     </div>
     <div class="ui labeled icon menu fat-only no-print">
       <div class="item">
-        <a @click="exportEvents()"><i class="download icon" />匯出</a>
+        <a @click="exportEvents()"><i class="download icon" />匯出JSON</a>
         <a id="downloadAnchorElem" style="display:none"></a>
       </div>
       <div class="item">
         <div class="upload-btn-wrapper">
-          <button class="btn"><i class="upload icon"/>匯入</button>
+          <button class="btn"><i class="upload icon"/>匯入JSON</button>
           <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
         </div>
       </div>
@@ -113,7 +123,7 @@ export default {
       if (input.files && input.files[0]) {
         var reader = new FileReader()
         reader.onload = (e) => {
-          this.my_event_list = JSON.parse(e.target.result)
+          this.my_event_list = this.event_list.concat(JSON.parse(e.target.result))
           this.$emit('saveEvents', this.my_event_list)
         }
         reader.readAsText(input.files[0])
@@ -125,5 +135,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.ui.avatar {
+  height: 2em;
+  margin-left: 0.5em;
+}
 </style>

@@ -7,7 +7,7 @@
       <div class="ui large ordered divided list">
         <div class="item">
           <div class="upload-btn-wrapper">
-            <button class="btn"><i class="upload icon"/>選擇檔案</button>
+            <button class="btn"><i class="upload icon"/>選擇圖檔</button>
             <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*">
             <img v-show="url" :src="url" />
           </div>
@@ -47,12 +47,12 @@
     </div>
     <div class="ui labeled icon menu fat-only no-print">
       <div class="item">
-        <a @click="exportCards()"><i class="download icon" />匯出</a>
+        <a @click="exportCards()"><i class="download icon" />匯出JSON</a>
         <a id="downloadAnchorElem" style="display:none"></a>
       </div>
       <div class="item">
         <div class="upload-btn-wrapper">
-          <button class="btn"><i class="upload icon"/>匯入</button>
+          <button class="btn"><i class="upload icon"/>匯入JSON</button>
           <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
         </div>
       </div>
@@ -106,7 +106,7 @@ export default {
       if (input.files && input.files[0]) {
         var reader = new FileReader()
         reader.onload = (e) => {
-          this.my_card_list = JSON.parse(e.target.result)
+          this.my_card_list = this.card_list.concat(JSON.parse(e.target.result))
           this.$emit('saveCards', this.my_card_list)
         }
         reader.readAsText(input.files[0])
