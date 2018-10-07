@@ -64,11 +64,11 @@ export default {
     }
   },
   methods: {
-    add: function (url, name) {
-      this.$emit('add', url, name)
+    addCard: function (url, name) {
+      this.$emit('addCard', url, name)
     },
-    remove: function (index) {
-      this.$emit('remove', index)
+    removeCard: function (index) {
+      this.$emit('removeCard', index)
     },
     hideShow: function (index, bool) {
       this.$emit('hideShow', index, bool)

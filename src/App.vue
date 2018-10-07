@@ -50,7 +50,10 @@
         <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.elder.game.tw%2F%23%2F&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=63&height=20" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       </div>
     </div>
-    <router-view @add="add" @remove = "remove" @hideShow = "hideShow" :card_list = "card_list" :event_list = "event_list"/>
+    <router-view @addCard="addCard" @removeCard = "removeCard"
+    @addEvent="addEvent" @removeEvent = "removeEvent" @changeEvent = "changeEvent"
+    @hideShow = "hideShow"
+    :card_list = "card_list" :event_list = "event_list"/>
   </div>
 </template>
 
@@ -71,17 +74,29 @@ export default {
     }
   },
   methods: {
-    add: function (url, name) {
+    addCard: function (url, name) {
       this.card_list.push({img: url, name: name})
-      this.setLocal()
+      this.setLocal('card_list')
     },
-    remove: function (index) {
+    removeCard: function (index) {
       this.card_list.splice(index, 1)
-      this.setLocal()
+      this.setLocal('card_list')
+    },
+    addEvent: function (obj) {
+      this.event_list.push(obj)
+      this.setLocal('event_list')
+    },
+    changEvent: function (index, obj) {
+      this.event_list[index] = obj
+      this.setLocal('event_list')
+    },
+    removeEvent: function (index) {
+      this.event_list.splice(index, 1)
+      this.setLocal('event_list')
     },
     hideShow: function (index, bool) {
       this.card_list[index].hide = bool
-      this.setLocal()
+      this.setLocal('card_list')
     },
     getLocal: function (n) {
       this.card_list = JSON.parse(this.$localStorage.get(n))
