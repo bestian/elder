@@ -37,6 +37,9 @@
       <router-link class = 'item' to='/fishing' exact=''>
         <i class="clone icon" />釣魚遊戲
       </router-link>
+      <router-link class = 'item' to='/history' exact=''>
+        <i class="comments icon" />生命史
+      </router-link>
       <router-link class = 'item' to='/edit' exact=''>
         <i class="cogs icon" />編輯照片
       </router-link>
@@ -47,7 +50,7 @@
         <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.elder.game.tw%2F%23%2F&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=63&height=20" width="63" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       </div>
     </div>
-    <router-view @add="add" @remove = "remove" @hideShow = "hideShow" :card_list = "card_list"/>
+    <router-view @add="add" @remove = "remove" @hideShow = "hideShow" :card_list = "card_list" :event_list = "event_list"/>
   </div>
 </template>
 
@@ -60,6 +63,10 @@ export default {
         {img: 'https://i.imgur.com/9g8Snz6.jpg', name: '天使'},
         {img: 'https://i.imgur.com/rPCYQls.png', name: '圓臉'},
         {img: 'https://i.imgur.com/SuLzJZ3.png', name: '蟲蟲'}
+      ],
+      event_list: [
+        {img: 'https://i.imgur.com/9g8Snz6.jpg', title: '啟用認照片遊戲', year: '2018', detail: '啟用認照片遊戲'},
+        {img: 'https://i.imgur.com/SuLzJZ3.png', title: '誕生', year: '1985', detail: '誕生'}
       ]
     }
   },
@@ -76,18 +83,21 @@ export default {
       this.card_list[index].hide = bool
       this.setLocal()
     },
-    getLocal: function () {
-      this.card_list = JSON.parse(this.$localStorage.get('card_list'))
+    getLocal: function (n) {
+      this.card_list = JSON.parse(this.$localStorage.get(n))
     },
-    setLocal: function () {
-      this.$localStorage.set('card_list', JSON.stringify(this.card_list))
+    setLocal: function (n) {
+      this.$localStorage.set(n, JSON.stringify(this.card_list))
       // console.log(this.$localStorage.get('card_list'))
     }
   },
   mounted () {
     // console.log(this.$localStorage.get('card_list'))
     if (this.$localStorage.get('card_list')) {
-      this.getLocal()
+      this.getLocal('card_list')
+    }
+    if (this.$localStorage.get('event_list')) {
+      this.getLocal('event_list')
     }
   }
 }

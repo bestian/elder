@@ -5,8 +5,9 @@ import Main from '@/components/Main'
 import Intro from '@/components/Intro'
 import Pair from '@/components/Pair'
 import Editor from '@/components/Editor'
-import Fishing from '@/components/Fishing'
 import Name from '@/components/Name'
+import Fishing from '@/components/Fishing'
+import History from '@/components/History'
 
 Vue.use(Router)
 Vue.use(Tap)
@@ -29,9 +30,9 @@ export default new Router({
       component: Pair
     },
     {
-      path: '/edit',
-      name: 'Editor',
-      component: Editor
+      path: '/name',
+      name: 'Name',
+      component: Name
     },
     {
       path: '/fishing',
@@ -39,9 +40,14 @@ export default new Router({
       component: Fishing
     },
     {
-      path: '/name',
-      name: 'Name',
-      component: Name
+      path: '/history',
+      name: 'History',
+      component: History
+    },
+    {
+      path: '/edit',
+      name: 'Editor',
+      component: Editor
     }
   ]
 })
