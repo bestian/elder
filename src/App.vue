@@ -82,12 +82,17 @@ export default {
       this.card_list.splice(index, 1)
       this.setLocal('card_list')
     },
+    sortEvent: function () {
+      this.event_list.sort(function (a, b) { return a.year < b.year })
+    },
     addEvent: function (obj) {
       this.event_list.push(obj)
+      this.sortEvent()
       this.setLocal('event_list')
     },
-    changEvent: function (index, obj) {
+    changeEvent: function (index, obj) {
       this.event_list[index] = obj
+      this.sortEvent()
       this.setLocal('event_list')
     },
     removeEvent: function (index) {
@@ -99,9 +104,11 @@ export default {
       this.setLocal('card_list')
     },
     getLocal: function (n) {
+      console.log('get:' + n)
       this[n] = JSON.parse(this.$localStorage.get(n))
     },
     setLocal: function (n) {
+      console.log('set:' + n)
       this.$localStorage.set(n, JSON.stringify(this[n]))
       // console.log(this.$localStorage.get(n))
     }

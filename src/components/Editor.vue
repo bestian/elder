@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="item"><input type ="text" v-model="name" placeholder="輸入名字"></div>
-        <div class="item">再按「新增」即可 <a class = "ui green huge button" @click="add(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
+        <div class="item">再按「新增」即可 <a class = "ui green huge button" @click="addCard(url, name); url = ''; name = ''"><i class="plus icon"/>新增{{name}}</a></div>
       </div>
       <div class="ui action input fat-only">
       </div>
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="extra content">
-          <a class="ui green basic button" @click="add(url, name); url = ''; name = ''" title="新增"><i class="plus square icon" />新增{{name}}</a>
+          <a class="ui green basic button" @click="addCard(url, name); url = ''; name = ''" title="新增"><i class="plus square icon" />新增{{name}}</a>
         </div>
       </div>
       <div class="ui card" v-for = "(c, index) in card_list" :key="index">
@@ -37,7 +37,7 @@
           </a>
         </div>
         <div class="extra content">
-          <a class="ui red basic button" @click="remove(index)" title="刪除"><i class="window close icon no-print" />{{c.name}}</a>
+          <a class="ui red basic button" @click="removeCard(index)" title="刪除"><i class="window close icon no-print" />{{c.name}}</a>
           <div class="ui checkbox">
             <input type="checkbox" name="example" v-model="c.hide" @change="hideShow(index, c.hide)">
             <label>隱藏{{c.name}}</label>

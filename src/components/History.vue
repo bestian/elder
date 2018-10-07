@@ -4,11 +4,14 @@
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui divided list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e">{{e.year}}年：{{e.title}}</a>
+          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：{{e.title}}</a>
         </div>
       </div>
       <div class="thirteen wide column">
-        <div class="ui centered card" v-show = "myEvent.title">
+        <div class="ui centered card" v-show = "!myEvent.title && !edit">
+          <a class="ui huge green button" @click="myEvent={'year': 1981,'title':'New','detail':'???'}; edit=true; myIndex = event_list.length"><i class="plus square icon" />新增事件</a>
+        </div>
+        <div class="ui centered card" v-show = "myEvent.title || edit">
           <div class="content">
             <div class="header">
               <div class="ui slider checkbox">
@@ -31,7 +34,6 @@
             <div class="upload-btn-wrapper">
               <button class="btn"><i class="upload icon"/>選擇檔案</button>
               <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*" />
-              <img v-show="url" :src="myEvent.img" />
             </div>
           </div>
           <div class="content">
@@ -43,7 +45,7 @@
             </div>
           </div>
           <div class="content" v-show="edit">
-            <a class="ui huge green button" @click="chageEvent(index, myEvent)">儲存</a>
+            <a class="ui huge green button" @click="changeEvent(myIndex, myEvent)">儲存</a>
           </div>
         </div>
       </div>
@@ -59,12 +61,15 @@ export default {
   data () {
     return {
       myEvent: {},
+      myIndex: -1,
       edit: false
     }
   },
   methods: {
-    chageEvent: function (index, obj) {
-      this.$emit('chageEvent', index, obj)
+    changeEvent: function (index, obj) {
+      console.log(index)
+      console.log(obj)
+      this.$emit('changeEvent', index, obj)
       this.edit = false
     },
     previewImage: function (event) {

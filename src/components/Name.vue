@@ -27,8 +27,10 @@
       </div>
     </div>
     <br/>
-    <div class="ui massive buttons fat-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
+    <div class="ui doubling grid fat-only">
+      <div class="three wide doubling column" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" >
+        <div class="ui green basic massive button" v-tap @click = "b = index; check()">{{ c.name }}
+        </div>
       </div>
     </div>
     <div class="ui massive vertical buttons thin-only">
