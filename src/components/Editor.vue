@@ -46,6 +46,16 @@
       </div>
     </div>
     <div class="ui labeled icon menu fat-only no-print">
+      <div class="item">
+        <a @click="exportCards()"><i class="download icon" />匯出</a>
+        <a id="downloadAnchorElem" style="display:none"></a>
+      </div>
+      <div class="item">
+        <div class="upload-btn-wrapper">
+          <button class="btn"><i class="upload icon"/>匯入</button>
+          <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
+        </div>
+      </div>
       <div class="right item">
         <a onclick="window.print()"><i class="print icon" />友善列印</a>
       </div>
@@ -60,7 +70,8 @@ export default {
   data () {
     return {
       url: '',
-      name: ''
+      name: '',
+      my_card_list: []
     }
   },
   methods: {
@@ -81,6 +92,24 @@ export default {
           this.url = e.target.result
         }
         reader.readAsDataURL(input.files[0])
+      }
+    },
+    exportCards: function () {
+      var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.card_list))
+      var dlAnchorElem = document.getElementById('downloadAnchorElem')
+      dlAnchorElem.setAttribute('href', dataStr)
+      dlAnchorElem.setAttribute('download', 'card_list.json')
+      dlAnchorElem.click()
+    },
+    importJSON: function (event) {
+      var input = event.target
+      if (input.files && input.files[0]) {
+        var reader = new FileReader()
+        reader.onload = (e) => {
+          this.my_card_list = JSON.parse(e.target.result)
+          this.$emit('saveCards', this.my_card_list)
+        }
+        reader.readAsText(input.files[0])
       }
     }
   }
@@ -116,27 +145,4 @@ export default {
     font-size: 1.6em;
   }
 
-  .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .btn {
-    border: 2px solid green;
-    color: green;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
 </style>

@@ -51,6 +51,18 @@
         </div>
       </div>
     </div>
+    <div class="ui labeled icon menu fat-only no-print">
+      <div class="item">
+        <a @click="exportEvents()"><i class="download icon" />匯出</a>
+        <a id="downloadAnchorElem" style="display:none"></a>
+      </div>
+      <div class="item">
+        <div class="upload-btn-wrapper">
+          <button class="btn"><i class="upload icon"/>匯入</button>
+          <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -62,6 +74,7 @@ export default {
   data () {
     return {
       myEvent: {},
+      my_event_list: [],
       myIndex: -1,
       edit: false
     }
@@ -87,6 +100,24 @@ export default {
       this.myEvent = {year: 1985, title: '未命名', detail: ''}
       this.edit = true
       this.myIndex = this.event_list.length
+    },
+    exportEvents: function () {
+      var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.event_list))
+      var dlAnchorElem = document.getElementById('downloadAnchorElem')
+      dlAnchorElem.setAttribute('href', dataStr)
+      dlAnchorElem.setAttribute('download', 'event_list.json')
+      dlAnchorElem.click()
+    },
+    importJSON: function (event) {
+      var input = event.target
+      if (input.files && input.files[0]) {
+        var reader = new FileReader()
+        reader.onload = (e) => {
+          this.my_event_list = JSON.parse(e.target.result)
+          this.$emit('saveEvents', this.my_event_list)
+        }
+        reader.readAsText(input.files[0])
+      }
     }
   }
 }
@@ -95,27 +126,4 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-  .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .btn {
-    border: 2px solid green;
-    color: green;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
 </style>

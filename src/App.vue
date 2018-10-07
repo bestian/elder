@@ -51,8 +51,8 @@
       </div>
     </div>
     <router-view @addCard="addCard" @removeCard = "removeCard"
-    @addEvent="addEvent" @removeEvent = "removeEvent" @changeEvent = "changeEvent"
-    @hideShow = "hideShow"
+    @addEvent="addEvent" @removeEvent = "removeEvent" @changeEvent = "changeEvent" @saveEvents = "saveEvents"
+    @hideShow = "hideShow" @saveCards = "saveCards"
     :card_list = "card_list" :event_list = "event_list"/>
   </div>
 </template>
@@ -81,6 +81,14 @@ export default {
     removeCard: function (index) {
       this.card_list.splice(index, 1)
       this.setLocal('card_list')
+    },
+    saveCards: function (list) {
+      this.card_list = list
+      this.setLocal('card_list')
+    },
+    saveEvents: function (list) {
+      this.event_list = list
+      this.setLocal('event_list')
     },
     sortEvent: function () {
       this.event_list.sort(function (a, b) { return a.year < b.year })
@@ -170,6 +178,30 @@ a, button, .clickable {
 
 .router-link-active {
   background-color: #ccf !important;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid green;
+  color: green;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
 
 </style>
