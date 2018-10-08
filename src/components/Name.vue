@@ -2,6 +2,7 @@
   <div>
     <br class="fat-only" />
     <h1 class="lead" v-show="hard">誰不在裡面？</h1>
+    <h1 class="lead" v-show="!hard">這是誰啊？</h1>    
     <div class="ui slider checkbox">
       <input type="checkbox" id="checkbox" v-model="record">
       <label for="checkbox"><i class = "eye icon" />顯示紀錄
@@ -12,9 +13,6 @@
       </label>
     </div>
     <div class="ui centered card" v-show="!hard">
-      <div class="content">
-        <span class="big header">這是誰啊？</span>
-      </div>
       <div class="image">
         <img :src="card_list[a].img"/>
       </div>

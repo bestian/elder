@@ -8,11 +8,15 @@
         </a>
       </div>
       <div class="description">
+        <p>
+          您家中有年紀大的長輩嗎？
+        </p>
         <p class="fat-only">
           失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
         </p>
         <p>
           失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </p>
         <p class="fat-only">
           對於記憶自然退化之長者、失智症患者及其照護者而言，有些方法可以改善生活品質，例如認知行為療法可能有所助益。而玩遊戲則是一種方便法門。
@@ -23,6 +27,7 @@
         <p>
           您可以按<router-link to='/edit' exact=''>「編輯照片」</router-link>按鈕，輸入自家照片，取代範例圖片。
         </p>
+        <br/>
       </div>
       <div class="ui three bottom attached massive buttons">
           <a class="ui button" href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
