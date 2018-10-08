@@ -1,15 +1,33 @@
 <template>
   <div class="hello">
     <br class="fat-only">
-    <div class="ui grid">
-      <div class="six wide column">
+    <div class="ui three column grid print-only">
+      <div class="column" v-for = "(e, index) in event_list" :key="index">
+        <div class="ui fluid card">
+          <div class="content">
+            <div class="header">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}}
+            </div>
+          </div>
+          <div class="image">
+            <img :src="e.img" v-show="e.img">
+          </div>
+          <div class="content">
+            <div class="description">
+              {{e.detail}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui grid no-print">
+      <div class="six wide column no-print">
         <div class="ui divided list">
           <div class="item">
             大事紀
           </div>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
           <div class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''">
-            <a @click="myEvent = e; myIndex = index">{{e.year}}年：
+            <a @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：
               <br/>
               {{e.title}}
               <img class="ui avatar" v-show="e.img" :src="e.img"/>
@@ -19,18 +37,18 @@
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
-      <div class="ten wide column">
-        <div class="ui centered card" v-show = "!myEvent.title && !edit">
+      <div class="ten wide column no-print">
+        <div class="ui centered fluid card no-print" v-show = "!myEvent.title && !edit">
           <div class="content">
             <div class="header">
               生命史是由一系列的事件串連起來的
             </div>
           </div>
         </div>
-        <div class="ui centered card" v-show = "!myEvent.title && !edit">
+        <div class="ui centered card no-print" v-show = "!myEvent.title && !edit">
           <a class="ui huge green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
         </div>
-        <div class="ui centered card" v-show = "myEvent.title || edit">
+        <div class="ui centered card no-print" v-show = "myEvent.title || edit">
           <div class="content">
             <div class="header">
               <div class="ui slider checkbox">
@@ -38,7 +56,7 @@
                 <label class = "clickable" for="checkbox" @click="edit = !edit"><i class = "edit icon" />編輯</label>
               </div>
             </div>
-            <div class="header" v-show="!edit">{{myEvent.year}}年：{{myEvent.title}}
+            <div class="header" v-show="!edit">{{myEvent.year}}{{String(myEvent.year).indexOf('.') > -1 ? '月' : '年'}}：{{myEvent.title}}
             </div>
             <div class="header" v-show="edit">
               <input type="text" name="" v-model = "myEvent.year">
@@ -79,6 +97,10 @@
           <button class="btn"><i class="upload icon"/>匯入JSON</button>
           <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
         </div>
+      </div>
+      <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
+      <div class="right item">
+        <a onclick="window.print()"><i class="print icon" />友善列印</a>
       </div>
     </div>
   </div>
@@ -126,6 +148,7 @@ export default {
       dlAnchorElem.setAttribute('href', dataStr)
       dlAnchorElem.setAttribute('download', 'event_list.json')
       dlAnchorElem.click()
+      console.log(JSON.stringify(this.event_list))
     },
     importJSON: function (event) {
       var input = event.target
@@ -154,6 +177,11 @@ export default {
   overflow-y: scroll;
 }
 
+.ui.divided.list > .item {
+  text-align: left;
+  margin-left: .5em;
+}
+
 .item.active {
   background-color: #ccf;
 }
@@ -161,4 +189,11 @@ export default {
 a.ui.red.basic.mini.button {
   box-shadow: none !important;
 }
+
+@media print {
+  img {
+    max-height: 120px;
+  }
+}
+
 </style>
