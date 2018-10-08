@@ -88,10 +88,11 @@ export default {
     },
     saveEvents: function (list) {
       this.event_list = list
+      this.sortEvent()
       this.setLocal('event_list')
     },
     sortEvent: function () {
-      this.event_list.sort(function (a, b) { return a.year < b.year })
+      this.event_list.sort(function (a, b) { return b.year - a.year })
     },
     addEvent: function (obj) {
       this.event_list.push(obj)

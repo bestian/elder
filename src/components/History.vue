@@ -7,7 +7,15 @@
           <div class="item">
             大事紀
           </div>
-          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index" v-bind:class="myIndex == index ? 'active' : ''">{{e.year}}年：<br/>{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/></a>
+          <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
+          <div class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''">
+            <a @click="myEvent = e; myIndex = index">{{e.year}}年：
+              <br/>
+              {{e.title}}
+              <img class="ui avatar" v-show="e.img" :src="e.img"/>
+            </a>
+            <a class="ui red mini basic button" @click="removeEvent(index)">x</a>
+          </div>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
@@ -40,11 +48,11 @@
           <div class="image" v-show = "!edit">
             <img :src="myEvent.img" v-show="myEvent.img">
           </div>
-          <div class="image" v-show = "edit">
+          <div class="image" v-if = "edit">
             <img :src="myEvent.img" v-show="myEvent.img">
             <div class="upload-btn-wrapper">
               <button class="btn"><i class="upload icon"/>選擇圖檔</button>
-              <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*" />
+              <input type="file" @change="previewImage" name="photo" id="photo" accept="image/*" />
             </div>
           </div>
           <div class="content">
@@ -91,10 +99,11 @@ export default {
   },
   methods: {
     changeEvent: function (index, obj) {
-      console.log(index)
-      console.log(obj)
       this.$emit('changeEvent', index, obj)
       this.edit = false
+    },
+    removeEvent: function (index) {
+      this.$emit('removeEvent', index)
     },
     previewImage: function (event) {
       var input = event.target
@@ -147,5 +156,9 @@ export default {
 
 .item.active {
   background-color: #ccf;
+}
+
+a.ui.red.basic.mini.button {
+  box-shadow: none !important;
 }
 </style>

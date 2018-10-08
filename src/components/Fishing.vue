@@ -60,7 +60,7 @@ export default {
     flip: function (i, n) {
       if (n === 0 && !this.w) { this.face0 = i }
       if (n === 1 && !this.w) { this.face1 = i }
-      if (!this.w && this.fishs1[this.face0].img === this.fishs2[this.face1].img) {
+      if (!this.w && this.fishs1[this.face0] && this.fishs2[this.face1] && this.fishs1[this.face0].img === this.fishs2[this.face1].img) {
         this.w = true
         setTimeout(this.remove, 1000)
       } else {
