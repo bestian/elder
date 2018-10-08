@@ -7,7 +7,7 @@
           <div class="item">
             大事紀
           </div>
-          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index">{{e.year}}年：<br/>{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/></a>
+          <a class="item" v-for = "(e, index) in event_list" :key="index" @click="myEvent = e; myIndex = index" v-bind:class="myIndex == index ? 'active' : ''">{{e.year}}年：<br/>{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/></a>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
@@ -138,5 +138,14 @@ export default {
 .ui.avatar {
   height: 2em;
   margin-left: 0.5em;
+}
+
+.ui.divided.list {
+  height: 66vh;
+  overflow-y: scroll;
+}
+
+.item.active {
+  background-color: #ccf;
 }
 </style>
