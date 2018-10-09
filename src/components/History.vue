@@ -80,6 +80,8 @@
           <input type="file" @change="importJSON" name="json" id="json" accept="application/json">
         </div>
       </div>
+      <div class="item"><a class="ui green button" @click="addNew()">新增事件</a>
+      </div>
     </div>
   </div>
 </template>
