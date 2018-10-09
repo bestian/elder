@@ -152,6 +152,10 @@ body, html {
     visibility: hidden !important;
     display: none !important;
   }
+
+  div, .card {
+    page-break-inside: avoid !important;
+  }
 }
 
 a, button, .clickable {
