@@ -11,6 +11,10 @@
         <p>
           您家中有年紀大的長輩嗎？
         </p>
+        <InArticleAdsense
+            data-ad-client="ca-pub-2267134225801525"
+            data-ad-slot="1234567890">
+        </InArticleAdsense>
         <p class="fat-only">
           失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
         </p>
@@ -23,6 +27,11 @@
         </p>
         <p>
           本站提供3種認照片遊戲，讓您輸入自己家族成員的照片，幫助長輩記得大家。
+          <InFeedAdsense
+            data-ad-layout-key="-fg+5n+6t-e7+r"
+            data-ad-client="ca-pub-2267134225801525"
+            data-ad-slot="1234567890">
+        </InFeedAdsense>
         </p>
         <p>
           您可以按<router-link to='/edit' exact=''>「編輯照片」</router-link>按鈕，輸入自家照片，取代範例圖片。
