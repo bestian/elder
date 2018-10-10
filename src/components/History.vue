@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="ui grid no-print">
-      <div class="six wide column no-print">
+      <div class="four wide column no-print">
         <div class="ui divided list">
           <div class="item">
             大事紀
@@ -37,7 +37,7 @@
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
-      <div class="ten wide column no-print">
+      <div class="twelve wide column no-print">
         <div class="ui centered fluid card no-print" v-show = "!myEvent.title && !edit">
           <div class="content">
             <div class="header">
