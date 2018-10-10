@@ -25,9 +25,11 @@
       </div>
     </div>
     <br/>
-    <div class="ui doubling grid fat-only">
-      <div class="three wide doubling column" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" >
-        <div class="ui green basic massive button" v-tap @click = "b = index; check()">{{ c.name }}
+    <div class="ui grid fat-only">
+      <div class="doubling eight column row">
+        <div class="column" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" >
+          <div class="ui green basic massive button" v-tap @click = "b = index; check()">{{ c.name }}
+          </div>
         </div>
       </div>
     </div>
@@ -164,7 +166,7 @@ export default {
 img {
   border-radius: 15px !important;
   max-height: 50vh;
-  animation: tada 3s infinite;
+  animation: tada 5s infinite;
 }
 
 .ui.form label {
