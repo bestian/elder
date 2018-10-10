@@ -38,6 +38,8 @@
         </div>
       </div>
       <div class="twelve wide column no-print">
+        <a id = "left" class="no-print" v-show="myIndex != -1 && myIndex < event_list.length-1" @click="myIndex++; myEvent = event_list[myIndex]"><i class="angle left icon"/></a>
+        <a id = "right" class="no-print" v-show="myIndex > 0" @click="myIndex--; myEvent = event_list[myIndex]"><i class="angle right icon"/></a>
         <div class="ui centered fluid card no-print" v-show = "!myEvent.title && !edit">
           <div class="content">
             <div class="header">
@@ -188,6 +190,20 @@ export default {
 
 a.ui.red.basic.mini.button {
   box-shadow: none !important;
+}
+
+#left, #right {
+  position: absolute;
+  top: 33vh;
+  font-size: 5em;
+}
+
+#left {
+  left: 0;
+}
+
+#right {
+  right: 0;
 }
 
 @media print {
