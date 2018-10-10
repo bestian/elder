@@ -20,8 +20,9 @@
         </p>
         <p>
           失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          您可以使用<a href="https://www.everydayhealth.com.tw/article/15778" target="_blank">畫鐘測驗</a>來協助暸解長輩失智的情況。
         </p>
+        <iframe class="fat-only" width="560" height="315" src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <p class="fat-only">
           對於記憶自然退化之長者、失智症患者及其照護者而言，有些方法可以改善生活品質，例如認知行為療法可能有所助益。而玩遊戲則是一種方便法門。
         </p>
