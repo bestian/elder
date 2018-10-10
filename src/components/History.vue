@@ -124,7 +124,7 @@ export default {
     },
     removeEvent: function (index) {
       if (window.confirm('確認刪除嗎？')) {
-        this.$emit('removeEvent', index)        
+        this.$emit('removeEvent', index)
       }
     },
     previewImage: function (event) {
