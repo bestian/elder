@@ -21,19 +21,14 @@
     </div>
     <div class="ui grid no-print">
       <div class="four wide column no-print">
-        <div class="ui divided list">
+        <div class="ui divided animated list">
           <div class="item">
             大事紀
           </div>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
-          <div class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''">
-            <a @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：
-              <br/>
-              {{e.title}}
+          <a class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}}
               <img class="ui avatar" v-show="e.img" :src="e.img"/>
-            </a>
-            <a class="ui red mini basic button" @click="removeEvent(index)">x</a>
-          </div>
+          </a>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
       </div>
@@ -86,6 +81,7 @@
           <div class="content" v-show="edit">
             <a class="ui huge green button" @click="changeEvent(myIndex, myEvent)">儲存</a>
           </div>
+          <a class="ui red bottom attached mini basic button" @click="removeEvent(myIndex)">x</a>
         </div>
       </div>
     </div>
@@ -127,7 +123,9 @@ export default {
       this.edit = false
     },
     removeEvent: function (index) {
-      this.$emit('removeEvent', index)
+      if (window.confirm('確認刪除嗎？')) {
+        this.$emit('removeEvent', index)        
+      }
     },
     previewImage: function (event) {
       var input = event.target
@@ -157,7 +155,7 @@ export default {
       if (input.files && input.files[0]) {
         var reader = new FileReader()
         reader.onload = (e) => {
-          this.my_event_list = this.event_list.concat(JSON.parse(e.target.result))
+          this.my_event_list = JSON.parse(e.target.result)
           this.$emit('saveEvents', this.my_event_list)
         }
         reader.readAsText(input.files[0])
@@ -189,7 +187,6 @@ export default {
 }
 
 a.ui.red.basic.mini.button {
-  box-shadow: none !important;
 }
 
 #left, #right {

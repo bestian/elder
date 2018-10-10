@@ -4,7 +4,7 @@
 
     <div class="ui segment container no-print">
       <h1 class="ui header">如何新增照片：</h1>
-      <div class="ui large ordered divided list">
+      <div class="ui large ordered list">
         <div class="item">
           <div class="upload-btn-wrapper">
             <button class="btn"><i class="upload icon"/>選擇圖檔</button>
