@@ -42,6 +42,12 @@
         </div>
         <div class="field">
           <div class="ui radio checkbox">
+            <input type="radio" id="one" value="0.1" v-model="speed">
+            <label class = "clickable" @click="speed=0.1"><i class = "clock icon" />最慢</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
             <input type="radio" id="one" value="0.25" v-model="speed">
             <label class = "clickable" @click="speed=0.25"><i class = "wheelchair icon" />慢速</label>
           </div>
