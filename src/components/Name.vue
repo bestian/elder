@@ -22,7 +22,7 @@
       </div>
       <div class="ui raised card">
         <div class="ui vertical buttons">
-          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
+          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar" :src="c.img"/>
           </div>
         </div>
       </div>
@@ -163,6 +163,12 @@ export default {
 .massive {
   font-size: 2rem !important;
   font-weight: 900 !important;
+}
+
+.avatar {
+  height: 2rem !important;
+  width: 2rem !important;
+  float: right;
 }
 
 .card {
