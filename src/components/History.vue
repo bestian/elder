@@ -37,13 +37,17 @@
         <a id = "right" class="no-print" v-if="myIndex > 0" @click="myIndex--; myEvent = event_list[myIndex]"><i class="angle right icon"/><span>{{event_list[myIndex-1].year}}.{{event_list[myIndex-1].title}}</span></a>
         <div class="ui centered fluid card no-print" v-show = "!myEvent.title && !edit">
           <div class="content">
-            <div class="header">
+            <h1 class="ui header">
               生命史是由一系列的事件串連起來的
-            </div>
+            </h1>
+            <h3 class="ui header">
+              您可以為每位成員編寫大事紀，再匯出存檔
+            </h3>
           </div>
         </div>
-        <div class="ui centered card no-print" v-show = "!myEvent.title && !edit">
+        <div class="ui two buttons" v-show = "!myEvent.title && !edit">
           <a class="ui huge green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
+          <a class="ui huge blue button" @click="importJSON()"><i class="upload icon" />匯入JSON</a>
         </div>
         <div class="ui centered card no-print" v-show = "myEvent.title || edit">
           <div class="content">
@@ -81,7 +85,7 @@
           <div class="content" v-show="edit">
             <a class="ui huge green button" @click="changeEvent(myIndex, myEvent)">儲存</a>
           </div>
-          <a class="ui red bottom attached mini basic button" @click="removeEvent(myIndex)">x</a>
+          <a class="ui red bottom attached basic button" @click="removeEvent(myIndex)">x刪除本事件</a>
         </div>
       </div>
     </div>
@@ -143,10 +147,11 @@ export default {
       this.myIndex = this.event_list.length
     },
     exportEvents: function () {
+      var name = window.prompt('請輸入名字', '未命名')
       var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.event_list))
       var dlAnchorElem = document.getElementById('downloadAnchorElem')
       dlAnchorElem.setAttribute('href', dataStr)
-      dlAnchorElem.setAttribute('download', 'event_list.json')
+      dlAnchorElem.setAttribute('download', name + '.json')
       dlAnchorElem.click()
       console.log(JSON.stringify(this.event_list))
     },

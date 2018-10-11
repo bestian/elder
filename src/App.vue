@@ -92,7 +92,14 @@ export default {
       this.setLocal('event_list')
     },
     sortEvent: function () {
-      this.event_list.sort(function (a, b) { return b.year - a.year })
+      this.event_list.sort(function (a, b) {
+        var a1 = String(a.year).split('.')[0]
+        var a2 = String(a.year).split('.')[1] || 0
+        var b1 = String(b.year).split('.')[0]
+        var b2 = String(b.year).split('.')[1] || 0
+
+        return Number(b1) + Number(b2) / 100 - Number(a1) - Number(a2) / 100
+      })
     },
     addEvent: function (obj) {
       this.event_list.push(obj)
