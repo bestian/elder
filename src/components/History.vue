@@ -27,9 +27,8 @@
           </div>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
-        <div class="ui divided bulleted animated list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}}
-              <img class="ui avatar" v-show="e.img" :src="e.img"/>
+        <div class="ui divided animated list">
+          <a class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}} <img class="ui avatar" v-show="e.img" :src="e.img"/>
           </a>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
@@ -179,8 +178,9 @@ div, p {
 }
 
 .ui.avatar {
-  height: 2em;
+  height: 1em;
   margin-left: 0.5em;
+  float: right;
 }
 
 .ui.divided.list {

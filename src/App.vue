@@ -191,6 +191,12 @@ a, button, .clickable {
   }
 }
 
+@media screen and (max-width: 991px) {
+  .fater-only {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 601px) {
   .thin-only {
     display: none !important;

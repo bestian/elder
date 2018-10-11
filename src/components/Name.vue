@@ -12,29 +12,24 @@
         </span>
       </label>
     </div>
-    <div class="ui centered card" v-show="!hard">
-      <div class="image">
-        <img :src="card_list[a].img"/>
+    <div class="ui doubling centerd cards" v-bind:class="hard ? 'six' : 'four'">
+      <div class="ui card fater-only" style="visibility: hidden;" v-show="!hard">
       </div>
-    </div>
-    <div class="ui six doubling cards" v-show="hard">
-      <div class="ui card"  v-for = "(c, index) in card_list" :key = "c.name" v-show="card_list[a].name != card_list[index].name && !c.hide">
-        <div class="image">
-          <img :src="c.img"/>
+      <div class="ui raised card" v-show="!hard">
+        <div class="image" v-bind:class="[memory ? 'm' : 'n']">
+          <img :src="card_list[a].img"/>
         </div>
       </div>
-    </div>
-    <br/>
-    <div class="ui grid fat-only">
-      <div class="doubling eight column row">
-        <div class="column" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" >
-          <div class="ui green basic massive button" v-tap @click = "b = index; check()">{{ c.name }}
+      <div class="ui raised card">
+        <div class="ui vertical buttons">
+          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
           </div>
         </div>
       </div>
-    </div>
-    <div class="ui massive vertical buttons thin-only">
-      <div class="ui green basic button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}
+      <div class="ui raised card" v-for = "(c, index) in card_list" :key = "c.name" v-if="card_list[a].name != card_list[index].name && !c.hide && hard">
+        <div class="image" v-bind:class="[memory ? 'm' : 'n']">
+          <img :src="c.img"/>
+        </div>
       </div>
     </div>
     <br/><br/>
@@ -69,6 +64,12 @@
         </div>
         <div class="field">
           <div class="ui slider checkbox">
+            <input type="checkbox" id="checkbox" v-model="memory">
+            <label for="checkbox" class = "clickable" @click="memory=true;"><i class = "eye icon" />進階：翻面</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui slider checkbox">
             <input type="checkbox" id="checkbox" v-model="hard">
             <label for="checkbox" class = "clickable" @click="hard=true"><i class = "eye icon" />進階：找消失的人</label>
           </div>
@@ -99,6 +100,7 @@ export default {
       t: 0.25,
       b: -1,
       hard: false,
+      memory: false,
       speed: 0
     }
   },
@@ -145,7 +147,7 @@ export default {
     }
   },
   mounted () {
-    this.reset()
+    setTimeout(this.reset, 500)
     setInterval(this.go, 1000)
   }
 }
@@ -158,6 +160,11 @@ export default {
   font-size: 2em !important;
 }
 
+.massive {
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+}
+
 .card {
   height: 50vh !important;
   overflow: hidden;
@@ -167,6 +174,15 @@ img {
   border-radius: 15px !important;
   max-height: 50vh;
   animation: tada 5s infinite;
+}
+
+.m {
+  opacity: 0 !important;
+  transition: all 0.3s ease;
+}
+
+.m:hover {
+  opacity: 1 !important;
 }
 
 .ui.form label {

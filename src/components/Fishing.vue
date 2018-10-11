@@ -6,10 +6,10 @@
     </div>
     <div class="ui grid">
       <div class="doubling six column row">
-        <div class="column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[face0 == index ? 'face' : 'back', f.img ? 'good' : 'null']">
+        <div class="column" v-for = "(f, index) in fishs1" :key="f.img+index" v-bind:class="[!memory || face0 == index ? 'face' : 'back', f.img ? 'good' : 'null', face0 == index ? 'focus' : 'other']">
           <div class="ui centered card" v-tap @click = "flip(index,0) " @mouseover = "flip(index,0)">
             <div class="content">
-              <span class="header">{{face0 == index ? f.name : '?'}}</span>
+              <span class="header" v-show="!hard">{{!memory || face0 == index ? f.name : '?'}}</span>
             </div>
             <div class="image">
               <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
@@ -20,16 +20,28 @@
     </div>
     <div class="ui grid">
       <div class="doubling six column row">
-        <div class="r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[face1 == index ? 'face' : 'back', f.img ? 'good' : 'null']">
+        <div class="r column" v-for = "(f, index) in fishs2" :key="index" v-bind:class="[!memory || face1 == index ? 'face' : 'back', f.img ? 'good' : 'null', face1 == index ? 'focus' : 'other']">
           <div class="ui centered card" v-tap @click = "flip(index,1)" @mouseover = "flip(index,1)">
             <div class="content">
-              <span class="header">{{face1 == index ? f.name : '?'}}</span>
+              <span class="header">{{!memory || face1 == index ? f.name : '?'}}</span>
             </div>
-            <div class="image">
+            <div class="image" v-show="!hard">
               <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui slider checkbox">
+        <input type="checkbox" id="checkbox" v-model="memory">
+        <label class = "clickable" for="checkbox" @click="memory=true"><i class = "eye icon" />進階：翻面</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui slider checkbox">
+        <input type="checkbox" id="checkbox" v-model="hard">
+        <label class = "clickable" for="checkbox" @click="hard=true"><i class = "eye icon" />進階：字配圖</label>
       </div>
     </div>
     <win v-show="winning"></win>
@@ -50,6 +62,8 @@ export default {
     return {
       w: false,
       winning: false,
+      memory: false,
+      hard: false,
       fishs1: [],
       fishs2: [],
       face0: -1,
@@ -94,8 +108,12 @@ export default {
       this.w = false
     },
     reset: function () {
-      this.fishs1 = this.card_list.filter(function (o) { return !o.hide }).slice().sort(function () { return Math.random() - 0.5 })
-      this.fishs2 = this.card_list.filter(function (o) { return !o.hide }).slice().sort(function () { return Math.random() - 0.5 })
+      this.fishs1 = this.card_list.filter(function (o) { return !o.hide }).slice().sort(function () {
+        return Math.random() - 0.5
+      }).slice(0, 6)
+      this.fishs2 = this.fishs1.filter(function (o) { return !o.hide }).slice().sort(function () {
+        return Math.random() - 0.5
+      })
       this.winning = false
     },
     win: function () {
@@ -103,8 +121,7 @@ export default {
     }
   },
   mounted () {
-    this.reset()
-    setTimeout(this.reset, 1000)
+    setTimeout(this.reset, 500)
   }
 }
 </script>
@@ -149,8 +166,11 @@ export default {
   .column.back img {
     visibility: hidden;
   }
-  .column.back.r .card {
+  .column.r .card {
     background-color: #c9c9ff;
+  }
+  .column.focus .card {
+    background-color: #ffc9c9 !important;
   }
   .column.null {
     visibility: hidden !important;
