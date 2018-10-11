@@ -203,6 +203,12 @@ img.a {
   font-size: 4em !important;
 }
 
+@media screen and (max-width: 600px) {
+  .big.header {
+    font-size: 2em !important;
+  }
+}
+
 .only {
   margin-top: 20% !important;
 }

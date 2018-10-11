@@ -21,11 +21,13 @@
     </div>
     <div class="ui grid no-print">
       <div class="four wide column no-print">
-        <div class="ui divided animated list">
+        <div class="ui list">
           <div class="item">
             大事紀
           </div>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
+        </div>
+        <div class="ui divided bulleted animated list">
           <a class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}}
               <img class="ui avatar" v-show="e.img" :src="e.img"/>
           </a>
@@ -172,13 +174,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+div, p {
+  white-space: pre-line;
+}
+
 .ui.avatar {
   height: 2em;
   margin-left: 0.5em;
 }
 
 .ui.divided.list {
-  height: 66vh;
+  height: calc(100vh - 300px);
   overflow-y: scroll;
 }
 

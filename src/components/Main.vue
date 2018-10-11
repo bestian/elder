@@ -26,7 +26,15 @@
               </p>
               <p></p>
             </div>
-            <div class="ui two bottom massive attached buttons">
+            <div class="ui two bottom attached buttons thin-only">
+              <router-link class = "ui green button" to='/intro' exact=''>
+                <i class="balance scale icon" /><br class="thin-only" />玩遊戲
+              </router-link>
+              <router-link class = "ui blue button" to='/edit' exact=''>
+                <i class="cogs icon" /><br class="thin-only" />輸入照片
+              </router-link>
+            </div>
+            <div class="ui two bottom massive attached buttons fat-only">
               <router-link class = "ui green button" to='/intro' exact=''>
                 <i class="balance scale icon" /><br class="thin-only" />玩遊戲
               </router-link>
