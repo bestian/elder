@@ -12,7 +12,7 @@
     </div>
     <h1>轉到正中間時，<br class="thin-only"/>請按空白鍵或圖
     </h1>
-    <div class="ui centered card" v-if="!hard" v-bind:style="{ transform: 'rotate(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
+    <div class="ui centered card clickable" v-bind:class="{good: isWin()}" v-if="!hard" v-bind:style="{ transform: 'rotate(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
@@ -153,6 +153,16 @@ img {
   transition: all 0.05s linear;
   background-color: transparent;
   box-shadow: none;
+}
+
+.card .header {
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.card.good .header {
+  background-color: #3f9 !important;
 }
 
 .image {
