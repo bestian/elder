@@ -214,7 +214,7 @@ img.a {
 }
 
 img {
-    animation: tada 3s infinite;
+/* animation: tada 3s infinite; */
     border-radius: 15px !important;
 }
 

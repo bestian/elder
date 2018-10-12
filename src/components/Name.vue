@@ -176,7 +176,7 @@ export default {
 img {
   border-radius: 15px !important;
   max-height: 50vh;
-  animation: tada 5s infinite;
+/* animation: tada 5s infinite; */
 }
 
 .m {
