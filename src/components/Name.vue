@@ -22,7 +22,7 @@
       </div>
       <div class="ui raised card">
         <div class="ui vertical buttons">
-          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar" :src="c.img"/>
+          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img"/>
           </div>
         </div>
       </div>
@@ -168,12 +168,9 @@ export default {
 .avatar {
   height: 2rem !important;
   width: 2rem !important;
-  float: right;
 }
 
 .card {
-  height: 50vh !important;
-  overflow: hidden;
 }
 
 img {
@@ -198,7 +195,7 @@ img {
 /* The animation code */
 @keyframes tada {
   0%   {transform: rotate(0deg)}
-  50%  {transform: rotate(-15deg)}
+  50%  {transform: rotate(-5deg)}
   100% {transform: rotate(0deg)}
 }
 
