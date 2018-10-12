@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <br class="fat-only">
-    <div class="ui segment container">
-      <router-link class = 'item ' to='/pair' exact=''>
+    <div class="ui cards">
+      <router-link class = 'ui card' to='/pair' exact=''>
         <h1>
           1. 配對遊戲：反應力
         </h1>
@@ -10,17 +10,25 @@
           <img src="../assets/認照片遊戲01.jpg" />
         </p>
       </router-link>
-      <router-link class = 'item ' to='/name' exact=''>
+      <router-link class = 'ui card' to='/spin' exact=''>
         <h1>
-          2. 認人遊戲：辨識力
+          2. 旋轉遊戲：視知覺
         </h1>
         <p>
-            <img src="../assets/認照片遊戲02.jpg" />
+          <img src="../assets/旋轉遊戲01.jpg" />
         </p>
       </router-link>
-      <router-link class = 'item ' to='/fishing' exact=''>
+      <router-link class = 'ui card' to='/name' exact=''>
         <h1>
-          3. 釣魚遊戲：記憶力
+          3. 認人遊戲：辨識力
+        </h1>
+        <p>
+            <img src="../assets/認人遊戲01.jpg" />
+        </p>
+      </router-link>
+      <router-link class = 'ui card' to='/fishing' exact=''>
+        <h1>
+          4. 釣魚遊戲：記憶力
         </h1>
         <p>
             <img src="../assets/認照片遊戲03.jpg" />

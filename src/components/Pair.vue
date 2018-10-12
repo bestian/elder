@@ -10,7 +10,7 @@
         </span>
       </label>
     </div>
-    <h1>遊戲開始！<br class="thin-only"/>左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
+    <h1>左右出現同一人時，<br class="thin-only"/>請按空白鍵或圖
     </h1>
     <div class="ui equal width grid">
       <div class="column" v-tap @click="check()">
@@ -71,7 +71,7 @@
           <label class = "clickable" for="checkbox" @click="hard=true"><i class = "eye icon" />進階：字配圖</label>
         </div>
       </div>
-    </div>
+    </div> <!-- form END -->
     <win v-show="w" ></win>
   </div>
 </template>

@@ -4,8 +4,11 @@
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />
       </router-link>
-      <router-link class = 'item ' to='/pair' exact=''>
+      <router-link class = 'item' to='/pair' exact=''>
         配對
+      </router-link>
+      <router-link class = 'item' to='/spin' exact=''>
+        旋轉
       </router-link>
       <router-link class = 'item' to='/name' exact=''>
         認人
@@ -16,7 +19,7 @@
       <router-link class = 'item' to='/edit' exact=''>
         編輯
       </router-link>
-      <div class="right item">
+      <div class="right item fat-only">
         <!--<a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
           <i class="github icon" />
         </a>-->
@@ -30,6 +33,9 @@
       </router-link>
       <router-link class = 'item ' to='/pair' exact=''>
         <i class="balance scale icon" />配對遊戲
+      </router-link>
+      <router-link class = 'item ' to='/spin' exact=''>
+        <i class="recycle icon" />旋轉遊戲
       </router-link>
       <router-link class = 'item' to='/name' exact=''>
         <i class="address book icon" />認人遊戲
