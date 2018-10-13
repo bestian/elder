@@ -237,4 +237,8 @@ a, button, .clickable {
   opacity: 0;
 }
 
+.null {
+  visibility: hidden !important;
+}
+
 </style>

@@ -5,15 +5,14 @@
       <div class="column" v-for = "(e, index) in event_list" :key="index">
         <div class="ui fluid card">
           <div class="content">
-            <div class="header">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}}
+            <div class="header">{{e.year}}：{{e.title}}
             </div>
           </div>
           <div class="image">
             <img :src="e.img" v-show="e.img">
           </div>
           <div class="content">
-            <div class="description">
-              {{e.detail}}
+            <div class="description" v-html="e.detail">
             </div>
           </div>
         </div>
@@ -25,10 +24,14 @@
           <div class="item">
             大事紀
           </div>
+          <star-rating v-model="minRating" v-bind:star-size="15"></star-rating>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
         <div class="ui divided animated list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">{{e.year}}{{String(e.year).indexOf('.') > -1 ? '月' : '年'}}：{{e.title}} <img class="ui avatar" v-show="e.img" :src="e.img"/>
+          <a class="item" v-for = "(e, index) in event_list" :key="index" v-show="!e.rating || e.rating >= minRating" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">
+            {{e.year}}：{{e.title}}
+            <img class="ui avatar" v-show="e.img" :src="e.img"/>
+           <star-rating v-model="e.rating" text-class="null" v-bind:star-size="15" @rating-selected="changeEvent(index, e)"></star-rating>
           </a>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
         </div>
@@ -46,9 +49,10 @@
             </h3>
           </div>
         </div>
-        <div class="ui two buttons" v-show = "!myEvent.title && !edit">
-          <a class="ui huge green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
-          <a class="ui huge blue button" @click="importJSON()"><i class="upload icon" />匯入JSON</a>
+        <div class="ui huge three buttons" v-show = "!myEvent.title && !edit">
+          <a class="ui green button" @click="addNew()"><i class="plus square icon" />新增事件</a>
+          <a class="ui blue button" @click="importJSON()"><i class="upload icon" />匯入JSON</a>
+          <a class="ui teal button" href="https://www.speechtexter.com/" target="_blank">啟用聽寫</a>
         </div>
         <div class="ui centered card no-print" v-show = "myEvent.title || edit">
           <div class="content">
@@ -58,7 +62,7 @@
                 <label class = "clickable" for="checkbox" @click="edit = !edit"><i class = "edit icon" />編輯</label>
               </div>
             </div>
-            <div class="header" v-show="!edit">{{myEvent.year}}{{String(myEvent.year).indexOf('.') > -1 ? '月' : '年'}}：{{myEvent.title}}
+            <div class="header" v-show="!edit">{{myEvent.year}}：{{myEvent.title}}
             </div>
             <div class="header" v-show="edit">
               <input type="text" name="" v-model = "myEvent.year">
@@ -76,17 +80,22 @@
             </div>
           </div>
           <div class="content">
-            <div class="description" v-show="!edit">
-              {{myEvent.detail}}
+            <div class="description" v-show="!edit" v-html="myEvent.detail">
             </div>
             <div class="description" v-show="edit">
-              <textarea  name="detail" v-model = "myEvent.detail" placeholder="請回想一下細節" cols="30" rows="5"></textarea>
+              <textarea  name="detail" v-model = "myEvent.detail" placeholder="請回想一下細節" cols="30" rows="10"></textarea>
             </div>
           </div>
           <div class="content" v-show="edit">
             <a class="ui huge green button" @click="changeEvent(myIndex, myEvent)">儲存</a>
           </div>
-          <a class="ui red bottom attached basic button" @click="removeEvent(myIndex)">x刪除本事件</a>
+          <div class="content">
+            <star-rating v-model="myEvent.rating" text-class="null" v-bind:star-size="15" @rating-selected="changeEvent(index, e)"></star-rating>
+          </div>
+          <div class="ui two bottom attached buttons">
+            <a class="ui red basic button" @click="removeEvent(myIndex)">x刪除本事件</a>
+            <a class="ui teal basic button" href="https://www.speechtexter.com/" target="_blank">啟用聽寫</a>
+          </div>
         </div>
       </div>
     </div>
@@ -110,14 +119,19 @@
 </template>
 
 <script>
+import StarRating from 'vue-star-rating'
 
 export default {
   name: 'History',
   props: ['event_list'],
+  components: {
+    StarRating
+  },
   data () {
     return {
       myEvent: {},
       my_event_list: [],
+      minRating: 0,
       myIndex: -1,
       edit: false
     }
@@ -177,14 +191,17 @@ div, p {
   white-space: pre-line;
 }
 
+div.description {
+  text-align: left;
+}
+
 .ui.avatar {
-  height: 1em;
+  height: 2em;
   margin-left: 0.5em;
-  float: right;
 }
 
 .ui.divided.list {
-  height: calc(100vh - 300px);
+  height: calc(75vh - 100px);
   overflow-y: scroll;
 }
 

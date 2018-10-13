@@ -19,7 +19,8 @@
     "vue-google-adsense": "^1.2.0",
     "vue-localstorage": "^0.6.2",
     "vue-router": "^3.0.1",
-    "vue-script2": "^2.0.3"
+    "vue-script2": "^2.0.3",
+    "vue-star-rating": "^1.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
