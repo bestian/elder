@@ -22,13 +22,12 @@
       <div class="four wide column no-print">
         <div class="ui list">
           <div class="item">
-            大事紀
+            大事紀 <input class="ui search" type="search" name="myS" placeholder="搜尋" v-model="myS"/>
           </div>
-          <star-rating v-model="minRating" v-bind:star-size="15"></star-rating>
-          <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
+          顯示星等：<star-rating v-model="minRating" v-bind:star-size="15" inline="true"></star-rating>
         </div>
         <div class="ui divided animated list">
-          <a class="item" v-for = "(e, index) in event_list" :key="index" v-show="!e.rating || e.rating >= minRating" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">
+          <a class="item" v-for = "(e, index) in event_list" :key="index" v-show="(!e.rating || e.rating >= minRating) && (!myS || (e.title+e.detail).indexOf(myS) > -1)" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">
             {{e.year}}：{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/>
            <star-rating v-model="e.rating" text-class="null" v-bind:star-size="15" @rating-selected="changeEvent(index, e)"></star-rating>
           </a>
@@ -44,7 +43,13 @@
               生命史是由一系列的事件串連起來的
             </h1>
             <h3 class="ui header">
-              您可以為每位成員編寫大事紀，再匯出存檔
+              請按「新增事件」開始
+            </h3>
+            <h3 class="ui header">
+              編輯後請按左下角的「匯出JSON」匯出存檔
+            </h3>
+            <h3 class="ui header">
+              再次編輯時可以按「匯入JSON」匯入之前存的檔案
             </h3>
           </div>
         </div>
@@ -131,6 +136,7 @@ export default {
       myEvent: {},
       my_event_list: [],
       minRating: 0,
+      myS: '',
       myIndex: -1,
       edit: false
     }
