@@ -29,8 +29,7 @@
         </div>
         <div class="ui divided animated list">
           <a class="item" v-for = "(e, index) in event_list" :key="index" v-show="!e.rating || e.rating >= minRating" v-bind:class="myIndex == index ? 'active' : ''" @click="myEvent = e; myIndex = index">
-            {{e.year}}：{{e.title}}
-            <img class="ui avatar" v-show="e.img" :src="e.img"/>
+            {{e.year}}：{{e.title}}<img class="ui avatar" v-show="e.img" :src="e.img"/>
            <star-rating v-model="e.rating" text-class="null" v-bind:star-size="15" @rating-selected="changeEvent(index, e)"></star-rating>
           </a>
           <div class="item"><a class="ui green button" @click="addNew()">新增事件</a></div>
