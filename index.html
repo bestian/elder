@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./static/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon-16x16.png">
     <link rel="apple-touch-icon" href="./static/single-page-icon.png">
-    <link rel="manifest" href="./static/manifest.json">
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
     <link rel="apple-touch-startup-image" href="./static/launch.png">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Elder">
@@ -30,7 +30,7 @@
     <meta property="og:type" content="website"></meta>
     <meta property="og:url" content="https://bestian.github.io/elder/"></meta>
     <meta property="og:image" content="https://bestian.github.io/elder/static/og_image.jpg"></meta>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet">
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -58,6 +58,7 @@
     <link rel="icon" href="./static/favicon.ico" type="image/x-icon">
   </head>
   <body ontouchstart="">    
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <div id="app">
     </div>
     <!-- built files will be auto injected -->
