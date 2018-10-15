@@ -13,8 +13,6 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
     "sw-precache": "^5.2.1",
     "sw-precache-webpack-plugin": "^0.11.5",
     "vtap": "^1.0.0",
