@@ -1,0 +1,11 @@
+CACHE MANIFEST
+index.html
+/favicon.ico
+service-worker.js
+*.*
+
+NETWORK: *
+
+CACHE: *
+
+FALLBACK:

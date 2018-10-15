@@ -1,6 +1,8 @@
 CACHE MANIFEST
-
-# Version 0.0.2
+index.html
+/favicon.ico
+service-worker.js
+*.*
 
 NETWORK: *
 
