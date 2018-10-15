@@ -1,8 +1,10 @@
 CACHE MANIFEST
 ../index.html
 favicon.ico
-service-worker.js
-*.*
+../service-worker.js
+./css/
+./js/
+./img/
 
 NETWORK: *
 
