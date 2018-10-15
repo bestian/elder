@@ -150,9 +150,6 @@ export default {
 <style>
 body, html {
   height: auto;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
