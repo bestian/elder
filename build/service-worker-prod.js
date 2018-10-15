@@ -15,7 +15,7 @@
 
   window.addEventListener('load', function() {
       if ('serviceWorker' in navigator &&
-          (window.location.protocol === 'https:' || isLocalhost)) {
+          (window.location.protocol === 'http:' || window.location.protocol === 'https:' || isLocalhost)) {
         navigator.serviceWorker.register('service-worker.js')
         .then(function(registration) {
           // updatefound is fired if service-worker.js changes.
