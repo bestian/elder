@@ -89,7 +89,8 @@ export default {
       bad: 0,
       a: 0,
       deg: 0,
-      speed: 5
+      speed: 5,
+      hard: false
     }
   },
   methods: {
@@ -145,6 +146,11 @@ img {
   border-radius: 15px !important;
   max-height: 50vh;
   border-radius: 50% !important;
+  background-color: transparent !important;
+}
+
+.image {
+  background-color: transparent !important;  
 }
 
 .card {

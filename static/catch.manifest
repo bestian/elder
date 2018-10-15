@@ -1,6 +1,6 @@
 CACHE MANIFEST
-index.html
-/favicon.ico
+../index.html
+favicon.ico
 service-worker.js
 *.*
 
