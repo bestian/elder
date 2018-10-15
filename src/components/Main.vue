@@ -14,10 +14,6 @@
               <p>
                 您家中有年紀大的長輩嗎？
               </p>
-              <InArticleAdsense
-                  data-ad-client="ca-pub-2267134225801525"
-                  data-ad-slot="1234567890">
-              </InArticleAdsense>
               <p>
                 本站作者最初是為了自己的外婆，寫了認照片遊戲，提供娛樂與刺激。
               </p>
