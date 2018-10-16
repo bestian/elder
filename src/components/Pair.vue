@@ -18,8 +18,8 @@
           <div class="content" v-show="!hard">
             <span class="big header">{{card_list[Math.floor(a) % card_list.length].name}}</span>
           </div>
-          <div class="image">
-            <img class="a" :src="card_list[Math.floor(a) % card_list.length].img">
+          <div class="image" v-for = "(c,index) in card_list" v-bind:class="[index != Math.floor(a) % card_list.length ? 'nothing' : '']">
+            <amp-img class="a" :src="card_list[Math.floor(a) % card_list.length].img" width="200" height="200" alt=""></amp-img>
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@ a {
   display: inline-table;
 }
 
-img.a {
+apm-img.a {
   max-height: 33vh;
 }
 
@@ -213,7 +213,7 @@ img.a {
   margin-top: 20% !important;
 }
 
-img {
+amp-img {
 /* animation: tada 3s infinite; */
     border-radius: 15px !important;
 }

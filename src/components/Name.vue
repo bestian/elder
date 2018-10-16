@@ -16,9 +16,9 @@
       <div class="ui card fater-only" style="visibility: hidden;" v-show="!hard">
       </div>
       <div class="ui raised card" v-show="!hard">
-        <div class="image" v-bind:class="[memory ? 'm' : 'n']">
-       <!--   <amp-img :src="card_list[a].img" width="200" height="200"></amp-img>-->
-          <img :src="card_list[a].img" width="200" height="200">
+        <div class="image" v-bind:class="[memory ? 'm' : 'n', index != a ? 'nothing' : '']" v-for="(c, index) in card_list" :key = "index">
+          <amp-img :src="c.img" width="200" height="200"></amp-img>
+       <!--   <img :src="c.img" width="200" height="200"> -->
         </div>
       </div>
       <div class="ui raised card">
