@@ -1,9 +1,6 @@
 CACHE MANIFEST
 ../index.html
 favicon.ico
-../service-worker.js
-//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css
-
 
 NETWORK: *
 
