@@ -17,18 +17,19 @@
       </div>
       <div class="ui raised card" v-show="!hard">
         <div class="image" v-bind:class="[memory ? 'm' : 'n']">
-          <img :src="card_list[a].img"/>
+       <!--   <amp-img :src="card_list[a].img" width="200" height="200"></amp-img>-->
+          <img :src="card_list[a].img" width="200" height="200">
         </div>
       </div>
       <div class="ui raised card">
         <div class="ui vertical buttons">
-          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img"/>
+          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<amp-img class="avatar fat-only" :src="c.img" height="50" width="50" alt=""></amp-img>
           </div>
         </div>
       </div>
       <div class="ui raised card" v-for = "(c, index) in card_list" :key = "c.name" v-if="card_list[a].name != card_list[index].name && !c.hide && hard">
         <div class="image" v-bind:class="[memory ? 'm' : 'n']">
-          <img :src="c.img"/>
+          <amp-img :src="c.img" width="200" height="200"></amp-img>
         </div>
       </div>
     </div>
@@ -173,7 +174,7 @@ export default {
 .card {
 }
 
-img {
+amp-img {
   border-radius: 15px !important;
   max-height: 50vh;
 /* animation: tada 5s infinite; */

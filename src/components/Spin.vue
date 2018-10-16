@@ -17,7 +17,7 @@
           <span class="big header">{{card_list[a].name}}</span>
       </div>
       <div class="image">
-        <img class="a" :src="card_list[a].img">
+        <amp-img class="a" :src="card_list[a].img" width="300" height="300" alt=""></amp-img>
       </div>
     </div>
     <div class="ui centered card" v-if="hard" v-bind:style="{ transform: 'rotateY(-'+ deg +'deg) rotateZ(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
@@ -142,7 +142,7 @@ export default {
   font-size: 2em !important;
 }
 
-img {
+amp-img {
   border-radius: 15px !important;
   max-height: 50vh;
   border-radius: 50% !important;

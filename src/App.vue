@@ -147,7 +147,7 @@ export default {
 }
 </script>
 
-<style>
+<style amp-boilerplate>
 body, html {
   height: auto;
 }
