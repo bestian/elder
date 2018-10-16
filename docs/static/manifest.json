@@ -3,13 +3,13 @@
   "short_name": "elder",
   "icons": [
     {
-      "src": "/static/img/icons/android-chrome-192x192.png",
+      "src": "/static/img/icons/android-icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/static/img/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/static/img/icons/android-icon-144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
