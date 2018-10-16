@@ -1,9 +1,0 @@
-CACHE MANIFEST
-../index.html
-favicon.ico
-
-NETWORK: *
-
-CACHE: *
-
-FALLBACK:
