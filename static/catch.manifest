@@ -2,9 +2,7 @@ CACHE MANIFEST
 ../index.html
 favicon.ico
 ../service-worker.js
-./css/app.3ed0ff0610385fa4afde035ea4e1059f.css
-./css/app.aefc9e01b5db30dc10db320f8e58f271.css
-./css/app.e8166ff07287db2dbe454318e76facb7.css
+//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css
 
 
 NETWORK: *
