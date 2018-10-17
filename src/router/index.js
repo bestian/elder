@@ -14,6 +14,7 @@ Vue.use(Router)
 Vue.use(Tap)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
