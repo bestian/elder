@@ -16,16 +16,16 @@
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
-      <div class="image" v-for = "(c,index) in card_list" v-bind:class="[index != a ? 'nothing' : '']">
-        <img class="a" :src="c.img" width="300" height="300" alt=""></img>
+      <div class="image">
+        <img class="a" :src="card_list[a].img">
       </div>
     </div>
     <div class="ui centered card" v-if="hard" v-bind:style="{ transform: 'rotateY(-'+ deg +'deg) rotateZ(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
-      <div class="image" v-for = "(c,index) in card_list" v-bind:class="[index != a ? 'nothing' : '']">
-        <img class="a" :src="c.img">
+      <div class="image">
+        <img class="a" :src="card_list[a].img">
       </div>
     </div>
     <br/>

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-<!--    <notifications group="foo" />-->
     <div class="ui fixed top mini menu thin-only no-print">
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />
@@ -148,7 +147,7 @@ export default {
 }
 </script>
 
-<style amp-boilerplate>
+<style>
 body, html {
   height: auto;
 }
@@ -240,12 +239,6 @@ a, button, .clickable {
 
 .null {
   visibility: hidden !important;
-}
-
-.nothing {
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
 }
 
 </style>

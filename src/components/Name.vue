@@ -16,20 +16,19 @@
       <div class="ui card fater-only" style="visibility: hidden;" v-show="!hard">
       </div>
       <div class="ui raised card" v-show="!hard">
-        <div class="image" v-bind:class="[memory ? 'm' : 'n', index != a ? 'nothing' : '']" v-for="(c, index) in card_list" :key = "index">
-          <img :src="c.img" width="200" height="200"></img>
-       <!--   <img :src="c.img" width="200" height="200"> -->
+        <div class="image" v-bind:class="[memory ? 'm' : 'n']">
+          <img :src="card_list[a].img"/>
         </div>
       </div>
       <div class="ui raised card">
         <div class="ui vertical buttons">
-          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img" height="50" width="50" alt=""></img>
+          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img"/>
           </div>
         </div>
       </div>
       <div class="ui raised card" v-for = "(c, index) in card_list" :key = "c.name" v-if="card_list[a].name != card_list[index].name && !c.hide && hard">
         <div class="image" v-bind:class="[memory ? 'm' : 'n']">
-          <img :src="c.img" width="200" height="200"></img>
+          <img :src="c.img"/>
         </div>
       </div>
     </div>

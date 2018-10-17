@@ -12,7 +12,7 @@
               <span class="header" v-show="!hard">{{!memory || face0 == index ? f.name : '?'}}</span>
             </div>
             <div class="image">
-              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></img>
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
               <span class="header">{{!memory || face1 == index ? f.name : '?'}}</span>
             </div>
             <div class="image" v-show="!hard">
-              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></img>
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img"/>
             </div>
           </div>
         </div>
@@ -134,6 +134,7 @@ export default {
     padding: 0 15px;
   }
   img {
+    height: 15vmin;
     max-width: 100%;
     border-radius: 30px !important;
   }
@@ -170,6 +171,9 @@ export default {
   }
   .column.focus .card {
     background-color: #ffc9c9 !important;
+  }
+  .column.null {
+    visibility: hidden !important;
   }
   .ui.bottom.attached {
     top: -5px;

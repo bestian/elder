@@ -7,8 +7,7 @@
           <div class="ui segment container">
             <div class="image">
               <a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
-                <img src = "/static/og_image.jpeg" alt="Welcome" width="80%" height="250"></img>
-                <!--<img src = "../assets/aged1.jpeg" alt="Welcome"/>-->
+                <img src = "../assets/aged1.jpeg"/>
               </a>
             </div>
             <div class="description">
@@ -46,6 +45,7 @@
             <p>
               失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
             </p>
+            <iframe width="80%" height="315" src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <p>
               失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
               您可以使用<a href="https://www.everydayhealth.com.tw/article/15778" target="_blank">畫鐘測驗</a>來協助暸解長輩失智的情況。
@@ -71,10 +71,7 @@
               <InArticleAdsense
                   data-ad-client="ca-pub-2267134225801525"
                   data-ad-slot="1234567890">
-              </InArticleAdsense>              
-            <iframe width="80%" height="315" 
-              sandbox="allow-scripts allow-same-origin allow-presentation"
-              src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </InArticleAdsense>
             <p>
               認照片、認人的遊戲，對認人多少有一些幫忙。至少，對親威朋友來講，有一個機會讓失智老人不斷熟悉親人的臉和名字。大家會覺得自己有為老輩做些什麼，而不是束手無策。
             </p>
@@ -103,6 +100,7 @@ export default {
   }
 }
 </script>
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 

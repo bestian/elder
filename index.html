@@ -1,22 +1,12 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<!--<html lang="en" manifest="./static/catch.manifest">-->
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name='viewport' content="width=device-width, initial-scale=1, minimum-scale=1">
-<!--    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>-->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>認照片遊戲</title>
-
-<!--    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-install-serviceworker"
-  src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
-    <script async custom-element="amp-iframe"
-  src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-    <script async custom-element="amp-analytics"
-    src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script> -->
-
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
     <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
@@ -43,51 +33,36 @@
     <meta property="og:type" content="website"></meta>
     <meta property="og:url" content="https://bestian.github.io/elder/"></meta>
     <meta property="og:image" content="https://bestian.github.io/elder/static/og_image.jpg"></meta>
-    
+    <link href="https:////cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async>
+    <script>
       (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-2267134225801525",
         enable_page_level_ads: true
       });
     </script>
-
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26178243-10"></script>
-    <script async>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-26178243-10');
     </script>
-
   </head>
   <body>
-  <!-- Todo: only include in production -->
-  <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
-  <!-- built files will be auto injected -->
-<!--    <amp-analytics type="googleanalytics">
-      <script type="application/json">
-      {
-        "vars": {
-          "account": "UA-26178243-10"
-        },
-        "triggers": {
-          "trackPageview": {
-            "on": "visible",
-            "request": "pageview"
-          }
-        }
-      }
-      </script>
-    </amp-analytics>
-    <amp-install-serviceworker
-      src="https://www.elder.game.tw/service-worker.js"
-      layout="nodisplay">
-    </amp-install-serviceworker>-->
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
-    <div id="app"></div>    
+    <div id="app"></div>
+    <!-- Todo: only include in production -->
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+    <!-- built files will be auto injected -->
   </body>
 </html>
