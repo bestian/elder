@@ -6,6 +6,8 @@ import router from './router'
 import VueLocalStorage from 'vue-localstorage'
 import Ads from 'vue-google-adsense'
 
+require('semantic-ui-css/semantic.css')
+
 Vue.use(require('vue-script2'))
 
 Vue.use(Ads.Adsense)

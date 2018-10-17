@@ -145,6 +145,8 @@ export default {
 img {
   border-radius: 15px !important;
   max-height: 50vh;
+  width: 300px;
+  height: 300px;
   border-radius: 50% !important;
   background-color: transparent !important;
 }
