@@ -17,7 +17,6 @@
     <script async custom-element="amp-analytics"
     src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script> -->
 
-    <link rel='canonical' href="http://elder.game.tw/">
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
     <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
@@ -64,6 +63,9 @@
 
   </head>
   <body>
+  <!-- Todo: only include in production -->
+  <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+  <!-- built files will be auto injected -->
 <!--    <amp-analytics type="googleanalytics">
       <script type="application/json">
       {
@@ -87,8 +89,5 @@
       This is your fallback content in case JavaScript fails to load.
     </noscript>
     <div id="app"></div>    
-    <!-- Todo: only include in production -->
-    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
-    <!-- built files will be auto injected -->
   </body>
 </html>
