@@ -24,7 +24,7 @@
         <!--<a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
           <i class="github icon" />
         </a>-->
-        <amp-iframe layout="responsive" sandbox="allow-scripts allow-same-origin allow-presentation" src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.elder.game.tw%2F%23%2F&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=50&height=20" width="50" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></amp-iframe>
+        <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fwww.elder.game.tw%2F%23%2F&layout=button_count&size=small&mobile_iframe=true&appId=485195848253155&width=50&height=20" width="50" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
       </div>
 
     </div>
