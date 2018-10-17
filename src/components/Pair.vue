@@ -29,7 +29,7 @@
               <span class="big header" v-bind:class="{ only: hard}">{{card_list[b].name}}</span>
           </div>
           <div class="image" v-for = "(c,index) in card_list" v-bind:class="[hard || index != b ? 'nothing' : '']">
-            <amp-img class="a" :src="card_list[b].img" width="200" height="200" alt=""></amp-img>
+            <amp-img class="a" :src="c.img" width="200" height="200" alt=""></amp-img>
           </div>
         </div>
       </div>
