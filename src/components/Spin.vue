@@ -16,7 +16,7 @@
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
-      <div class="image">
+      <div class="image" v-for = "(c,index) in card_list" v-bind:class="[index != a ? 'nothing' : '']">
         <amp-img class="a" :src="card_list[a].img" width="300" height="300" alt=""></amp-img>
       </div>
     </div>
@@ -24,8 +24,8 @@
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
-      <div class="image">
-        <img class="a" :src="card_list[a].img">
+      <div class="image" v-for = "(c,index) in card_list" v-bind:class="[index != a ? 'nothing' : '']">
+        <amp-img class="a" :src="card_list[a].img" width="300" height="300" alt=""></amp-img>
       </div>
     </div>
     <br/>
