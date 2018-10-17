@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <notifications group="foo" />
+<!--    <notifications group="foo" />-->
     <div class="ui fixed top mini menu thin-only no-print">
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />

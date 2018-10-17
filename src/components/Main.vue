@@ -7,7 +7,7 @@
           <div class="ui segment container">
             <div class="image">
               <a href="https://zh.wikipedia.org/wiki/%E5%A4%B1%E6%99%BA%E7%97%87" target="_blank">
-                <amp-img src = "/static/og_image.jpeg" alt="Welcome" width="400" height="250"></amp-img>
+                <img src = "/static/og_image.jpeg" alt="Welcome" width="80%" height="250"></img>
                 <!--<img src = "../assets/aged1.jpeg" alt="Welcome"/>-->
               </a>
             </div>
@@ -72,9 +72,9 @@
                   data-ad-client="ca-pub-2267134225801525"
                   data-ad-slot="1234567890">
               </InArticleAdsense>              
-            <amp-iframe width="400" height="315" 
+            <iframe width="80%" height="315" 
               sandbox="allow-scripts allow-same-origin allow-presentation"
-              src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></amp-iframe>
+              src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <p>
               認照片、認人的遊戲，對認人多少有一些幫忙。至少，對親威朋友來講，有一個機會讓失智老人不斷熟悉親人的臉和名字。大家會覺得自己有為老輩做些什麼，而不是束手無策。
             </p>
