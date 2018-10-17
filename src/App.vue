@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <!-- Todo: only include in production -->
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+    <!-- built files will be auto injected -->
     <div class="ui fixed top mini menu thin-only no-print">
       <router-link class = 'item ' to='/' exact=''>
         <i class="home icon" />

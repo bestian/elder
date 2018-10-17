@@ -5,7 +5,11 @@ import App from './App'
 import router from './router'
 import VueLocalStorage from 'vue-localstorage'
 import Ads from 'vue-google-adsense'
+import SuiVue from 'semantic-ui-vue'
 
+require('semantic-ui-css/semantic.css')
+
+Vue.use(SuiVue)
 Vue.use(require('vue-script2'))
 
 Vue.use(Ads.Adsense)
