@@ -15,13 +15,6 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const loadMinified = require('./load-minified')
 const PrerenderSpaPlugin = require('prerender-spa-plugin')
 
-new PrerenderSpaPlugin(
-  // Path to compiled app
-  path.join(__dirname, '../dist'),
-  // List of endpoints you wish to prerender
-  [ '/', '/static/', '/intro', '/pair', '/spin', '/name', '/fishing', '/history', '/edit' ]
-)
-
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
@@ -126,7 +119,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         urlPattern: /^http:\/\/.*/,
         handler: 'cacheFirst'
       }]
-    })
+    }),
+    new PrerenderSpaPlugin(
+      // Path to compiled app
+      path.join(__dirname, '../dist'),
+      // List of endpoints you wish to prerender
+      [ '/', '/static/', '/intro', '/pair', '/spin', '/name', '/fishing', '/history', '/edit' ]
+    )
   ]
 })
 

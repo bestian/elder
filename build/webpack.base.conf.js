@@ -5,6 +5,11 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+// Add these
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
+// Renders headlessly in a downloaded version of Chromium through puppeteer
+const PuppeteerRenderer = PrerenderSPAPlugin.PuppeteerRenderer
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
