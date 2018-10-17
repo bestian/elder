@@ -18,6 +18,12 @@
           (window.location.protocol === 'http:' || window.location.protocol === 'https:' || isLocalhost)) {
         navigator.serviceWorker.register('service-worker.js')
         .then(function(registration) {
+          if ('Notification' in window) {
+            console.log('Notification permission default status:', Notification.permission);
+            Notification.requestPermission(function (status) {
+              console.log('Notification permission status:', status);
+            });
+          }
           // updatefound is fired if service-worker.js changes.
           registration.onupdatefound = function() {
             // updatefound is also fired the very first time the SW is installed,
