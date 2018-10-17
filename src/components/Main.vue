@@ -47,7 +47,7 @@
               失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
             </p>
             <amp-iframe width="400" height="315" 
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts allow-same-origin allow-presentation"
               src="https://www.youtube.com/embed/M-L6nIzJa84" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></amp-iframe>
             <p>
               失智症是腦部疾病的其中一類，此症導致思考能力和記憶力長期而逐漸地退化，並使個人日常生活功能受到影響。
