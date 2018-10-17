@@ -8,7 +8,7 @@
           <div class="upload-btn-wrapper">
             <button class="btn"><i class="upload icon"/>選擇圖檔</button>
             <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*">
-            <amp-img v-show="url" :src="url" width="100" height="100" alt=""></amp-img>
+            <img v-show="url" :src="url" width="100" height="100" alt=""></img>
           </div>
         </div>
         <div class="item"><input type ="text" v-model="name" placeholder="輸入名字"></div>
@@ -22,7 +22,7 @@
       <div class="ui card no-print" v-show="url || name">
         <div class="content">
           <div class = "image">
-            <amp-img :src="url" width="200" height="200" alt=""></amp-img>
+            <img :src="url" width="200" height="200" alt=""></img>
           </div>
         </div>
         <div class="extra content">
@@ -32,7 +32,7 @@
       <div class="ui card" v-for = "(c, index) in card_list" :key="index">
         <div class="content">
           <a class = "image" @click="url = c.img; name = c.name">
-            <amp-img :src="c.img" v-bind:class="c.hide ? 'hide' : 'show'" width="200" height="200" alt=""></amp-img>
+            <img :src="c.img" v-bind:class="c.hide ? 'hide' : 'show'" width="200" height="200" alt=""></img>
           </a>
         </div>
         <div class="extra content">
@@ -117,13 +117,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  amp-img {
+  amp-img, img {
     height: 20vmin;
     max-width: 100%;
     border: 3px gold ridge;
     border-radius: 15px;
   }
-  amp-img.hide {
+  amp-img.hide, img.hide {
     opacity: 0.2;
   }
   a {

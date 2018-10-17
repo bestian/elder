@@ -12,7 +12,7 @@
               <span class="header" v-show="!hard">{{!memory || face0 == index ? f.name : '?'}}</span>
             </div>
             <div class="image">
-              <amp-img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></amp-img>
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></img>
             </div>
           </div>
         </div>
@@ -26,7 +26,7 @@
               <span class="header">{{!memory || face1 == index ? f.name : '?'}}</span>
             </div>
             <div class="image" v-show="!hard">
-              <amp-img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></amp-img>
+              <img v-bind:class="fishs1[face0] == fishs2[face1] ? 'gold' : '' " :src="f.img" width="200" height="200" alt=""></img>
             </div>
           </div>
         </div>
@@ -133,11 +133,11 @@ export default {
     display: inline-block;
     padding: 0 15px;
   }
-  amp-img {
+  img {
     max-width: 100%;
     border-radius: 30px !important;
   }
-  amp-img.gold img {
+  img.gold {
     border: 5px gold ridge;
   }
   .grid {
