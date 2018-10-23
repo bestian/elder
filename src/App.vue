@@ -46,14 +46,14 @@
       <router-link class = 'item' to='/fishing' exact=''>
         <i class="clone icon" />釣魚遊戲
       </router-link>
-      <router-link class = 'item' to='/history' exact=''>
-        <i class="comments icon" />生命史
-      </router-link>
       <router-link class = 'item' to='/edit' exact=''>
         <i class="cogs icon" />編輯照片
       </router-link>
       <router-link class = 'item' to='/outer' exact=''>
         <i class="sign language icon" />外部資源
+      </router-link>
+      <router-link class = 'item' to='/history' exact=''>
+        <i class="comments icon" />生命史
       </router-link>
       <div class="right item">
         <a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
