@@ -9,6 +9,7 @@ import Name from '@/components/Name'
 import Fishing from '@/components/Fishing'
 import History from '@/components/History'
 import Editor from '@/components/Editor'
+import Outer from '@/components/Outer'
 
 Vue.use(Router)
 Vue.use(Tap)
@@ -54,6 +55,11 @@ export default new Router({
       path: '/edit',
       name: 'Editor',
       component: Editor
+    },
+    {
+      path: '/outer',
+      name: 'Outer',
+      component: Outer
     }
   ]
 })

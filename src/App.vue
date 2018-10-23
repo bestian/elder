@@ -19,6 +19,9 @@
       <router-link class = 'item' to='/edit' exact=''>
         編輯
       </router-link>
+      <router-link class = 'item' to='/outer' exact=''>
+        外部
+      </router-link>
       <div class="right item fat-only">
         <!--<a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
           <i class="github icon" />
@@ -48,6 +51,9 @@
       </router-link>
       <router-link class = 'item' to='/edit' exact=''>
         <i class="cogs icon" />編輯照片
+      </router-link>
+      <router-link class = 'item' to='/outer' exact=''>
+        <i class="sign language icon" />外部資源
       </router-link>
       <div class="right item">
         <a href="https://github.com/bestian/elder/" target="_blank" title="View it on Github">
