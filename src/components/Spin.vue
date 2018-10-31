@@ -12,7 +12,7 @@
     </div>
     <h1>轉到正中間時，<br class="thin-only"/>請按空白鍵或圖
     </h1>
-    <div class="ui centered card clickable" v-bind:class="{good: isWin()}" v-if="!hard" v-bind:style="{ transform: 'rotate(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
+    <div class="ui centered card clickable" v-bind:class="{good: isWin()}" v-if="!hard" v-bind:style="{ transform: 'rotate(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()" @touchstart="check()">
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>
@@ -20,7 +20,7 @@
         <img class="a" :src="card_list[a].img">
       </div>
     </div>
-    <div class="ui centered card" v-if="hard" v-bind:style="{ transform: 'rotateY(-'+ deg +'deg) rotateZ(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()">
+    <div class="ui centered card clickable" v-if="hard" v-bind:style="{ transform: 'rotateY(-'+ deg +'deg) rotateZ(-'+ deg +'deg)' }" v-show = "!winning" v-tap @click="check()" @touchstart="check()">
       <div class="content">
           <span class="big header">{{card_list[a].name}}</span>
       </div>

@@ -22,7 +22,7 @@
       </div>
       <div class="ui raised card">
         <div class="ui vertical buttons">
-          <div class="ui massive green button" v-bind:class="[memory ? 'm' : 'n']" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img"/>
+          <div class="ui massive green button" v-for = "(c, index) in card_list" :key = "index" v-show="noDup(index) && !c.hide" v-tap @click = "b = index; check()" @touchstart="b = index; check()">{{ c.name }}<img class="avatar fat-only" :src="c.img"/>
           </div>
         </div>
       </div>
