@@ -75,13 +75,13 @@ export default {
   data () {
     return {
       card_list: [
-        {img: 'https://i.imgur.com/9g8Snz6.jpg', name: '天使'},
-        {img: 'https://i.imgur.com/rPCYQls.png', name: '圓臉'},
-        {img: 'https://i.imgur.com/SuLzJZ3.png', name: '蟲蟲'}
+        {img: '/static/img/angel.jpg', name: '天使'},
+        {img: '/static/img/face.png', name: '圓臉'},
+        {img: '/static/img/worm.png', name: '蟲蟲'}
       ],
       event_list: [
-        {img: 'https://i.imgur.com/9g8Snz6.jpg', title: '啟用認照片遊戲', year: '2018', detail: '啟用認照片遊戲'},
-        {img: 'https://i.imgur.com/SuLzJZ3.png', title: '誕生', year: '1985', detail: '誕生'}
+        {img: '/static/img/angel.jpg', title: '啟用認照片遊戲', year: '2018', detail: '啟用認照片遊戲'},
+        {img: '/static/img/angel.jpg', title: '誕生', year: '1985', detail: '誕生'}
       ]
     }
   },
