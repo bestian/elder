@@ -23,7 +23,7 @@
 <script>
 
 export default {
-  name: 'Intro',
+  name: 'Outer',
   data () {
     return {
       outers: [
