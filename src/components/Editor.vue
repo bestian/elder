@@ -8,7 +8,21 @@
         <div class="item">
           <div class="upload-btn-wrapper">
             <button class="btn"><i class="upload icon"/>選擇圖檔</button>
-            <input type="file" @change="previewImage" name="photo" id="photo"  accept="image/*">
+            <template>
+              <image-uploader
+                :debug="1"
+                :maxWidth="512"
+                :quality="0.7"
+                :autoRotate=true
+                outputFormat="verbose"
+                :preview=false
+                :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
+                capture="environment"
+                accept="video/*,image/*"
+                doNotResize="['gif', 'svg']"
+                @input="setImage"
+              ></image-uploader>
+            </template>
             <img v-show="url" :src="url" />
           </div>
         </div>
@@ -70,6 +84,7 @@ export default {
   data () {
     return {
       url: '',
+      hasImage: false,
       name: '',
       my_card_list: []
     }
@@ -84,15 +99,9 @@ export default {
     hideShow: function (index, bool) {
       this.$emit('hideShow', index, bool)
     },
-    previewImage: function (event) {
-      var input = event.target
-      if (input.files && input.files[0]) {
-        var reader = new FileReader()
-        reader.onload = (e) => {
-          this.url = e.target.result
-        }
-        reader.readAsDataURL(input.files[0])
-      }
+    setImage: function (file) {
+      this.hasImage = true
+      this.url = file.dataUrl
     },
     exportCards: function () {
       var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.card_list))

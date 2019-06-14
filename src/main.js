@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueLocalStorage from 'vue-localstorage'
 import Ads from 'vue-google-adsense'
+import ImageUploader from 'vue-image-upload-resize'
 
 require('semantic-ui-css/semantic.css')
 
@@ -13,9 +14,10 @@ Vue.use(require('vue-script2'))
 Vue.use(Ads.Adsense)
 Vue.use(Ads.InArticleAdsense)
 Vue.use(Ads.InFeedAdsense)
+Vue.use(VueLocalStorage)
+Vue.use(ImageUploader)
 
 Vue.config.productionTip = false
-Vue.use(VueLocalStorage)
 
 /* eslint-disable no-new */
 
