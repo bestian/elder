@@ -23,20 +23,18 @@
               <p></p>
             </div>
             <div class="ui two bottom attached buttons thin-only">
-              <router-link class = "ui green button" to='/intro' exact=''>
-                <i class="balance scale icon" /><br class="thin-only" />玩遊戲
-              </router-link>
-              <router-link class = "ui blue button" to='/edit' exact=''>
-                <i class="cogs icon" /><br class="thin-only" />輸入照片
-              </router-link>
+              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank">Google Play</a>
+              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank">App Store</a>
             </div>
-            <div class="ui two bottom massive attached buttons fat-only">
+            <div class="ui four bottom massive attached buttons fat-only">
               <router-link class = "ui green button" to='/intro' exact=''>
                 <i class="balance scale icon" /><br class="thin-only" />玩遊戲
               </router-link>
               <router-link class = "ui blue button" to='/edit' exact=''>
                 <i class="cogs icon" /><br class="thin-only" />輸入照片
               </router-link>
+              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank">Google Play</a>
+              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank">App Store</a>
             </div>
           </div>
         </div><!-- colmun END-->
