@@ -23,18 +23,18 @@
               <p></p>
             </div>
             <div class="ui two bottom attached buttons thin-only">
-              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank">Google Play</a>
-              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank">App Store</a>
+              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank"><i class = "google play icon"/><br/>Google Play</a>
+              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/><br/>App Store</a>
             </div>
             <div class="ui four bottom massive attached buttons fat-only">
               <router-link class = "ui green button" to='/intro' exact=''>
-                <i class="balance scale icon" /><br class="thin-only" />玩遊戲
+                <i class="balance scale icon" />玩遊戲
               </router-link>
               <router-link class = "ui blue button" to='/edit' exact=''>
-                <i class="cogs icon" /><br class="thin-only" />輸入照片
+                <i class="cogs icon" />輸入照片
               </router-link>
-              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank">Google Play</a>
-              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank">App Store</a>
+              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank"><i class = "google play icon"/>Google Play</a>
+              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/>App Store</a>
             </div>
           </div>
         </div><!-- colmun END-->
