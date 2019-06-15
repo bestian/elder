@@ -18,7 +18,7 @@
                 :preview=false
                 :className="['fileinput', { 'fileinput--loaded' : hasImage }]"
                 capture="environment"
-                accept="video/*,image/*"
+                accept="image/*"
                 doNotResize="['gif', 'svg']"
                 @input="setImage"
               ></image-uploader>
