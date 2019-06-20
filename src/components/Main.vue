@@ -22,23 +22,14 @@
               </p>
               <p></p>
             </div>
-            <div class="ui two bottom attached buttons thin-only">
+            <h2>App下載</h2>
+            <div class="ui two bottom massive attached buttons">
               <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank"><i class = "google play icon"/><br/>Google Play</a>
               <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/><br/>App Store</a>
             </div>
-            <div class="ui four bottom massive attached buttons fat-only">
-              <router-link class = "ui green button" to='/intro' exact=''>
-                <i class="balance scale icon" />玩遊戲
-              </router-link>
-              <router-link class = "ui blue button" to='/edit' exact=''>
-                <i class="cogs icon" />輸入照片
-              </router-link>
-              <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank"><i class = "google play icon"/>Google Play</a>
-              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/>App Store</a>
-            </div>
           </div>
         </div><!-- colmun END-->
-        <div class="ui column">
+       <!-- <div class="ui column">
           <div class="ui segment container">
             <p>
               失智症（英文Dementia）來自拉丁語（de-意指「遠離」 + mens意指「心智」）。
@@ -80,7 +71,7 @@
               對於陪伴者來說，切記不要勉強老人家做他做不到的事。也不要期待情況會有多大的改善。能夠避免持續退化就很好了。
             </p>
           </div>
-        </div><!-- colmun END-->
+        </div>--><!-- colmun END-->
       </div><!--Row END -->
     </div><!-- gird END -->
   </div>
