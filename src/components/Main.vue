@@ -25,7 +25,7 @@
             <h2>App下載</h2>
             <div class="ui two bottom massive attached buttons">
               <a class="ui green button" href="https://play.google.com/store/apps/details?id=tw.bestian.eldergame" target="_blank"><i class = "google play icon"/><br/>Google Play</a>
-              <a class="ui blue button" href="https://apps.apple.com/us/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/><br/>App Store</a>
+              <a class="ui blue button" href="https://apps.apple.com/tw/app/%E8%AA%8D%E7%85%A7%E7%89%87%E9%81%8A%E6%88%B2/id1467730502?l=zh&ls=1" target="_blank"><i class = "app store icon"/><br/>App Store</a>
             </div>
           </div>
         </div><!-- colmun END-->
