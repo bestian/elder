@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0",
     "semantic-ui-css": "^2.4.1",
     "sw-precache": "^5.2.1",
